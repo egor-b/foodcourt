@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51109C71DA2BFA5E613DBA85 /* libPods-foodmonster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F4ECF6B63C0C3FB8FBA534 /* libPods-foodmonster.a */; };
 		F1409C3A25E4CC7700846534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1409C3925E4CC7700846534 /* AppDelegate.swift */; };
 		F1409C3C25E4CC7700846534 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1409C3B25E4CC7700846534 /* SceneDelegate.swift */; };
 		F1409C3E25E4CC7700846534 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1409C3D25E4CC7700846534 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 		F1409C4925E4CC7800846534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1409C4725E4CC7800846534 /* LaunchScreen.storyboard */; };
 		F1409C5425E4CC7800846534 /* foodmonsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1409C5325E4CC7800846534 /* foodmonsterTests.swift */; };
 		F1409C5F25E4CC7800846534 /* foodmonsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1409C5E25E4CC7800846534 /* foodmonsterUITests.swift */; };
+		F1409C7025E4CC9600846534 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1409C6F25E4CC9600846534 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32B833D6AAAACDF048F88258 /* Pods-foodmonster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodmonster.debug.xcconfig"; path = "Target Support Files/Pods-foodmonster/Pods-foodmonster.debug.xcconfig"; sourceTree = "<group>"; };
+		32C89C27DE83E3DE888D7B38 /* Pods-foodmonster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodmonster.release.xcconfig"; path = "Target Support Files/Pods-foodmonster/Pods-foodmonster.release.xcconfig"; sourceTree = "<group>"; };
+		47F4ECF6B63C0C3FB8FBA534 /* libPods-foodmonster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-foodmonster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1409C3625E4CC7700846534 /* foodmonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodmonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1409C3925E4CC7700846534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1409C3B25E4CC7700846534 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 		F1409C5A25E4CC7800846534 /* foodmonsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = foodmonsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1409C5E25E4CC7800846534 /* foodmonsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodmonsterUITests.swift; sourceTree = "<group>"; };
 		F1409C6025E4CC7800846534 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1409C6F25E4CC9600846534 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51109C71DA2BFA5E613DBA85 /* libPods-foodmonster.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		165474E4CBA1F8CDCCD05802 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32B833D6AAAACDF048F88258 /* Pods-foodmonster.debug.xcconfig */,
+				32C89C27DE83E3DE888D7B38 /* Pods-foodmonster.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		16F0B5E9690FA66E918F9EA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47F4ECF6B63C0C3FB8FBA534 /* libPods-foodmonster.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F1409C2D25E4CC7700846534 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +110,8 @@
 				F1409C5225E4CC7800846534 /* foodmonsterTests */,
 				F1409C5D25E4CC7800846534 /* foodmonsterUITests */,
 				F1409C3725E4CC7700846534 /* Products */,
+				165474E4CBA1F8CDCCD05802 /* Pods */,
+				16F0B5E9690FA66E918F9EA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +136,7 @@
 				F1409C4725E4CC7800846534 /* LaunchScreen.storyboard */,
 				F1409C4A25E4CC7800846534 /* Info.plist */,
 				F1409C4225E4CC7700846534 /* foodmonster.xcdatamodeld */,
+				F1409C6F25E4CC9600846534 /* GoogleService-Info.plist */,
 			);
 			path = foodmonster;
 			sourceTree = "<group>";
@@ -138,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1409C6325E4CC7800846534 /* Build configuration list for PBXNativeTarget "foodmonster" */;
 			buildPhases = (
+				A30E761DE7C355E4C2157BF9 /* [CP] Check Pods Manifest.lock */,
 				F1409C3225E4CC7700846534 /* Sources */,
 				F1409C3325E4CC7700846534 /* Frameworks */,
 				F1409C3425E4CC7700846534 /* Resources */,
+				D05507BEBE35ACCB288B2429 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1409C4925E4CC7800846534 /* LaunchScreen.storyboard in Resources */,
+				F1409C7025E4CC9600846534 /* GoogleService-Info.plist in Resources */,
 				F1409C4625E4CC7800846534 /* Assets.xcassets in Resources */,
 				F1409C4125E4CC7700846534 /* Main.storyboard in Resources */,
 			);
@@ -255,6 +286,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A30E761DE7C355E4C2157BF9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-foodmonster-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D05507BEBE35ACCB288B2429 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-foodmonster/Pods-foodmonster-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-foodmonster/Pods-foodmonster-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-foodmonster/Pods-foodmonster-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F1409C3225E4CC7700846534 /* Sources */ = {
@@ -370,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -425,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -437,11 +510,14 @@
 		};
 		F1409C6425E4CC7800846534 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32B833D6AAAACDF048F88258 /* Pods-foodmonster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NW94WU93C;
 				INFOPLIST_FILE = foodmonster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,11 +531,14 @@
 		};
 		F1409C6525E4CC7800846534 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32C89C27DE83E3DE888D7B38 /* Pods-foodmonster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NW94WU93C;
 				INFOPLIST_FILE = foodmonster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
