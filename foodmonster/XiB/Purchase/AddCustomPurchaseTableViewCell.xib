@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UITableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="BgD-XQ-BsM">
+                    <rect key="frame" x="385" y="0.0" width="13" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="13" id="zc6-tC-dgA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add purchase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNb-Jw-qCl">
+                    <rect key="frame" x="15" y="4" width="360" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="lightTextColorSet"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="BgD-XQ-BsM" firstAttribute="leading" secondItem="uNb-Jw-qCl" secondAttribute="trailing" constant="10" id="10M-2S-ieX"/>
+                <constraint firstItem="BgD-XQ-BsM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5q7-7V-3JI"/>
+                <constraint firstItem="BgD-XQ-BsM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BtH-2S-Amn"/>
+                <constraint firstItem="uNb-Jw-qCl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="JIQ-9e-rEk"/>
+                <constraint firstAttribute="trailing" secondItem="BgD-XQ-BsM" secondAttribute="trailing" constant="16" id="OOq-Zr-Oef"/>
+                <constraint firstItem="uNb-Jw-qCl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="P5p-hu-Qql"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uNb-Jw-qCl" secondAttribute="bottom" constant="4" id="dKj-Tw-Fdl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plus" width="9" height="44"/>
+        <namedColor name="lightTextColorSet">
+            <color red="0.67100000381469727" green="0.60799998044967651" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

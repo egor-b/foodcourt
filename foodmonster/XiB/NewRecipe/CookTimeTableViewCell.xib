@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CookTimeTableViewCell" customModule="foodster" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOm-ib-Ycw">
+                    <rect key="frame" x="15" y="10" width="230" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="230" id="o8K-LA-U6L"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="darkTextColorSet"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgH-LP-fLJ">
+                    <rect key="frame" x="255" y="10" width="144" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="lightTextColorSet"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="xOm-ib-Ycw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8vK-hx-Usy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jgH-LP-fLJ" secondAttribute="bottom" constant="10" id="Ap2-ex-esZ"/>
+                <constraint firstItem="jgH-LP-fLJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Fm3-1C-3LN"/>
+                <constraint firstItem="xOm-ib-Ycw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="KKn-5U-1cD"/>
+                <constraint firstAttribute="trailing" secondItem="jgH-LP-fLJ" secondAttribute="trailing" constant="15" id="Zue-y7-Zw1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="xOm-ib-Ycw" secondAttribute="bottom" constant="10" id="meG-Wb-GYU"/>
+                <constraint firstItem="jgH-LP-fLJ" firstAttribute="leading" secondItem="xOm-ib-Ycw" secondAttribute="trailing" constant="10" id="xCz-SW-8X7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="129"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="darkTextColorSet">
+            <color red="0.43900001049041748" green="0.22400000691413879" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightTextColorSet">
+            <color red="0.67100000381469727" green="0.60799998044967651" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
