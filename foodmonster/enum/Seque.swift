@@ -21,6 +21,7 @@ enum Segue: String {
     case EDIT_NAME_SEQUE = "editNameSeque"
     case CHANGE_PASS_SEQUE = "changePasswordSeque"
     case CHANGE_EMAIL_SEGUE = "changeEmailSeque"
+    case ABOUT_SEGUE = "aboutSegue"
     
     case REGISTER_SEGUE = "registerSegue"
     case LOGIN_SEGUE = "loginSegue"

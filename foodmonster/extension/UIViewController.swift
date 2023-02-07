@@ -63,6 +63,18 @@ extension UIViewController {
         self.present(dialogMessage, animated: true, completion: nil)
     }
     
-
+    func customAlertWithHandler(title: String, message: String, submitTitle: String, declineTitle: String, succcessHandler: @escaping () -> (), declineHandler: @escaping () -> ()) {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: submitTitle, style: .default, handler: { _ in
+            succcessHandler()
+        })
+        let cancel = UIAlertAction(title: declineTitle, style: .cancel) { _ in
+            declineHandler()
+        }
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
 }
 

@@ -16,7 +16,7 @@ class NewRecipeTableViewController: UITableViewController {
     private let picker = UIPickerView()
     private var toolBar = UIToolbar()
     private let pickerController = UIImagePickerController()
-
+    
     var editRecipe: Recipe?
     
     @IBOutlet weak var addPicImageView: UIImageView!
@@ -80,9 +80,9 @@ class NewRecipeTableViewController: UITableViewController {
         view.backgroundColor = UIColor(named: "backgroundColorSet")
         self.tableView.tableFooterView = view
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         if globalUserId.isEmpty {
@@ -91,12 +91,12 @@ class NewRecipeTableViewController: UITableViewController {
             return 4
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return newRecipeViewModel?.numberOfRows(inSection: section) ?? 0
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
@@ -243,14 +243,12 @@ class NewRecipeTableViewController: UITableViewController {
                     }
                 } else {
                     if newRecipeViewModel.recipe.food.isEmpty || newRecipeViewModel.recipe.step.isEmpty || newRecipeViewModel.recipe.name.isEmpty {
-                        let dialogMessage = UIAlertController(title: "Quite interesting", message: "Looks like you do not have name or not enough ingredients or cooking steps for your masterpeace.", preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "Save Anyway", style: .default, handler: { _ in
+                        self.customAlertWithHandler(title: "Quite interesting",
+                                                    message: "Looks like you do not have name or not enough ingredients or cooking steps for your masterpeace.",
+                                                    submitTitle: "Save Anyway",
+                                                    declineTitle: "Cancel") {
                             finalyzing()
-                        })
-                        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
-                        dialogMessage.addAction(ok)
-                        dialogMessage.addAction(cancel)
-                        self.present(dialogMessage, animated: true, completion: nil)
+                        } declineHandler: { }
                     } else {
                         finalyzing()
                     }
@@ -292,7 +290,7 @@ class NewRecipeTableViewController: UITableViewController {
                 }
             }
         }
-      
+        
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -396,7 +394,7 @@ extension NewRecipeTableViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.compactAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-
+        
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = UIColor(named: "darkTextColorSet")
         navigationItem.title = title
@@ -462,7 +460,7 @@ extension NewRecipeTableViewController: UIPickerViewDelegate, UIPickerViewDataSo
         picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 460, width: UIScreen.main.bounds.size.width, height: 300)
         
         self.view.addSubview(picker)
-                
+        
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 460, width: UIScreen.main.bounds.size.width, height: 50))
         toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
         self.view.addSubview(toolBar)
@@ -548,7 +546,7 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         presentAlertController()
     }
-
+    
     func presentAlertController() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [self] (action:UIAlertAction) in
@@ -576,20 +574,20 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
                 self.present(self.pickerController, animated: true, completion: nil)
             default:
                 let alertController = UIAlertController (title: "No Permission", message: "Would you like to go settings and chenge permissions?", preferredStyle: .alert)
-                   let settingsAction = UIAlertAction(title: "Let's go!", style: .default) { (_) -> Void in
-                       guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                           return
-                       }
-                       if UIApplication.shared.canOpenURL(settingsUrl) {
-                           UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                               print("Settings opened: \(success)") // Prints true
-                           })
-                       }
-                   }
-                   alertController.addAction(settingsAction)
-                   let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-                   alertController.addAction(cancelAction)
-                   present(alertController, animated: true, completion: nil)
+                let settingsAction = UIAlertAction(title: "Let's go!", style: .default) { (_) -> Void in
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                        return
+                    }
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                            print("Settings opened: \(success)") // Prints true
+                        })
+                    }
+                }
+                alertController.addAction(settingsAction)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alertController.addAction(cancelAction)
+                present(alertController, animated: true, completion: nil)
             }
             
         }))
@@ -623,5 +621,5 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
         alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }
-
+    
 }

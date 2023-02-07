@@ -21,6 +21,7 @@ class ServeTableViewCell: UITableViewCell {
             changeServeStepper.value = Double(stepperValue)
             changeServeStepper.minimumValue = 1
             changeServeStepper.maximumValue = 20
+            changeServeStepper.addTarget(self, action: #selector(changePortionAmount), for: .valueChanged)
             serveLabel?.text = "Ingredients / \(stepperValue) serves"
         }
     }

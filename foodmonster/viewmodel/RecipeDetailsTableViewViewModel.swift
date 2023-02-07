@@ -24,7 +24,6 @@ protocol RecipeDetailsTableViewViewModelProtocol: AnyObject {
 class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
     
     private var recipe: Recipe?
-    
     private var networkManger: DataNetworkManagerProtocol?
     
     init(recipe: Recipe) {
@@ -34,6 +33,7 @@ class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
     
     init() {
         networkManger = DataNetworkManager()
+//        self.internalRecipe = recipe
     }
     
     func numberOfSection() -> Int {
@@ -96,17 +96,19 @@ class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
                 newWeight = recipe.food[i].size - portionWeight
             }
             recipe.food[i].size = newWeight
-            if var cell = tableView.cellForRow(at: IndexPath(row: i+1, section: 1)) as? IngredientOfRecipeTableViewCell {
+            if let cell = tableView.cellForRow(at: IndexPath(row: i+1, section: 1)) as? IngredientOfRecipeTableViewCell {
                 cell.countOfIngredientLabel.text = "\(newWeight) \(recipe.food[i].measure)"
                 cell.purchase.size = newWeight
                 cell.purchase.serve = portions
             }
         }
-        if var cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? ServeTableViewCell {
+        if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? ServeTableViewCell {
             cell.serveLabel.text = "Ingredients / \(portions) serves"
 
         }
         recipe.serve = portions
+        self.recipe = recipe
+        
     }
     
 }

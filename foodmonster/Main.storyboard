@@ -12,6 +12,14 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+        <array key="SF-Pro-Display-Semibold.otf">
+            <string>SFProDisplay-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home Meals-->
         <scene sceneID="ACM-cH-a3G">
@@ -586,10 +594,17 @@
                                     <action selector="cancelButton:" destination="zCw-at-b3K" eventType="touchUpInside" id="YIS-xT-ihG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0R1-Pn-qpA">
+                                <rect key="frame" x="30" y="74" width="370" height="27"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="25"/>
+                                <color key="textColor" name="darkTextColorSet"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZYN-eZ-W8P"/>
                         <color key="backgroundColor" name="backgroundColorSet"/>
                         <constraints>
+                            <constraint firstItem="h5q-eJ-lOV" firstAttribute="top" secondItem="0R1-Pn-qpA" secondAttribute="bottom" constant="33" id="1um-Ji-3QW"/>
                             <constraint firstItem="6dA-5g-lMd" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="40" id="57A-2d-Gpb"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="h5q-eJ-lOV" secondAttribute="trailing" constant="40" id="5KK-gH-DjQ"/>
                             <constraint firstItem="6dA-5g-lMd" firstAttribute="top" secondItem="zIY-rd-Hxz" secondAttribute="bottom" constant="20" id="9Fz-ds-p4Z"/>
@@ -605,14 +620,17 @@
                             <constraint firstItem="kee-vN-Hv8" firstAttribute="width" secondItem="hUb-Q1-Poc" secondAttribute="width" multiplier="0.759124" id="ZDm-pI-0Um"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="DvH-i4-5RW" secondAttribute="trailing" constant="40" id="Zwn-FW-R3g"/>
                             <constraint firstItem="DvH-i4-5RW" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="40" id="aqF-O7-sIc"/>
+                            <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="0R1-Pn-qpA" secondAttribute="trailing" constant="30" id="b2M-De-dIC"/>
                             <constraint firstItem="kee-vN-Hv8" firstAttribute="top" secondItem="xar-t6-uvH" secondAttribute="bottom" constant="40" id="cIa-x4-fc1"/>
                             <constraint firstItem="zIY-rd-Hxz" firstAttribute="top" secondItem="yhB-OE-rlQ" secondAttribute="bottom" constant="20" id="ekf-PL-EBk"/>
                             <constraint firstItem="yhB-OE-rlQ" firstAttribute="top" secondItem="DvH-i4-5RW" secondAttribute="bottom" constant="20" id="hsq-Dr-Dzj"/>
+                            <constraint firstItem="0R1-Pn-qpA" firstAttribute="top" secondItem="ZYN-eZ-W8P" secondAttribute="top" constant="15" id="jgH-qg-ER9"/>
                             <constraint firstItem="DvH-i4-5RW" firstAttribute="top" secondItem="h5q-eJ-lOV" secondAttribute="bottom" constant="20" id="kSQ-KP-i6q"/>
                             <constraint firstItem="h5q-eJ-lOV" firstAttribute="top" secondItem="ZYN-eZ-W8P" secondAttribute="top" constant="75" id="lF7-HD-1Mt"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="yhB-OE-rlQ" secondAttribute="trailing" constant="40" id="m1z-NN-OsN"/>
                             <constraint firstItem="xar-t6-uvH" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="40" id="oO8-o0-uhe"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="6dA-5g-lMd" secondAttribute="trailing" constant="40" id="on5-8z-Hbb"/>
+                            <constraint firstItem="0R1-Pn-qpA" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="30" id="u1X-3D-Bsf"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="hUb-Q1-Poc" secondAttribute="trailing" constant="30" id="wiy-sz-4sb"/>
                         </constraints>
                     </view>
@@ -1459,13 +1477,67 @@
                         <segue destination="0KK-iZ-xfl" kind="show" identifier="editNameSeque" id="YFA-NR-MJg"/>
                         <segue destination="Arg-PP-olu" kind="show" identifier="changeEmailSeque" id="y23-2W-72A"/>
                         <segue destination="fkC-iq-9Yb" kind="show" identifier="changePasswordSeque" id="aMW-GK-pck"/>
+                        <segue destination="ney-wI-Q54" kind="show" identifier="aboutSegue" id="fy6-tE-AWd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HbD-uS-8Tf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="431.8840579710145" y="1974.7767857142856"/>
         </scene>
-        <!--Change Email View Controller-->
+        <!--About-->
+        <scene sceneID="YuR-Wy-xy3">
+            <objects>
+                <viewController id="ney-wI-Q54" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u8h-9q-mkh">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9V-97-JkK">
+                                <rect key="frame" x="0.0" y="103" width="430" height="746"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmw-g9-LhE">
+                                        <rect key="frame" x="40" y="177.66666666666669" width="350" height="193.33333333333331"/>
+                                        <string key="text">With the Cook Book Application, you can store all your favorite recipes in one convenient place. Whether it's a family recipe passed down through generations or a new dish you created, the Cook Book Application makes it easy to save and organize your recipes. Simply type in the ingredients, instructions, and any notes, and your recipe is ready to be accessed anytime, anywhere.</string>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXg-6s-QgQ">
+                                        <rect key="frame" x="40" y="50.000000000000007" width="350" height="107.66666666666669"/>
+                                        <string key="text">Gone are the days of scribbling your favorite recipes on notepads or searching for them in a pile of cookbooks. The Cook Book Application is here to revolutionize the way you save and share your recipes.</string>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Tmw-g9-LhE" secondAttribute="trailing" constant="40" id="2OF-pY-4jD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tmw-g9-LhE" secondAttribute="bottom" constant="50" id="Igb-r7-J9L"/>
+                                    <constraint firstItem="Tmw-g9-LhE" firstAttribute="centerX" secondItem="H9V-97-JkK" secondAttribute="centerX" id="SMz-Wt-XnI"/>
+                                    <constraint firstItem="Tmw-g9-LhE" firstAttribute="top" secondItem="dXg-6s-QgQ" secondAttribute="bottom" constant="20" id="i47-hJ-V95"/>
+                                    <constraint firstItem="dXg-6s-QgQ" firstAttribute="top" secondItem="H9V-97-JkK" secondAttribute="top" constant="50" id="iEe-kg-3zq"/>
+                                    <constraint firstItem="dXg-6s-QgQ" firstAttribute="leading" secondItem="H9V-97-JkK" secondAttribute="leading" constant="40" id="jcS-OM-O6F"/>
+                                    <constraint firstItem="Tmw-g9-LhE" firstAttribute="leading" secondItem="H9V-97-JkK" secondAttribute="leading" constant="40" id="kW8-qB-bh0"/>
+                                    <constraint firstAttribute="trailing" secondItem="dXg-6s-QgQ" secondAttribute="trailing" constant="40" id="mgI-7b-RTF"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RTd-x1-LxR"/>
+                        <color key="backgroundColor" name="backgroundColorSet"/>
+                        <constraints>
+                            <constraint firstItem="RTd-x1-LxR" firstAttribute="trailing" secondItem="H9V-97-JkK" secondAttribute="trailing" id="13x-ho-HaP"/>
+                            <constraint firstItem="H9V-97-JkK" firstAttribute="top" secondItem="RTd-x1-LxR" secondAttribute="top" id="YNL-DB-8YL"/>
+                            <constraint firstItem="H9V-97-JkK" firstAttribute="leading" secondItem="RTd-x1-LxR" secondAttribute="leading" id="ewK-qZ-dnv"/>
+                            <constraint firstItem="RTd-x1-LxR" firstAttribute="bottom" secondItem="H9V-97-JkK" secondAttribute="bottom" id="uDX-yP-86f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" largeTitleDisplayMode="never" id="WER-m4-sdo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zLk-Po-6Sf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3655.8139534883721" y="2044.6351931330473"/>
+        </scene>
+        <!--New Email-->
         <scene sceneID="Djz-vU-p8I">
             <objects>
                 <viewController id="Arg-PP-olu" customClass="ChangeEmailViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
@@ -1537,7 +1609,7 @@
                             <constraint firstItem="w8h-cg-Oir" firstAttribute="leading" secondItem="Ym0-YM-1AU" secondAttribute="leading" constant="30" id="tFa-kJ-nMC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="SMo-vm-aPS"/>
+                    <navigationItem key="navigationItem" title="New Email" largeTitleDisplayMode="never" id="SMo-vm-aPS"/>
                     <connections>
                         <outlet property="confirmButton" destination="9Q3-Ff-ebX" id="zAO-zL-r6a"/>
                         <outlet property="emailTextField" destination="w8h-cg-Oir" id="Dtu-oj-Q05"/>
@@ -1548,7 +1620,7 @@
             </objects>
             <point key="canvasLocation" x="2094" y="2045"/>
         </scene>
-        <!--Change Password View Controller-->
+        <!--New Password-->
         <scene sceneID="wiW-oA-NtN">
             <objects>
                 <viewController id="fkC-iq-9Yb" customClass="ChangePasswordViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
@@ -1623,7 +1695,7 @@
                             <constraint firstItem="gbQ-0s-h8n" firstAttribute="leading" secondItem="1UE-ss-RXT" secondAttribute="leading" constant="30" id="ooo-HD-D3I"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="r07-Eh-wbv"/>
+                    <navigationItem key="navigationItem" title="New Password" largeTitleDisplayMode="never" id="r07-Eh-wbv"/>
                     <connections>
                         <outlet property="passwordTextField" destination="gbQ-0s-h8n" id="HLI-1V-btg"/>
                         <outlet property="repeatPasswordTextField" destination="HYc-0M-mfp" id="CBL-lg-ESs"/>
@@ -1633,7 +1705,7 @@
             </objects>
             <point key="canvasLocation" x="2886" y="1920"/>
         </scene>
-        <!--Name Last Name View Controller-->
+        <!--Chnage Name-->
         <scene sceneID="Fp4-R2-Jp0">
             <objects>
                 <viewController id="0KK-iZ-xfl" customClass="NameLastNameViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
@@ -1705,7 +1777,7 @@
                             <constraint firstItem="yAK-YT-d9G" firstAttribute="leading" secondItem="TAr-U2-6EH" secondAttribute="leading" constant="30" id="zY6-Dk-rav"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="eNJ-XE-i1V"/>
+                    <navigationItem key="navigationItem" title="Chnage Name" largeTitleDisplayMode="never" id="eNJ-XE-i1V"/>
                     <connections>
                         <outlet property="lastNameTextField" destination="6Cl-Tx-p80" id="aMo-ZC-sOL"/>
                         <outlet property="nameTextField" destination="yAK-YT-d9G" id="GcC-Dj-quC"/>

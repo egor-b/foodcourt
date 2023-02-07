@@ -161,7 +161,7 @@ class ProfileTableViewController: UITableViewController {
             }
             if indexPath.section == 1 {
                 if indexPath.row == 0 {
-                    print("ABOUT")
+                    performSegue(withIdentifier: Segue.ABOUT_SEGUE.rawValue, sender: nil)
                 }
                 if indexPath.row == 1 {
                     SKStoreReviewController.requestReview()
