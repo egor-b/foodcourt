@@ -22,7 +22,7 @@ class TabBarViewController: UITabBarController {
         menuButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         menuButton.layer.shadowRadius = 3
         var menuButtonFrame = menuButton.frame
-        menuButtonFrame.origin.y = view.bounds.height - menuButtonFrame.height - 50
+        menuButtonFrame.origin.y = view.bounds.height - menuButtonFrame.height - 42.5
         menuButtonFrame.origin.x = view.bounds.width/2 - menuButtonFrame.size.width/2
         menuButton.frame = menuButtonFrame
 

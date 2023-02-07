@@ -12,15 +12,26 @@ class ServeTableViewCell: UITableViewCell {
     @IBOutlet weak var serveLabel: UILabel!
     @IBOutlet weak var changeServeStepper: UIStepper!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    private var stepperValue: Int = 0
+    
+    weak var viewModel: RecipeTableViewCellViewModelProtocol? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else { return }
+            stepperValue = viewModel.recipe.serve
+            changeServeStepper.value = Double(stepperValue)
+            changeServeStepper.minimumValue = 1
+            changeServeStepper.maximumValue = 20
+            serveLabel?.text = "Ingredients / \(stepperValue) serves"
+        }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @objc func changePortionAmount() {
+        stepperValue = Int(changeServeStepper.value)
+        serveLabel?.text = "Ingredients / \(stepperValue) serves"
     }
-
+    
+    func disableStepper(isEnable: Bool) {
+        changeServeStepper.isEnabled = isEnable
+    }
+    
 }

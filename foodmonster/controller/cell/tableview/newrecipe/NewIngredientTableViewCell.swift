@@ -9,15 +9,15 @@ import UIKit
 
 class NewIngredientTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    weak var viewModel: NewIngredientTableViewCellViewModelProtocol? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else { return }
+            nameLabel.text = viewModel.ingredient.foodstuff.name
+            amountLabel.text = "/ " + String(viewModel.ingredient.size) + " " + viewModel.ingredient.measure
+        }
     }
 
 }

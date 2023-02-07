@@ -8,9 +8,9 @@
 import Foundation
 
 class FoodPurchaseTableViewCellViewModel: FoodPurchaseTableViewCellViewModelProtocol {
-    var food: Food
+    var food: PurchaseFood
     
-    init(purchases: Food) {
+    init(purchases: PurchaseFood) {
         self.food = purchases
     }
     

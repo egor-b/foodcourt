@@ -9,15 +9,12 @@ import UIKit
 
 class RecipeNameTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var recipeNameLabel: UILabel!
+
+    weak var viewModel: NewRecipeTableViewCellViewModelProtocol? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else { return }
+            recipeNameLabel.text = viewModel.recipe.name
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

@@ -8,6 +8,8 @@
 import UIKit
 
 class RecipeCategoryTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var cathegoryLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

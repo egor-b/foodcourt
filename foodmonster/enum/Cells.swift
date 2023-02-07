@@ -29,9 +29,17 @@ enum Cells: String {
     
     //MARK: - New recipe
     case RECIPE_NAME_CELL = "recipeNameCell"
+    case SAVE_RECIPE_CELL = "saveRecipeCell"
     case RECIPE_CATEGORY_CELL = "recipeCategoryCell"
     case COOK_TIME_CELL = "cookTimeCell"
     case NEW_INGREFIENT_CELL = "newIngredientCell"
     case ADD_ITEM_CELL = "addItemCell"
     case COOK_STEP_CELL = "cookStepCell"
+    case ABOUT_NEW_RECIPE_CELL = "aboutNewRecipeCell"
+    case PORTIONS_CELL = "portionsCell"
+
+    //MARK: - profile
+    case PROFILE_NAME_CELL = "nameCell"
+    case PROFILE_EMAIL_CELL = "emailCell"
+    case RESET_PASSWORD_CELL = "resetPasswordCell"
 }

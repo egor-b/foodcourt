@@ -7,6 +7,7 @@
 
 import Foundation
 
-protocol IngredientTableViewCellViewModelProtocol: class {
+protocol IngredientTableViewCellViewModelProtocol: AnyObject {
     var ingredient: Food { get }
+    var recipe: Recipe { get }
 }

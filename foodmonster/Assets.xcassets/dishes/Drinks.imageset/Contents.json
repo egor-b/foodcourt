@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "pexels-olenka-sergienko-3323682.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "pexels-olenka-sergienko-3323683.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "pexels-olenka-sergienko-3323684.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

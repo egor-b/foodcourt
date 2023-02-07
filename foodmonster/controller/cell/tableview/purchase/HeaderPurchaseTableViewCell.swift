@@ -16,8 +16,9 @@ class HeaderPurchaseTableViewCell: UITableViewCell {
     weak var viewModel: HeaderPurchaseTableViewCellViewModel? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
+            let portions = String(describing: viewModel.purchase.serve)
             recipeNameLabel.text = viewModel.purchase.recipeName
-            serveLabel.text = String(describing: viewModel.purchase.serve)
+            serveLabel.text = "\(portions) portions"
         }
     }
 

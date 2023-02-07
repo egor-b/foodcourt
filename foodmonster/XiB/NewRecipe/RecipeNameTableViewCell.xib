@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecipeNameTableViewCell" customModule="foodster" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecipeNameTableViewCell" customModule="foodmonster" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSq-58-RLI">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSq-58-RLI">
                     <rect key="frame" x="15" y="10" width="90" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="90" id="izv-Lz-FtK"/>
@@ -30,8 +30,8 @@
                         <constraint firstAttribute="width" constant="9" id="idx-8k-tUm"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcg-3j-m4L">
-                    <rect key="frame" x="108" y="10" width="272" height="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcg-3j-m4L">
+                    <rect key="frame" x="108" y="10" width="267" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="lightTextColorSet"/>
                     <nil key="highlightedColor"/>
@@ -49,9 +49,12 @@
                 <constraint firstItem="PSq-58-RLI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="UPh-mC-pSb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Rcg-3j-m4L" secondAttribute="bottom" constant="10" id="ZG7-nQ-yzj"/>
                 <constraint firstItem="awh-L2-y81" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="txx-fa-1Rz"/>
-                <constraint firstItem="awh-L2-y81" firstAttribute="leading" secondItem="Rcg-3j-m4L" secondAttribute="trailing" constant="10" id="ypt-D1-uZf"/>
+                <constraint firstItem="awh-L2-y81" firstAttribute="leading" secondItem="Rcg-3j-m4L" secondAttribute="trailing" constant="15" id="ypt-D1-uZf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="recipeNameLabel" destination="Rcg-3j-m4L" id="j2n-bJ-U3g"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>
         </view>
     </objects>

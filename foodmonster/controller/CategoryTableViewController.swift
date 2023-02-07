@@ -9,75 +9,100 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
     
-    var cathegory: String?
     private let searchController = UISearchController(searchResultsController: nil)
-    private var tableViewViewModel: TableViewViewModelProtocol?
-
+    private var categoryTableViewViewModel: CategoryTableViewViewModelProtocol?
+    
+    let activityView = UIActivityIndicatorView(style: .large)
+    
+    var filterCriteria = FilterCriteria()
+        
+    private var currentPage = 0
+    private var currentPageSize = "25"
+    private var defaultSort = "date"
+    private var defaultOrder = "DESC"
+    
+    private var isLoading = false
+    private var isPaging = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        filterCriteria.isVisible = "true"
+        if !globalUserId.isEmpty {
+            filterCriteria.userId = globalUserId
+        }
+        filterCriteria.userId = globalUserId
+        showActivityIndicatory(activityView: activityView)
         buildInterface()
-        
+        categoryTableViewViewModel = CategoryTableViewViewModel()
+        fillOutCOntroller()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableViewViewModel = TableViewViewModel()
-        guard let tableViewViewModel = tableViewViewModel, let cathegory = cathegory else { return }
-        tableViewViewModel.getListByType(type: cathegory) { [weak self] in
+    func fillOutCOntroller() {
+        guard let tableViewViewModel = categoryTableViewViewModel else { return }
+        tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (_, error) in
+            if let error = error {
+                self?.stopActivityIndicatory(activityView: self!.activityView)
+                self?.showAlert(title: "Oooops ... ", message: error.details)
+            }
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+                self?.currentPage += 1
             }
-         }
+            self?.stopActivityIndicatory(activityView: self!.activityView)
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tableViewViewModel?.numberOfRows() ?? 0
+        return categoryTableViewViewModel?.numberOfRows() ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.CATEGORY_CELL.rawValue, for: indexPath) as? CathegoryTableViewCell
-
-        guard let tableViewCell = cell, let tableViewViewModel = tableViewViewModel else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.CATEGORY_CELL.rawValue, for: indexPath) as? CathegoryTableViewCell, let tableViewViewModel = categoryTableViewViewModel else { return UITableViewCell() }
         let cellViewModel = tableViewViewModel.cellViewModel(forIndexPath: indexPath)
-        tableViewCell.viewModel = cellViewModel
-        
-        return tableViewCell
+        cell.viewModel = cellViewModel
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let viewModel = tableViewViewModel else { return }
+        guard let viewModel = categoryTableViewViewModel else { return }
         viewModel.selectedRow(atIndexPath: indexPath)
         performSegue(withIdentifier: Segue.RECIPE_DETAIL_SEGUE.rawValue, sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier, let viewModel = tableViewViewModel else { return }
-        if identifier == Segue.RECIPE_DETAIL_SEGUE.rawValue {
-            if let destinationVC = segue.destination as? RecipeDetailTableViewController {
-                destinationVC.recipeViewViewModel = viewModel.viewModelForSelectedRow()
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let categoryTableViewViewModel = categoryTableViewViewModel else { return }
+        if categoryTableViewViewModel.getRecipeList().count == indexPath.row - 1 {
+            if !isLoading && isPaging {
+                isLoading = true
+                categoryTableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (isLast, err) in
+                    if let err = err {
+                        print(err.localizedDescription)
+                    }
+                    if isLast {
+                        self?.isPaging = isLast
+                    }
+                    DispatchQueue.main.async {
+                        self?.currentPage += 1
+                        self?.isLoading = false
+                        self?.tableView.reloadData()
+                    }
+                }
             }
         }
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
-        cell.layer.transform = rotationTransform
-        cell.alpha = 0
-        UIView.animate(withDuration: 0.75) {
-            cell.layer.transform = CATransform3DIdentity
-            cell.alpha = 1
-        }
-    }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = (scrollView.contentOffset.y + 192) / 52
-        if offset <= 1 && offset > 0 {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(handleShowSearch))
-            navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 112/255, green: 57/255, blue: 60/255, alpha: offset)
-        } else if offset <= 0 {
-            navigationItem.rightBarButtonItem = nil
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        if identifier == Segue.RECIPE_DETAIL_SEGUE.rawValue {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let selectedRow = indexPath.row
+                if let destinationVC = segue.destination as? RecipeDetailTableViewController {
+                    destinationVC.recipesTableViewViewModel = categoryTableViewViewModel
+                    destinationVC.recipeIndex = selectedRow
+                }
+            }
         }
     }
 
@@ -86,12 +111,13 @@ class CategoryTableViewController: UITableViewController {
 extension CategoryTableViewController {
     
     func buildInterface() {
-        navigationItem.title = cathegory
+        navigationItem.title = filterCriteria.type
         navigationItem.searchController = searchController
         createSearchBar()
     }
     
     func createSearchBar() {
+        searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.searchBarStyle = .minimal
         searchController.obscuresBackgroundDuringPresentation = false
@@ -107,10 +133,26 @@ extension CategoryTableViewController {
 extension CategoryTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Tapped cancel button ...")
+        filterCriteria.name = ""
+        isLoading = false
+        isPaging = true
+        currentPage = 0
+        fillOutCOntroller()
     }
 
     func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text ?? "")
+        guard let searchText = searchController.searchBar.text, let categoryTableViewViewModel = categoryTableViewViewModel else { return }
+        if !categoryTableViewViewModel.getRecipeList().isEmpty {
+            categoryTableViewViewModel.setRecipeList([])
+            tableView.reloadData()
+        }
+        if searchText.count > 2 {
+            if currentPage != 0 {
+                currentPage = 0
+            }
+            filterCriteria.name = searchText
+            fillOutCOntroller()
+        }
     }
+    
 }

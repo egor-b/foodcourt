@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "pexels-karolina-grabowska-4203052.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "pexels-karolina-grabowska-4203053.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "pexels-karolina-grabowska-4203054.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

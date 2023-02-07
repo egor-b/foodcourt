@@ -9,18 +9,18 @@ import UIKit
 
 class NewIngredientViewController: UIViewController {
     
-    
     @IBOutlet weak var ingredientTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var measureTextField: UITextField!
     
-    var ingredient: Food?
+    var ingredient = FoodModel()
+    var index: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addInputAccessoryForTextFields(textFields: [ingredientTextField, weightTextField, measureTextField])
         ingredientTextField.becomeFirstResponder()
-        fillInIngredienModel()
+        fillInIngredientModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,11 +32,10 @@ class NewIngredientViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func fillInIngredienModel() {
-        guard let ingredient = ingredient else { return }
-        ingredientTextField.text = ingredient.name
-        weightTextField.text = String(describing: ingredient.count)
-        measureTextField.text = ingredient.messuer
+    func fillInIngredientModel() {
+        ingredientTextField.text = ingredient.foodstuff.name
+        weightTextField.text = String(describing: ingredient.size)
+        measureTextField.text = ingredient.measure
     }
 
 }

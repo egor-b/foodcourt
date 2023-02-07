@@ -7,18 +7,41 @@
 
 import UIKit
 
+protocol PurchaseTableViewViewModelProtocol {
+    
+    func numberOfSection() -> Int
+    func numberOfRows(inSection section: Int) -> Int
+    func getHeaderForDishPurchaseList(forIndexPath indexPath: IndexPath) -> HeaderPurchaseTableViewCellViewModel?
+    func cellPurchaseViewModel(forIndexPath indexPath: IndexPath) -> FoodPurchaseTableViewCellViewModel?
+    func cellCustomPurchaseViewModel(forIndexPath indexPath: IndexPath) -> String?
+    func viewForHeader(inSection section: Int, width: CGFloat, height: CGFloat) -> UIView
+    
+    func getPurchaseList(completion: @escaping() -> ())
+    
+    func getPurchase() -> [Purchase]
+    func delteRecipePurchase(forSection section: Int, completion: @escaping(Error?) -> ())
+    func updateCartPurchase(forIndexPath indexPath: IndexPath)
+    
+    func getPersonalPurchase() -> [String]
+    func addPersonalItem(item: String)
+    func removePersonalItem(forIndex item: Int)
+    
+}
+
 class PurchaseTableViewViewModel: PurchaseTableViewViewModelProtocol {
     
-//    private var purchase = [Purchase]()
+    private var dataNetworkManager: DataNetworkManagerProtocol?
+    private let userDefaults = UserDefaults.standard
+
     private let constant = Constant()
-    private var customPurchase = ["dsfjhebrf", "sdfkjd"]
-    private var purchase = [Purchase(recipeName: "Potatoes", serve: 5, recipeId: 651, food: [Food(name: "123", count: 2.3, messuer: "eee"),
-                                                                            Food(name: "dseg", count: 2.3, messuer: "eergee"),
-                                                                            Food(name: "14df23", count: 2.3, messuer: "ef3ee")]),
-                            Purchase(recipeName: "Rice", serve: 3, recipeId: 651, food: [Food(name: "1111", count: 2.3, messuer: "eee"),
-                                                                                                    Food(name: "22222", count: 2.3, messuer: "eergee"),
-                                                                                                    Food(name: "33333", count: 2.3, messuer: "ef3ee")])]
-//
+    private var customPurchase: [String] = []
+    private var purchase: [Purchase] = []
+    
+    init() {
+        dataNetworkManager = DataNetworkManager()
+        customPurchase = userDefaults.object(forKey: "userPurchase") as? [String] ?? []
+    }
+    
     func numberOfSection() -> Int {
         return purchase.count + 1
     }
@@ -53,5 +76,58 @@ class PurchaseTableViewViewModel: PurchaseTableViewViewModelProtocol {
         }
         headerView.backgroundColor = constant.backgoundColor
         return headerView
+    }
+    
+    func getPurchaseList(completion: @escaping() -> ()) {
+        guard let dataNetworkManager = dataNetworkManager else { return }
+        dataNetworkManager.retreivePurchaseList(completion: { [weak self] (list, err)  in
+            if let err = err {
+                print(err.localizedDescription)
+                completion()
+            }
+            if let list = list {
+                self?.purchase = list
+            }
+            completion()
+        })
+    }
+    
+    func getPurchase() -> [Purchase] {
+        return purchase
+    }
+    
+    func updateCartPurchase(forIndexPath indexPath: IndexPath) {
+       let inCart = purchase[indexPath.section - 1].food[indexPath.row - 1].isAvailable
+        if inCart {
+            purchase[indexPath.section - 1].food[indexPath.row - 1].isAvailable = false
+        } else {
+            purchase[indexPath.section - 1].food[indexPath.row - 1].isAvailable = true
+        }
+    }
+    
+    func delteRecipePurchase(forSection section: Int, completion: @escaping(Error?) -> ()) {
+        guard let dataNetworkManager = dataNetworkManager else { return }
+        let rid = purchase[section - 1].recipeId
+        dataNetworkManager.deleteCartRecipePurchase(rid) { err in
+            if let err = err {
+                completion(err)
+            }
+            self.purchase.remove(at: section - 1)
+            completion(nil)
+        }
+    }
+    
+    func getPersonalPurchase() -> [String] {
+        return customPurchase
+    }
+    
+    func addPersonalItem(item: String) {
+        customPurchase.append(item)
+        userDefaults.set(customPurchase, forKey: "userPurchase")
+    }
+    
+    func removePersonalItem(forIndex item: Int) {
+        customPurchase.remove(at: item)
+        userDefaults.set(customPurchase, forKey: "userPurchase")
     }
 }

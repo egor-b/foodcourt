@@ -9,16 +9,22 @@ import UIKit
 import CoreData
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // Use Firebase library to configure APIs
+        
+        imageCash.countLimit = 70
+        imageCash.totalCostLimit = 35
         FirebaseApp.configure()
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+        FBSDKCoreKit.ApplicationDelegate.shared.application(
+                application,
+                didFinishLaunchingWithOptions: launchOptions
+            )
         return true
     }
 
@@ -38,27 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     // MARK: - Google authenticate
     
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
-      -> Bool {
-      return GIDSignIn.sharedInstance().handle(url)
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-      // ...
-//      if let error = error {
-//        // ...
-//        return
-//      }
-//
-//      guard let authentication = user.authentication else { return }
-//      let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-//                                                        accessToken: authentication.accessToken)
-      // ...
-    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
 
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
     }
 
     // MARK: - Core Data stack

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FoodPurchaseTableViewCellViewModelProtocol {
-    var food: Food { get }
+    var food: PurchaseFood { get }
 }

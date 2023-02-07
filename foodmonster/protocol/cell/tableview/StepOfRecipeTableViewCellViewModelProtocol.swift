@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol StepOfRecipeTableViewCellViewModelProtocol: class {
+protocol StepOfRecipeTableViewCellViewModelProtocol: AnyObject {
     var step: Step { get }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol RecipeTableViewCellViewModelProtocol: class {
+protocol RecipeTableViewCellViewModelProtocol: AnyObject {
     
     var recipe: Recipe { get }
     

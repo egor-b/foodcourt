@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 class IngredientTableViewCellViewModel: IngredientTableViewCellViewModelProtocol {
-    var ingredient: Food
     
-    init(ingredient: Food) {
+    var ingredient: Food
+    var recipe: Recipe
+    
+    init(ingredient: Food, recipe: Recipe) {
         self.ingredient = ingredient
+        self.recipe = recipe
     }
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NameTableViewCell" customModule="foodmonster" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal inaformation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3P-hw-vaF">
+                    <rect key="frame" x="20" y="16" width="150" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="FWl-Ae-QqT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" name="darkTextColorSet"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nw4-8S-Gm7">
+                    <rect key="frame" x="180" y="25" width="215" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" name="lightTextColorSet"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow Right" translatesAutoresizingMaskIntoConstraints="NO" id="KSi-2D-f7Z">
+                    <rect key="frame" x="400" y="10" width="9" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="4eY-8f-zAV"/>
+                        <constraint firstAttribute="width" constant="9" id="PZz-ud-zxT"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="9" id="gbh-Jj-Fvp"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="lightBackgroundColorSet"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="KSi-2D-f7Z" secondAttribute="trailing" constant="5" id="0az-o6-ASf"/>
+                <constraint firstItem="L3P-hw-vaF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ONm-CO-RTJ"/>
+                <constraint firstItem="nw4-8S-Gm7" firstAttribute="leading" secondItem="L3P-hw-vaF" secondAttribute="trailing" constant="10" id="VX1-Cu-hxL"/>
+                <constraint firstItem="KSi-2D-f7Z" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aNB-Co-ppZ"/>
+                <constraint firstItem="L3P-hw-vaF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="bvl-wj-HOQ"/>
+                <constraint firstItem="nw4-8S-Gm7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="j7j-UB-TEH"/>
+                <constraint firstItem="KSi-2D-f7Z" firstAttribute="leading" secondItem="nw4-8S-Gm7" secondAttribute="trailing" constant="5" id="r6o-eK-7ee"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="nameLabel" destination="nw4-8S-Gm7" id="ccV-Aa-gWa"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="327.79017857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Arrow Right" width="8" height="44"/>
+        <namedColor name="darkTextColorSet">
+            <color red="0.43900001049041748" green="0.22400000691413879" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightBackgroundColorSet">
+            <color red="1" green="0.99599999189376831" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightTextColorSet">
+            <color red="0.67100000381469727" green="0.60799998044967651" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

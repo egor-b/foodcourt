@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "pexels-eiliv-aceron-6896516.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "pexels-eiliv-aceron-6896517.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "pexels-eiliv-aceron-6896518.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

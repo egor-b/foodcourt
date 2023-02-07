@@ -14,7 +14,8 @@ class InfoRecipeTableViewCell: UITableViewCell {
     weak var viewModel: RecipeTableViewCellViewModelProtocol? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
-            cookTimeLabel?.text = String(describing: viewModel.recipe.time)
+            let time = String(describing: viewModel.recipe.time)
+            cookTimeLabel?.text = "\(time) min"
         }
     }
     

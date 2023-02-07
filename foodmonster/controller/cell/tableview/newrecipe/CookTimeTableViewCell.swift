@@ -8,16 +8,14 @@
 import UIKit
 
 class CookTimeTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var cookTimeLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    weak var viewModel: NewRecipeTableViewCellViewModelProtocol? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else { return }
+            cookTimeLabel.text = String(viewModel.recipe.time) + " min"
+        }
     }
 
 }

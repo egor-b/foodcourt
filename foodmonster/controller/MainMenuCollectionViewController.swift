@@ -15,7 +15,7 @@ class MainMenuCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar(title: "Menu")
+        configureNavigationBar(title: "Home Meals")
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -33,8 +33,10 @@ class MainMenuCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.MAIN_MENU_CELL.rawValue, for: indexPath) as? MainMenuCollectionViewCell
     
         guard let collectionCell = cell else { return UICollectionViewCell() }
+        let label = MainMenu.allCases[indexPath.row].rawValue
         collectionCell.layer.cornerRadius = 5
-        collectionCell.cathegoryMenuLabel.text = MainMenu.allCases[indexPath.row].rawValue
+        collectionCell.cathegoryMenuLabel.text = label
+        collectionCell.cathegoryImageView.image = UIImage(named: label)
     
         return collectionCell
     }
@@ -43,7 +45,7 @@ class MainMenuCollectionViewController: UICollectionViewController {
         
         let main = UIStoryboard(name: "Main", bundle: nil)
         let destinationVC = main.instantiateViewController(withIdentifier: "CathegoryTableViewController") as! CategoryTableViewController
-        destinationVC.cathegory = MainMenu.allCases[indexPath.row].rawValue
+        destinationVC.filterCriteria.type = MainMenu.allCases[indexPath.row].rawValue
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     

@@ -6,49 +6,243 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
+
+protocol DataNetworkManagerProtocol {
+    
+    func getRecipes(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping ([Recipe]?, RecipeError?) -> ())
+    func getRecipeByRecipeId(id: Int64, completion: @escaping (Recipe?, Error?) -> ())
+    func getRecipesByUser(userId: String, page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping ([Recipe]?, RecipeError?) -> ())
+    
+    func saveRecipe(recipe: RecipeModel, completion: @escaping (Error?) -> ())
+    func updateRecipe(recipe: RecipeModel, completion: @escaping (Error?) -> ())
+    
+    func addPurchase(_ purchase: PurchaseModel, completion: @escaping (Error?) -> ())
+    func retreivePurchaseList(completion: @escaping  ([Purchase]?, Error?) -> ())
+    func retreivePurchase(_ foodId: Int64, _ recipeId: Int64, completion: @escaping (PurchaseModel?, Error?) -> ())
+    func deletePurchase(_ purchaseId: Int64, completion: @escaping (Error?) -> ())
+    func deleteCartRecipePurchase(_ recipeId: Int64, completion: @escaping (Error?) -> ())
+    func updatePurchaseInCart(_ purchaseId: Int64, isAdd: Bool, completion: @escaping (Error?) -> ())
+    
+    func getHeader(completion: (HTTPHeaders) -> ())
+    
+}
 
 class DataNetworkManager: DataNetworkManagerProtocol {
     
-    private var result = [Recipe(name: "Name 1", time: 40, serve: 2, level: 3, type: "meat", about: "mwoeigw", visible: true, food: [Food(name: "123", count: 2.3, messuer: "eee"),
-                                                                                                                                    Food(name: "123dfg", count: 23, messuer: "eweree"),
-                                                                                                                                    Food(name: "123ertr", count: 2, messuer: "43eee"),
-                                                                                                                                    Food(name: "12erh3", count: 2.334, messuer: "eeg45be")], step: [Step(stepNumber: 1, steDescription: "q")]),
-                         Recipe(name: "Name 2", time: 403, serve: 4, level: 3.4, type: "seafood", about: "mwoeigw", visible: true, food: [Food(name: "123", count: 2.3, messuer: "eee"),
-                                                                                                                                          Food(name: "123dfg", count: 23, messuer: "eweree")], step: [Step(stepNumber: 1, steDescription: "q")]),
-                         Recipe(name: "Name 3", time: 5, serve: 1, level: 3.5, type: "meat", about: "mwoeigw", visible: true, food: [Food(name: "123", count: 2.3, messuer: "eee"),
-                                                                                                                                     Food(name: "123dfg", count: 23, messuer: "eweree"),
-                                                                                                                                     Food(name: "123ertr", count: 2, messuer: "43eee")], step: [Step(stepNumber: 1, steDescription: "q")]),
-                         Recipe(name: "Name 4", time: 43, serve: 3, level: 1, type: "meat", about: "mwoeigw", visible: true, food: [Food(name: "123", count: 2.3, messuer: "eee"),
-                                                                                                                                    Food(name: "123dfg", count: 23, messuer: "eweree"),
-                                                                                                                                    Food(name: "123ertr", count: 2, messuer: "43eee"),
-                                                                                                                                    Food(name: "12erh3", count: 2.334, messuer: "eeg45be"),
-                                                                                                                                    Food(name: "123", count: 2.3, messuer: "eee"),
-                                                                                                                                    Food(name: "123dfg", count: 23, messuer: "eweree"),
-                                                                                                                                    Food(name: "123ertr", count: 2, messuer: "43eee"),
-                                                                                                                                    Food(name: "12erh3", count: 2.334, messuer: "eeg45be")], step: [Step(stepNumber: 1, steDescription: "q")])]
+    private var authanticateManager: AuthanticateManagerProtocol?
     
-    func getRecipes(completion: ([Recipe]) -> ()) {
-        completion(result)
+    init() {
+        authanticateManager = AuthanticateManager()
     }
     
-    func getRecipeByRecipeId(id: Int64, completion: (Recipe) -> ()) {
-        var recipe: Recipe!
-        recipe.name = "1"
-        completion(recipe)
+    
+    func getRecipes(page: String = "0", size: String = "20", sort: String = "date", order: String = "ASC", filter: FilterCriteria, completion: @escaping ([Recipe]?, RecipeError?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/recipe/search?page=\(page)&page_size=\(size)&sort_field=\(sort)&order=\(order)",
+                       method: .post, parameters: filter, encoder: JSONParameterEncoder.default, headers: header).validate().responseDecodable(of: [Recipe].self) { response in
+                switch response.result {
+                case .success(let succcess):
+                    completion(succcess, nil)
+                case .failure(let error):
+                    var err = RecipeError()
+                    do {
+                        if let data = response.data {
+                            let responseJSON = try JSON(data: data)
+                            let message = responseJSON["details"].stringValue
+                            err.details = message
+                        }
+                    } catch {}
+                    print("Alamofire failed: ", error.localizedDescription)
+                    completion(nil, err)
+                }
+            }
+        }
     }
     
-    func getRecipesByUser(userId: Int64, completion: ([Recipe]) -> ()) {
-        var recipes = [Recipe]()
-        recipes = result + result
-        completion(recipes)
+    func getRecipeByRecipeId(id: Int64, completion: @escaping (Recipe?, Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/recipe/\(id)", headers: header).validate().responseDecodable(of: [Recipe].self) { response in
+                switch response.result {
+                case .success(let succcess):
+                    completion(succcess[0], nil)
+                case .failure(let error):
+                    print("Alamofire failed: ", error.localizedDescription)
+                    completion(nil, error)
+                }
+            }
+            completion(nil,nil)
+        }
     }
     
-    func searchRecipesByFilter() {
+    func getRecipesByUser(userId: String, page: String = "0", size: String = "20", sort: String = "date", order: String = "ASC", filter: FilterCriteria, completion: @escaping  ([Recipe]?, RecipeError?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/recipe/user/\(userId)?page=\(page)&page_size=\(size)&sort_field=\(sort)&order=\(order)",
+                       method: .post, parameters: filter, encoder: JSONParameterEncoder.default, headers: header).validate().responseDecodable(of: [Recipe].self) { response in
+                switch response.result {
+                case .success(let succcess):
+                    completion(succcess, nil)
+                case .failure(let error):
+                    var err = RecipeError()
+                    do {
+                        if let data = response.data {
+                            let responseJSON = try JSON(data: data)
+                            let message = responseJSON["details"].stringValue
+                            err.details = message
+                        }
+                    } catch {}
+                    print("Alamofire failed: ", error.localizedDescription)
+                    completion(nil, err)
+                }
+            }
+        }
     }
     
-    func saveRecipe(recipe: Recipe, completion: ([Any]) -> ()) {
-        var s = [String]()
-        completion([s])
+    func saveRecipe(recipe: RecipeModel, completion: @escaping (Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/recipe/save", method: .post, parameters: recipe, encoder: JSONParameterEncoder.default, headers: header).validate().response { response in
+                switch response.result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    if let status = response.response {
+                        if status.statusCode > 226 {
+                            print("Alamofire failed: ", error.localizedDescription)
+                            completion(error)
+                        }
+                    }
+                    completion(nil)
+                }
+            }
+        }
     }
     
+    func updateRecipe(recipe: RecipeModel, completion: @escaping (Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/recipe/update", method: .post, parameters: recipe, encoder: JSONParameterEncoder.default, headers: header).validate().response { response in
+                switch response.result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    if let status = response.response {
+                        if status.statusCode > 226 {
+                            print("Alamofire failed: ", error.localizedDescription)
+                            completion(error)
+                        }
+                    }
+                    completion(nil)
+                }
+            }
+        }
+    }
+
+    func addPurchase(_ purchase: PurchaseModel, completion: @escaping (Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/purchase/save", method: .post, parameters: purchase, encoder: JSONParameterEncoder.default, headers: header).validate().response { response in
+                switch response.result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                    print("Alamofire failed: ", error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    func retreivePurchaseList(completion: @escaping  ([Purchase]?, Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/purchase/\(globalUserId)", headers: header).validate().responseDecodable(of: [Purchase].self) { response in
+                switch response.result {
+                case .success(let succcess):
+                    completion(succcess, nil)
+                case .failure(let error):
+                    print("Alamofire failed: ", error.localizedDescription)
+                    completion(nil, error)
+                }
+            }
+        }
+    }
+    
+    //MARK: Find out what that for
+    func retreivePurchase(_ foodId: Int64, _ recipeId: Int64, completion: @escaping (PurchaseModel?, Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/purchase?foodid=\(foodId)&userid=\(globalUserId)&recipeid=\(recipeId)", headers: header).validate().responseDecodable(of: PurchaseModel.self) { response in
+                switch response.result {
+                case .success(let succcess):
+                    completion(succcess, nil)
+                case .failure(let error):
+                    print("Alamofire failed: ", error.localizedDescription)
+                    completion(nil, error)
+                }
+            }
+        }
+    }
+
+    func deletePurchase(_ purchaseId: Int64, completion: @escaping (Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/purchase/delete/\(purchaseId)", method: .delete, headers: header).validate(statusCode: 200 ..< 299).response { response in
+                switch response.result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    print("Alamofire failed: ", error.localizedDescription)
+                    completion(error)
+                }
+            }
+        }
+    }
+    
+    //MARK: Delte all purchases of recipr from the cart
+    func deleteCartRecipePurchase(_ recipeId: Int64, completion: @escaping (Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/purchase/delete/cart?userid=\(globalUserId)&recipeid=\(recipeId)", method: .delete, headers: header).validate(statusCode: 200 ..< 299).response { response in
+                switch response.result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    if let status = response.response {
+                        if status.statusCode > 226 {
+                            print("Alamofire failed: ", error.localizedDescription)
+                            completion(error)
+                        }
+                    }
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func updatePurchaseInCart(_ purchaseId: Int64, isAdd: Bool, completion: @escaping (Error?) -> ()) {
+        getHeader { header in
+            AF.request("\(host)/v1/purchase/cart?id=\(purchaseId)&isadd=\(isAdd)&user=\(globalUserId)", method: .put, headers: header).validate(statusCode: 200 ..< 299).response { response in
+                switch response.result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    if let status = response.response {
+                        if status.statusCode > 226 {
+                            print("Alamofire failed: ", error.localizedDescription)
+                            completion(error)
+                        }
+                    }
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func getHeader(completion: (HTTPHeaders) -> ()) {
+        guard let authanticateManager = authanticateManager else { return }
+        var headers = HTTPHeaders()
+        authanticateManager.getUserToken { token in
+//            print(token)
+            headers = [
+                "Authorization": "Bearer \(token)",
+                "Content-Type": "application/json"
+            ]
+        }
+        completion(headers)
+    }
 }
