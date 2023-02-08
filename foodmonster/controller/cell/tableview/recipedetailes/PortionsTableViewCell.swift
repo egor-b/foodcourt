@@ -9,8 +9,8 @@ import UIKit
 
 class PortionsTableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var potryionsLabel: UILabel!
-    @IBOutlet private weak var portionsStepper: UIStepper!
+    @IBOutlet weak var potryionsLabel: UILabel!
+    @IBOutlet weak var portionsStepper: UIStepper!
     
     var stepperValue: Int = 0
     
@@ -21,7 +21,6 @@ class PortionsTableViewCell: UITableViewCell {
             potryionsLabel.text = String(viewModel.recipe.serve)
             portionsStepper.value = Double(stepperValue)
             portionsStepper.minimumValue = 1
-            portionsStepper.addTarget(self, action: #selector(changePortionAmount), for: .valueChanged)
         }
     }
 
@@ -31,9 +30,6 @@ class PortionsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @objc func changePortionAmount() {
-        stepperValue = Int(portionsStepper.value)
-        potryionsLabel.text = String(stepperValue)
-    }
+    
 
 }

@@ -16,14 +16,20 @@ class NewStepViewController: UIViewController {
     var byteImageArray = Data()
     
     private let pickerController = UIImagePickerController()
-    
+    private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerController.delegate = self
+        firebaseStorage = FirebaseStorageServiceManager()
         setTapGuestureRecognize()
         stepDescriptionTextView.text = step.step
-        if step.pic.count > 1 {
+        if !step.img.isEmpty {
             addStageView.image = UIImage(data: step.img)
+        } else {
+            firebaseStorage?.retreiveImage(step.pic, completion: { img in
+                self.addStageView.image = UIImage(data: img)
+            })
         }
         stepDescriptionTextView.becomeFirstResponder()
         // Do any additional setup after loading the view.

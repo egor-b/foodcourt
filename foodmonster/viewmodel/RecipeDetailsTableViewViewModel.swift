@@ -95,16 +95,16 @@ class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
             } else {
                 newWeight = recipe.food[i].size - portionWeight
             }
-            recipe.food[i].size = newWeight
+            let userRepresent = round(newWeight * 100) / 100
+            recipe.food[i].size = userRepresent
             if let cell = tableView.cellForRow(at: IndexPath(row: i+1, section: 1)) as? IngredientOfRecipeTableViewCell {
-                cell.countOfIngredientLabel.text = "\(newWeight) \(recipe.food[i].measure)"
-                cell.purchase.size = newWeight
+                cell.countOfIngredientLabel.text = "\(userRepresent) \(recipe.food[i].measure)"
+                cell.purchase.size = userRepresent
                 cell.purchase.serve = portions
             }
         }
         if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? ServeTableViewCell {
             cell.serveLabel.text = "Ingredients / \(portions) serves"
-
         }
         recipe.serve = portions
         self.recipe = recipe

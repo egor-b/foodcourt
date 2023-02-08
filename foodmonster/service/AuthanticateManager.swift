@@ -56,7 +56,7 @@ class AuthanticateManager: AuthanticateManagerProtocol {
                 completion(error)
             }
             var user = user
-            guard var uid = result?.user.uid else { return }
+            guard let uid = result?.user.uid else { return }
             self.sendEmailVerification(completion: { _ in })
             user.uid = uid
             self.createUser(user: user) { error in
@@ -80,8 +80,6 @@ class AuthanticateManager: AuthanticateManagerProtocol {
     }
     
     func loginByGoogle(view: UIViewController, completion: @escaping (Error?) -> ()) {
-//        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-//        let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.signIn(withPresenting: view) { [unowned self] user, error in
             if let error = error {
               print ("Error Google log in: %@", error.localizedDescription)

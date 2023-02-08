@@ -32,6 +32,7 @@ protocol NewRecipeTableViewViewModelProtocol {
     func updateRecipe(completion: @escaping(Error?) -> ())
     
     func updateStepNumber()
+    func changeAmountOfPortions(tableView: UITableView, serves: Int)
 }
 
 class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
@@ -114,24 +115,33 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         step.stepNumber = recipe.step.count + 1
         step.step = desc
         step.img = pic
-        recipe.step.append(step)
         if !pic.isEmpty {
             let name = "stage/\(randomString()).jpeg"
             step.pic = name
         }
+        recipe.step.append(step)
     }
     
     func addMainImage(pic: Data) {
         if recipe.image.count == 0 {
             var img = ImageModel()
-            var name = "image/\(randomString()).jpeg"
+            let name = "image/\(randomString()).jpeg"
             img.img = pic
             img.pic = name
             recipe.image.append(img)
         } else {
+            let ref = recipe.image[0].pic
+            imageCash.setObject(pic as AnyObject, forKey: ref as AnyObject)
             recipe.image[0].img = pic
         }
         
+    }
+    
+    func changeAmountOfPortions(tableView: UITableView, serves: Int) {
+        recipe.serve = serves
+        if let cell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? PortionsTableViewCell {
+            cell.potryionsLabel.text = "\(serves)"
+        }
     }
     
     func updateIngredient(index: Int, name: String, count: Double, messure: String) {
@@ -187,7 +197,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     
     func saveImages(completion: @escaping (Error?) -> ()) {
         guard let firebaseStorage = firebaseStorage else { return }
-        if recipe.image.count != 0 {
+        if recipe.image.count != 0 && !recipe.image[0].img.isEmpty {
             firebaseStorage.saveImage(recipe.image[0].pic, img: recipe.image[0].img, completion: { error in
                 if let error = error {
                     completion(error)
@@ -241,7 +251,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
             el.stepNumber = s.stepNumber
             step.append(el)
         }
-        recipe.step = step
+        recipe.step = step.sorted(by: { $0.stepNumber < $1.stepNumber})
         recipe.food = food
         recipe.image = image
     }

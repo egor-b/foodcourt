@@ -38,12 +38,13 @@ class NewRecipeTableViewController: UITableViewController {
                     self.addPicImageView.image = UIImage(data: img)
                 })
             }
+            
         } else {
             newRecipeViewModel?.recipe.type = MainMenu.desert.rawValue
         }
         
         
-        setTablwFooter()
+        setTableFooter()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,27 +56,24 @@ class NewRecipeTableViewController: UITableViewController {
         
         if let auth = auth {
             if !auth.checkEmailVerification() {
-                let dialogMessage = UIAlertController(title: "Verification error", message: "Your email was not verified. Please check you email and complete registration.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
-                    self.tabBarController?.selectedIndex = 0
-                })
-                let reSend = UIAlertAction(title: "ReSend", style: .default, handler: { _ in
+                self.customAlertWithHandler(title: "Verification error",
+                                            message: "Your email was not verified. Please check you email and complete registration.",
+                                            submitTitle: "ReSend", declineTitle: "Cancel") {
                     auth.sendEmailVerification(completion: { error in
                         if let error = error {
                             self.showAlert(title: "Too many requests", message: error.localizedDescription)
                         }
                     })
                     self.tabBarController?.selectedIndex = 0
-                })
-                dialogMessage.addAction(reSend)
-                dialogMessage.addAction(ok)
-                self.present(dialogMessage, animated: true, completion: nil)
+                } declineHandler: {
+                    self.tabBarController?.selectedIndex = 0
+                }
             }
         }
         
     }
     
-    func setTablwFooter() {
+    func setTableFooter() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 40))
         view.backgroundColor = UIColor(named: "backgroundColorSet")
         self.tableView.tableFooterView = view
@@ -123,6 +121,7 @@ class NewRecipeTableViewController: UITableViewController {
             if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Cells.PORTIONS_CELL.rawValue, for: indexPath) as? PortionsTableViewCell
                 guard let portionsCell = cell else { return UITableViewCell() }
+                portionsCell.portionsStepper.addTarget(self, action: #selector(changePortionAmount), for: .valueChanged)
                 portionsCell.viewModel = newRecipeViewModel?.cellViewModel()
                 return portionsCell
             }
@@ -437,6 +436,7 @@ extension NewRecipeTableViewController {
         let desc = stepController.stepDescriptionTextView.text ?? ""
         let img = stepController.byteImageArray
         let ref = stepController.step.pic
+        imageCash.removeObject(forKey: ref as AnyObject)
         if stepController.step.stepNumber == 0 {
             newRecipeViewModel?.addStep(desc: desc, pic: img)
         } else {
@@ -444,6 +444,11 @@ extension NewRecipeTableViewController {
             self.newRecipeViewModel?.updateStep(step: step, desc: desc, img: ref, pic: img)
         }
         tableView.reloadData()
+    }
+    
+    @objc func changePortionAmount(_ sender: UIStepper) {
+        let stepperValue = Int(sender.value)
+        newRecipeViewModel?.changeAmountOfPortions(tableView: tableView, serves: stepperValue)
     }
     
 }
@@ -595,6 +600,7 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
         if addPicImageView.image != nil {
             actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
                 self.addPicImageView.image = nil
+                imageCash.removeObject(forKey: newRecipeViewModel?.recipe.image[0].pic as AnyObject)
                 newRecipeViewModel?.recipe.image.remove(at: 0)
             }))
         }
