@@ -21,7 +21,11 @@ class StepOfRecipeTableViewCell: UITableViewCell {
             guard let viewModel = viewModel else { return }
             firebaseStorage = FirebaseStorageServiceManager()
             stepDescriptionLabel?.text = "STEP \(viewModel.step.stepNumber). \n" + viewModel.step.step
-            if viewModel.step.pic.count > 1 {
+            if !viewModel.step.img.isEmpty {
+                self.stepImage.image = UIImage(data: viewModel.step.img)
+                self.spinnerView.stopAnimating()
+                self.spinnerView.isHidden = true
+            } else if !viewModel.step.pic.isEmpty {
                 let ref = viewModel.step.pic
                 firebaseStorage?.retreiveImage(ref, completion: { imageData in
                     self.stepImage.image = UIImage(data: imageData)

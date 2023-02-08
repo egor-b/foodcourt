@@ -237,7 +237,13 @@ class NewRecipeTableViewController: UITableViewController {
                             self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
                             return
                         } else {
-                            self.performSegue(withIdentifier: "saveUpdatedRecipeUnwindSegue", sender: self)
+                            self.customAlertWithHandler(title: "Success", message: "Recipe is updated", submitTitle: "Sweet", declineTitle: "sss") {
+                                self.performSegue(withIdentifier: "saveUpdatedRecipeUnwindSegue", sender: self)
+                            } declineHandler: {
+                                
+                            }
+
+                            
                         }
                     }
                 } else {
@@ -436,7 +442,6 @@ extension NewRecipeTableViewController {
         let desc = stepController.stepDescriptionTextView.text ?? ""
         let img = stepController.byteImageArray
         let ref = stepController.step.pic
-        imageCash.removeObject(forKey: ref as AnyObject)
         if stepController.step.stepNumber == 0 {
             newRecipeViewModel?.addStep(desc: desc, pic: img)
         } else {

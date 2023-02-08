@@ -152,11 +152,12 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     
     func updateStep(step: Int, desc: String, img: String, pic: Data) {
         recipe.step[step - 1].step = desc
-        recipe.step[step - 1].img = pic
         if !pic.isEmpty && !img.isEmpty {
             recipe.step[step - 1].pic = img
+            recipe.step[step - 1].img = pic
         } else if pic.isEmpty && !img.isEmpty {
             recipe.step[step - 1].pic = ""
+            imageCash.removeObject(forKey: img as AnyObject)
         } else {
             let name = "image/\(randomString()).jpeg"
             recipe.step[step - 1].pic = name
@@ -231,7 +232,9 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         for img in editRecipe.image {
             var el = ImageModel()
             el.pic = img.pic
-            el.img = img.img
+            if let imageFromCache = imageCash.object(forKey: img.pic as AnyObject) as? Data {
+                el.img = imageFromCache
+            }
             image.append(el)
         }
         for f in editRecipe.food {
@@ -246,9 +249,11 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         for s in editRecipe.step {
             var el = StepModel()
             el.step = s.step
-            el.img = s.img
             el.pic = s.pic
             el.stepNumber = s.stepNumber
+            if let imageFromCache = imageCash.object(forKey: s.pic as AnyObject) as? Data {
+                el.img = imageFromCache
+            }
             step.append(el)
         }
         recipe.step = step.sorted(by: { $0.stepNumber < $1.stepNumber})

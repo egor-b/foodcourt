@@ -71,6 +71,7 @@ extension NewStepViewController: UIImagePickerControllerDelegate, UINavigationCo
         if addStageView.image != nil {
             actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
                 self.addStageView.image = nil
+                imageCash.removeObject(forKey: step.pic as AnyObject)
             }))
         }
         present(actionSheet, animated: true, completion: nil)
@@ -81,6 +82,9 @@ extension NewStepViewController: UIImagePickerControllerDelegate, UINavigationCo
             addStageView.image = image
             guard let data = image.jpegData(compressionQuality: 0.2) else { return }
             byteImageArray = data
+            if !step.pic.isEmpty {
+                imageCash.removeObject(forKey: step.pic as AnyObject)
+            }
         }
         pickerController.dismiss(animated: true, completion: nil)
     }
