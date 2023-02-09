@@ -76,5 +76,13 @@ extension UIViewController {
         self.present(dialogMessage, animated: true, completion: nil)
     }
     
+    func customAlertHandlerOkButton(title: String, message: String, submitTitle: String, succcessHandler: @escaping () -> ()) {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: submitTitle, style: .default, handler: { _ in
+            succcessHandler()
+        })
+        dialogMessage.addAction(ok)
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
 }
 

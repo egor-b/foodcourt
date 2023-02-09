@@ -303,7 +303,7 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             updateAvatarImageView.image = image
-            guard let data = image.jpegData(compressionQuality: 0.2) else { return }
+            guard let data = image.jpegData(compressionQuality: 0.1) else { return }
             profileTableViewModel?.updateUserPic(img: data, completion: { error in
                 if let error = error {
                     self.showAlert(title: "Oooops .. ", message: error.localizedDescription)

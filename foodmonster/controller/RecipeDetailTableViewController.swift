@@ -180,9 +180,11 @@ class RecipeDetailTableViewController: UITableViewController {
     }
     
     @IBAction func saveUpdatedRecipeUnwindSegue(_ sender: UIStoryboardSegue) {
-        guard let editedRecipeController = sender.source as? NewRecipeTableViewController else { return }
+        guard let editedRecipeController = sender.source as? NewRecipeTableViewController, let recipeIndex = recipeIndex, let recipesTableViewViewModel = recipesTableViewViewModel else { return }
         let newRecipe = editedRecipeController.newRecipeViewModel?.getRecipe()
         recipeDetailsTableViewModel = RecipeDetailsTableViewViewModel(recipe: newRecipe!)
+        recipesTableViewViewModel.updateRecipeByIndex(index: recipeIndex, recipe: newRecipe)
+        loadMainImage()
         tableView.reloadData()
     }
     

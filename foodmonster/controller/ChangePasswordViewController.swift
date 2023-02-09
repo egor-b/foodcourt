@@ -17,12 +17,18 @@ class ChangePasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         authManager = AuthanticateManager()
+        passwordTextField.delegate = self
+        repeatPasswordTextField.delegate = self
         passwordTextField.becomeFirstResponder()
         
         // Do any additional setup after loading the view.
     }
     
     @IBAction func changePasswordButton(_ sender: Any) {
+        changePasswordButtonPressed()
+    }
+    
+    private func changePasswordButtonPressed() {
         guard let authManager = authManager else {
             return
         }
@@ -35,10 +41,13 @@ class ChangePasswordViewController: UIViewController {
                         self?.navigationController?.popToRootViewController(animated: true)
                     }
                 }
+            } else {
+                self.showAlert(title: "Oooops ... ", message: "Password mismatch.")
             }
+        } else {
+            self.showAlert(title: "Oooops ... ", message: "Looks like you didn't set new password.")
         }
     }
-    
     /*
     // MARK: - Navigation
 
@@ -49,4 +58,19 @@ class ChangePasswordViewController: UIViewController {
     }
     */
 
+}
+
+extension ChangePasswordViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            changePasswordButtonPressed()
+        }
+        return true
+    }
+    
 }

@@ -80,7 +80,7 @@ extension NewStepViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             addStageView.image = image
-            guard let data = image.jpegData(compressionQuality: 0.2) else { return }
+            guard let data = image.jpegData(compressionQuality: 0.1) else { return }
             byteImageArray = data
             if !step.pic.isEmpty {
                 imageCash.removeObject(forKey: step.pic as AnyObject)

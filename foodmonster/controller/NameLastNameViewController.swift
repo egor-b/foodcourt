@@ -21,6 +21,8 @@ class NameLastNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.becomeFirstResponder()
+        nameTextField.delegate = self
+        lastNameTextField.delegate = self
         authManager = AuthanticateManager()
         updateButton.addTarget(self, action: #selector(sundUpdateInformation), for: .touchUpInside)
         // Do any additional setup after loading the view.
@@ -31,6 +33,10 @@ class NameLastNameViewController: UIViewController {
     
 
     @objc func sundUpdateInformation() {
+        updateNameButtonPressed()
+    }
+    
+    private func updateNameButtonPressed() {
         guard let authManager = authManager, var user = user else { return }
         if !nameTextField.text!.isEmpty && !lastNameTextField.text!.isEmpty {
             if user.name != nameTextField.text || user.lastName != lastNameTextField.text {
@@ -60,4 +66,19 @@ class NameLastNameViewController: UIViewController {
     }
     */
 
+}
+
+extension NameLastNameViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            updateNameButtonPressed()
+        }
+        return true
+    }
+    
 }

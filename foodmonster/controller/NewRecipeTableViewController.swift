@@ -16,6 +16,7 @@ class NewRecipeTableViewController: UITableViewController {
     private let picker = UIPickerView()
     private var toolBar = UIToolbar()
     private let pickerController = UIImagePickerController()
+    private let activityView = UIActivityIndicatorView(style: .large)
     
     var editRecipe: Recipe?
     
@@ -230,6 +231,7 @@ class NewRecipeTableViewController: UITableViewController {
         }
         if indexPath.section == 3 {
             if indexPath.row == 0 {
+                
                 guard let newRecipeViewModel = newRecipeViewModel else { return }
                 if editRecipe != nil {
                     newRecipeViewModel.updateRecipe() { [self] error in
@@ -237,13 +239,9 @@ class NewRecipeTableViewController: UITableViewController {
                             self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
                             return
                         } else {
-                            self.customAlertWithHandler(title: "Success", message: "Recipe is updated", submitTitle: "Sweet", declineTitle: "sss") {
+                            self.customAlertHandlerOkButton(title: "Success", message: "Recipe is updated", submitTitle: "Sweet") {
                                 self.performSegue(withIdentifier: "saveUpdatedRecipeUnwindSegue", sender: self)
-                            } declineHandler: {
-                                
                             }
-
-                            
                         }
                     }
                 } else {
@@ -263,7 +261,12 @@ class NewRecipeTableViewController: UITableViewController {
                         if let error = error {
                             self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
                         } else {
-                            self.dismiss(animated: true, completion: nil)
+                            newRecipeViewModel.loadEditRecipe(Recipe())
+                            self.addPicImageView.image = nil
+                            self.tableView.reloadData()
+                            self.customAlertHandlerOkButton(title: "Success", message: "Recipe was saved", submitTitle: "Sweet") {
+                                self.tabBarController?.selectedIndex = 1
+                            }
                         }
                     }
                 }
@@ -605,7 +608,6 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
         if addPicImageView.image != nil {
             actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
                 self.addPicImageView.image = nil
-                imageCash.removeObject(forKey: newRecipeViewModel?.recipe.image[0].pic as AnyObject)
                 newRecipeViewModel?.recipe.image.remove(at: 0)
             }))
         }
@@ -615,7 +617,7 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             addPicImageView.image = image
-            guard let data = image.jpegData(compressionQuality: 0.2) else { return }
+            guard let data = image.jpegData(compressionQuality: 0.1) else { return }
             newRecipeViewModel?.addMainImage(pic: data)
         }
         pickerController.dismiss(animated: true, completion: nil)

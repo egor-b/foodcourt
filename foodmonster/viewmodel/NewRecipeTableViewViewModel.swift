@@ -166,7 +166,8 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     
     func save(completion: @escaping(Error?) -> ()) {
         guard let dataNetworkManager = dataNetworkManager else { return }
-        dataNetworkManager.saveRecipe(recipe: self.recipe, completion: { err in
+        let dbr = prepareRecipeForDb()
+        dataNetworkManager.saveRecipe(recipe: dbr, completion: { err in
             if let err = err {
                 completion(err)
             }
@@ -182,7 +183,8 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     
     func updateRecipe(completion: @escaping(Error?) -> ()) {
         guard let dataNetworkManager = dataNetworkManager else { return }
-        dataNetworkManager.updateRecipe(recipe: self.recipe, completion: { err in
+        let dbr = prepareRecipeForDb()
+        dataNetworkManager.updateRecipe(recipe: dbr, completion: { err in
             if let err = err {
                 completion(err)
             }
@@ -317,6 +319,22 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
             s.append(letters.randomElement()!)
         }
         return s
+    }
+    
+    func prepareRecipeForDb() -> RecipeModel {
+        var rm = recipe
+        
+        for (i, _) in rm.step.enumerated() {
+            rm.step[i].img = Data()
+        }
+        for (i, _) in rm.image.enumerated() {
+            rm.image[i].img = Data()
+        }
+        for (i, _) in rm.food.enumerated() {
+            rm.food[i].foodstuff.img = Data()
+        }
+        
+        return rm
     }
     
 }

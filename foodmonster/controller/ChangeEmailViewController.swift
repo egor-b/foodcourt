@@ -20,6 +20,8 @@ class ChangeEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.becomeFirstResponder()
+        emailTextField.delegate = self
+        repeatEmailTextField.delegate = self
         authManager = AuthanticateManager()
         confirmButton.addTarget(self, action: #selector(sundUpdateInformation), for: .touchUpInside)
         // Do any additional setup after loading the view.
@@ -28,6 +30,10 @@ class ChangeEmailViewController: UIViewController {
     }
     
     @objc func sundUpdateInformation() {
+        updateEmailButtonPressed()
+    }
+    
+    private func updateEmailButtonPressed() {
         guard let authManager = authManager, var user = user else { return }
         
         if !emailTextField.text!.isEmpty && !repeatEmailTextField.text!.isEmpty {
@@ -61,4 +67,19 @@ class ChangeEmailViewController: UIViewController {
     }
     */
 
+}
+
+extension ChangeEmailViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            updateEmailButtonPressed()
+        }
+        return true
+    }
+    
 }

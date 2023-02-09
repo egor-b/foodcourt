@@ -22,6 +22,7 @@ protocol CategoryTableViewViewModelProtocol {
     
     func setRecipeList(_ list: [Recipe])
     func getRecipeByIndex(index: Int) -> Recipe
+    func updateRecipeByIndex(index: Int, recipe: Recipe?)
     
 }
 
@@ -104,5 +105,10 @@ class CategoryTableViewViewModel: CategoryTableViewViewModelProtocol {
     
     func getRecipeByIndex(index: Int) -> Recipe {
         return listOfResipes[index]
+    }
+    
+    func updateRecipeByIndex(index: Int, recipe: Recipe?) {
+        guard let recipe = recipe else { return }
+        listOfResipes[index] = recipe
     }
 }
