@@ -73,7 +73,7 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let categoryTableViewViewModel = categoryTableViewViewModel else { return }
-        if categoryTableViewViewModel.getRecipeList().count == indexPath.row - 1 {
+        if categoryTableViewViewModel.getRecipeList().count - 1 == indexPath.row {
             if !isLoading && isPaging {
                 isLoading = true
                 categoryTableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (isLast, err) in

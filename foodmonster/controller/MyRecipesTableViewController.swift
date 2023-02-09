@@ -76,7 +76,7 @@ class MyRecipesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let tableViewViewModel = tableViewViewModel else { return }
-        if tableViewViewModel.getRecipeList().count - 1 == indexPath.row - 1 {
+        if tableViewViewModel.getRecipeList().count - 1 == indexPath.row {
             if !isLoading && isPaging {
                 isLoading = true
                 tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (isLast, err) in

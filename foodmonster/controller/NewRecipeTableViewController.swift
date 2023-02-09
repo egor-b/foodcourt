@@ -257,14 +257,14 @@ class NewRecipeTableViewController: UITableViewController {
                     }
                 }
                 func finalyzing() {
-                    newRecipeViewModel.save() { [self]error in
+                    newRecipeViewModel.save() { error in
                         if let error = error {
                             self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
                         } else {
-                            newRecipeViewModel.loadEditRecipe(Recipe())
-                            self.addPicImageView.image = nil
-                            self.tableView.reloadData()
                             self.customAlertHandlerOkButton(title: "Success", message: "Recipe was saved", submitTitle: "Sweet") {
+                                newRecipeViewModel.loadEditRecipe(Recipe())
+                                self.addPicImageView.image = nil
+                                self.tableView.reloadData()
                                 self.tabBarController?.selectedIndex = 1
                             }
                         }

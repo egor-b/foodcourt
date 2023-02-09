@@ -11,6 +11,7 @@ enum MainMenu: String, CaseIterable {
     case desert = "Dessert"
     case lunch = "Lunch"
     case side = "Side"
+    case psta = "Pasta"
     case meat = "Meat"
     case seafood = "Seafood"
     case soup = "Soup"

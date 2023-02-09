@@ -170,12 +170,14 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         dataNetworkManager.saveRecipe(recipe: dbr, completion: { err in
             if let err = err {
                 completion(err)
-            }
-            self.saveImages { error in
-                if let error = error {
-                    completion(error)
+            } else {
+                self.saveImages { error in
+                    if let error = error {
+                        completion(error)
+                    } else {
+                        completion(nil)
+                    }
                 }
-                completion(nil)
             }
         })
         
