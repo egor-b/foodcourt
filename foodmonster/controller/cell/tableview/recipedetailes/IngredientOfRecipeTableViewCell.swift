@@ -37,7 +37,7 @@ class IngredientOfRecipeTableViewCell: UITableViewCell {
     @objc func addToPurches(sender: UIButton) {
         guard let networkManger = networkManger else { return }
         if sender.currentImage == UIImage(named: "checkmark") {
-            networkManger.deletePurchase(purchase.id, completion: { err in
+            networkManger.deletePurchase(purchase, completion: { err in
                 if let err = err {
                     print(err.localizedDescription)
 //                    completion()

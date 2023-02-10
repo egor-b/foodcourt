@@ -30,7 +30,6 @@ class RecipeDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         registerNibsCells()
         spinnerView.startAnimating()
-        tableView.separatorStyle = .none
         
         firebaseStorage = FirebaseStorageServiceManager()
                                                                          
@@ -92,6 +91,7 @@ class RecipeDetailTableViewController: UITableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Cells.INFO_RECIPE_CELL.rawValue) as? InfoRecipeTableViewCell
             guard let tableViewCell = cell else { return UITableViewCell() }
+            tableView.separatorColor = UIColor(named: "backgroundColorSet")
             let cellViewModel = recipeDetailsTableViewModel.cellViewModel(forIndexPath: indexPath)
             tableViewCell.viewModel = cellViewModel
             return tableViewCell

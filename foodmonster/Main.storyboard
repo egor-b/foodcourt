@@ -92,11 +92,10 @@
         <scene sceneID="ebt-VT-Jmf">
             <objects>
                 <tableViewController id="GyE-3M-TRZ" customClass="RecipeDetailTableViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4tF-MP-yRK" customClass="HeaderDetailRecipeTableView" customModule="foodmonster" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4tF-MP-yRK" customClass="HeaderDetailRecipeTableView" customModule="foodmonster" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="backgroundColorSet"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="backgroundColor" name="lightBackgroundColorSet"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="UfX-Gr-e7d">
                             <rect key="frame" x="0.0" y="0.0" width="430" height="250"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -150,27 +149,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="430" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98039215690000003" green="0.97254901959999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.98564046620000001" green="0.98015433549999997" blue="0.95940667390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="1fb-PL-YBV">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" id="VPG-G7-95S">
-                                        <rect key="frame" x="0.0" y="438" width="430" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="438" width="430" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VPG-G7-95S" id="PmE-Oj-2ue">
-                                            <rect key="frame" x="0.0" y="0.0" width="430" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98039215690000003" green="0.97254901959999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="backgroundColorSet"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="Tnp-ea-zYF">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aboutRecipeCell" rowHeight="76" id="5sc-8x-B4r">
-                                        <rect key="frame" x="0.0" y="559.66666793823242" width="430" height="76"/>
+                                        <rect key="frame" x="0.0" y="560" width="430" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5sc-8x-B4r" id="0eP-zt-1WY">
                                             <rect key="frame" x="0.0" y="0.0" width="430" height="76"/>
@@ -183,7 +182,7 @@
                             <tableViewSection id="AB7-sp-68Q">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stepCell" rowHeight="93" id="5ox-es-hwR">
-                                        <rect key="frame" x="0.0" y="713.66666793823242" width="430" height="93"/>
+                                        <rect key="frame" x="0.0" y="714" width="430" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ox-es-hwR" id="M4Q-aR-PTh">
                                             <rect key="frame" x="0.0" y="0.0" width="430" height="93"/>
@@ -847,7 +846,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kU8-t9-Gum">
-                                <rect key="frame" x="-2" y="0.0" width="426" height="44"/>
+                                <rect key="frame" x="-2" y="0.0" width="425" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" name="backgroundColorSet"/>
                                 <textAttributes key="titleTextAttributes">

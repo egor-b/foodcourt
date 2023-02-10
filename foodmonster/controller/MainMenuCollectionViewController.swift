@@ -7,8 +7,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "MainMenuCollectionViewCell"
-
 class MainMenuCollectionViewController: UICollectionViewController {
     
     private let constant = Constant()

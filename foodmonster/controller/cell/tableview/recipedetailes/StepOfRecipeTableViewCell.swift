@@ -12,6 +12,7 @@ class StepOfRecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var stepImage: UIImageView!
     @IBOutlet weak var stepDescriptionLabel: UILabel!
     @IBOutlet weak var spinnerView: UIActivityIndicatorView!
+    @IBOutlet weak var stepImageHeighConstraint: NSLayoutConstraint!
     
     private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
     
@@ -33,9 +34,11 @@ class StepOfRecipeTableViewCell: UITableViewCell {
                     self.spinnerView.isHidden = true
                 })
             } else {
+                stepImageHeighConstraint.constant = 0
                 self.spinnerView.stopAnimating()
                 self.spinnerView.isHidden = true
             }
+            
         }
     }
 

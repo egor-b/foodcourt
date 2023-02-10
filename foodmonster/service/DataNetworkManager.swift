@@ -21,7 +21,7 @@ protocol DataNetworkManagerProtocol {
     func addPurchase(_ purchase: PurchaseModel, completion: @escaping (Error?) -> ())
     func retreivePurchaseList(completion: @escaping  ([Purchase]?, Error?) -> ())
     func retreivePurchase(_ foodId: Int64, _ recipeId: Int64, completion: @escaping (PurchaseModel?, Error?) -> ())
-    func deletePurchase(_ purchaseId: Int64, completion: @escaping (Error?) -> ())
+    func deletePurchase(_ purchase: PurchaseModel, completion: @escaping (Error?) -> ())
     func deleteCartRecipePurchase(_ recipeId: Int64, completion: @escaping (Error?) -> ())
     func updatePurchaseInCart(_ purchaseId: Int64, isAdd: Bool, completion: @escaping (Error?) -> ())
     
@@ -180,9 +180,9 @@ class DataNetworkManager: DataNetworkManagerProtocol {
         }
     }
 
-    func deletePurchase(_ purchaseId: Int64, completion: @escaping (Error?) -> ()) {
+    func deletePurchase(_ purchase: PurchaseModel, completion: @escaping (Error?) -> ()) {
         getHeader { header in
-            AF.request("\(host)/v1/purchase/delete/\(purchaseId)", method: .delete, headers: header).validate(statusCode: 200 ..< 299).response { response in
+            AF.request("\(host)/v1/purchase/delete", method: .delete, parameters: purchase, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
                 case .success(_):
                     completion(nil)
