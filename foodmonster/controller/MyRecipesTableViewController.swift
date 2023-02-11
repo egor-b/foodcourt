@@ -8,7 +8,7 @@
 import UIKit
 
 class MyRecipesTableViewController: UITableViewController {
-
+    
     private let searchController = UISearchController(searchResultsController: nil)
     private let activityView = UIActivityIndicatorView(style: .large)
     private var tableViewViewModel: CategoryTableViewViewModelProtocol?
@@ -41,6 +41,9 @@ class MyRecipesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if globalUserId.isEmpty {
+            showUnknownUserAlert()
+        }
         tableView.reloadData()
     }
     
@@ -55,16 +58,16 @@ class MyRecipesTableViewController: UITableViewController {
                 self?.currentPage += 1
             }
             self?.stopActivityIndicatory(activityView: self!.activityView)
-         }
+        }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return tableViewViewModel?.numberOfRows() ?? 0
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.MY_RECIPE_CELL.rawValue, for: indexPath) as? MyRecipesTableViewCell
@@ -112,7 +115,7 @@ class MyRecipesTableViewController: UITableViewController {
             }
         }
     }
-
+    
 }
 
 extension MyRecipesTableViewController {
@@ -127,8 +130,8 @@ extension MyRecipesTableViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.compactAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = constant.darkTitleColor
         navigationItem.title = title
@@ -141,7 +144,7 @@ extension MyRecipesTableViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.searchBarStyle = .minimal
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Find your favorite"
+        searchController.searchBar.placeholder = "Type name and search recipe"
         definesPresentationContext = true
     }
     
@@ -167,13 +170,13 @@ extension MyRecipesTableViewController {
                 }
             }
             self?.stopActivityIndicatory(activityView: self!.activityView)
-         }
+        }
     }
     
 }
 
 extension MyRecipesTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
-   
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filterCriteria.name = ""
         isLoading = false
@@ -181,7 +184,7 @@ extension MyRecipesTableViewController: UISearchBarDelegate, UISearchResultsUpda
         currentPage = 0
         fillOutController()
     }
-
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text, let tableViewViewModel = tableViewViewModel else { return }
         if !tableViewViewModel.getRecipeList().isEmpty {

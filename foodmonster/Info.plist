@@ -57,9 +57,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>I need acces to your camera for take a pic of your cooking masterpiece</string>
+	<string>If you want to show a photo of your masterpiece, please grant access to the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Let share your cooking masterpiece</string>
+	<string>To add a photo of your masterpiece from the gallery, please grant access to the application.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

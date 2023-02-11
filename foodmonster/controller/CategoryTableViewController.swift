@@ -121,7 +121,7 @@ extension CategoryTableViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.searchBarStyle = .minimal
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Find your favorite"
+        searchController.searchBar.placeholder = "Start typing to find"
         definesPresentationContext = true
     }
     

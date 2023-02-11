@@ -10,6 +10,7 @@ import Foundation
 enum MainMenu: String, CaseIterable {
     case desert = "Dessert"
     case lunch = "Lunch"
+    case salad = "Salad"
     case side = "Side"
     case psta = "Pasta"
     case meat = "Meat"

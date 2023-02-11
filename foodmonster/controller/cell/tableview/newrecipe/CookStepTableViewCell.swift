@@ -12,6 +12,8 @@ class CookStepTableViewCell: UITableViewCell {
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var stepImageView: UIImageView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cookImageHeightConstraint: NSLayoutConstraint!
     
     private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
 
@@ -37,6 +39,8 @@ class CookStepTableViewCell: UITableViewCell {
                     stepImageView.image = UIImage(data: viewModel.step.img)
                 }
             } else {
+                imageHeightConstraint.constant = 0
+                cookImageHeightConstraint.constant = 0
                 stepImageView.image = nil
             }
         }
