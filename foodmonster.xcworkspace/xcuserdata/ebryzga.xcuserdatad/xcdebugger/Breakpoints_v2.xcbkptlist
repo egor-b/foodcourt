@@ -134,22 +134,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BD062803-9645-4869-8C32-A430C4E3247F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "foodmonster/controller/NewRecipeTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "442"
-            endingLineNumber = "442"
-            landmarkName = "NewRecipeTableViewController"
-            landmarkType = "21">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "AAC1F599-2ADA-4517-B340-F3C216383B6D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -195,7 +179,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "1009567D-D341-4205-A602-7165197C02E5 - 20e3375366b3186f"
+                  uuid = "1009567D-D341-4205-A602-7165197C02E5 - 20e3375366b3180a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -205,12 +189,12 @@
                   urlString = "file:///Users/ebryzga/Documents/foodcrunch/foodmonster/foodmonster/controller/MyRecipesTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
                   offsetFromSymbolStart = "504">
                </Location>
                <Location
-                  uuid = "1009567D-D341-4205-A602-7165197C02E5 - f68ed6c3a6c7d871"
+                  uuid = "1009567D-D341-4205-A602-7165197C02E5 - f68ed6c3a6c7d814"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -220,12 +204,12 @@
                   urlString = "file:///Users/ebryzga/Documents/foodcrunch/foodmonster/foodmonster/controller/MyRecipesTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
                   offsetFromSymbolStart = "300">
                </Location>
                <Location
-                  uuid = "1009567D-D341-4205-A602-7165197C02E5 - f11813d1b047e0d8"
+                  uuid = "1009567D-D341-4205-A602-7165197C02E5 - f11813d1b047e0bd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -235,8 +219,8 @@
                   urlString = "file:///Users/ebryzga/Documents/foodcrunch/foodmonster/foodmonster/controller/MyRecipesTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
                   offsetFromSymbolStart = "56">
                </Location>
             </Locations>
@@ -256,70 +240,6 @@
             endingLineNumber = "172"
             landmarkName = "save(completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "96ED6FF3-B478-4C21-AEE2-C0860AEDB556"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "foodmonster/controller/cell/tableview/recipedetailes/IngredientOfRecipeTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "checkPurchase(_:_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "96ED6FF3-B478-4C21-AEE2-C0860AEDB556 - 67f8633034079fda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;foodmonster.PurchaseModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in foodmonster.IngredientOfRecipeTableViewCell.checkPurchase(Swift.Int64, Swift.Int64) -&gt; ()"
-                  moduleName = "foodmonster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ebryzga/Documents/foodcrunch/foodmonster/foodmonster/controller/cell/tableview/recipedetailes/IngredientOfRecipeTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "500">
-               </Location>
-               <Location
-                  uuid = "96ED6FF3-B478-4C21-AEE2-C0860AEDB556 - 67f8633034079fda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;foodmonster.PurchaseModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in foodmonster.IngredientOfRecipeTableViewCell.checkPurchase(Swift.Int64, Swift.Int64) -&gt; ()"
-                  moduleName = "foodmonster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ebryzga/Documents/foodcrunch/foodmonster/foodmonster/controller/cell/tableview/recipedetailes/IngredientOfRecipeTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "620">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8992E143-04AC-4206-83EA-C262F262E6C7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "foodmonster/controller/cell/tableview/recipedetailes/IngredientOfRecipeTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "viewModel"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -368,6 +288,22 @@
                   offsetFromSymbolStart = "292">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21420C38-ABB2-4840-A644-51BE7D5F30E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "foodmonster/viewmodel/NewRecipeTableViewViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "loadEditRecipe(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

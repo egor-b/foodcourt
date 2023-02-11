@@ -331,7 +331,7 @@ extension ProfileTableViewController: UIActivityItemSource {
     }
     
     func activityViewControllerLinkMetadata(_: UIActivityViewController) -> LPLinkMetadata? {
-        metadata.title = "Cooker"
+        metadata.title = "Food Monster"
         metadata.originalURL = URL(string: "https://itunes.apple.com/app/id1662192971")
         metadata.url = metadata.originalURL
         // Using a locally stored item

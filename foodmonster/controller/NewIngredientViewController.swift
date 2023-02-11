@@ -53,5 +53,12 @@ extension NewIngredientViewController: UITextFieldDelegate {
         } 
         return true
     }
-    
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let ACCEPTABLE_CHARACTERS = "0123456789/."
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        let filtered = string.components(separatedBy: cs).joined(separator: "")
+
+        return (string == filtered)
+    }
 }

@@ -40,8 +40,6 @@ class NewRecipeTableViewController: UITableViewController {
                 })
             }
             
-        } else {
-            newRecipeViewModel?.recipe.type = MainMenu.desert.rawValue
         }
         
         
@@ -245,15 +243,19 @@ class NewRecipeTableViewController: UITableViewController {
                         }
                     }
                 } else {
-                    if newRecipeViewModel.recipe.food.isEmpty || newRecipeViewModel.recipe.step.isEmpty || newRecipeViewModel.recipe.name.isEmpty {
-                        self.customAlertWithHandler(title: "Quite interesting",
-                                                    message: "Looks like you do not have name or not enough ingredients or cooking steps for your masterpeace.",
-                                                    submitTitle: "Save Anyway",
-                                                    declineTitle: "Cancel") {
-                            finalyzing()
-                        } declineHandler: { }
+                    if newRecipeViewModel.recipe.type.isEmpty {
+                        showAlert(title: "Oooops ... ", message: "Please select a category of your dish.")
                     } else {
-                        finalyzing()
+                        if newRecipeViewModel.recipe.food.isEmpty || newRecipeViewModel.recipe.step.isEmpty || newRecipeViewModel.recipe.name.isEmpty {
+                            self.customAlertWithHandler(title: "Quite interesting",
+                                                        message: "Looks like you do not have name or not enough ingredients or cooking steps for your masterpeace.",
+                                                        submitTitle: "Save Anyway",
+                                                        declineTitle: "Cancel") {
+                                finalyzing()
+                            } declineHandler: { }
+                        } else {
+                            finalyzing()
+                        }
                     }
                 }
                 func finalyzing() {
@@ -262,7 +264,11 @@ class NewRecipeTableViewController: UITableViewController {
                             self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
                         } else {
                             self.customAlertHandlerOkButton(title: "Success", message: "Recipe was saved", submitTitle: "Sweet") {
-                                newRecipeViewModel.loadEditRecipe(Recipe())
+                                if self.editRecipe != nil {
+                                    self.editRecipe = nil
+                                } else {
+                                    self.newRecipeViewModel?.recipe = RecipeModel()
+                                }
                                 self.addPicImageView.image = nil
                                 self.tableView.reloadData()
                                 self.tabBarController?.selectedIndex = 1
@@ -271,8 +277,8 @@ class NewRecipeTableViewController: UITableViewController {
                     }
                 }
             }
-            tableView.deselectRow(at: indexPath, animated: true)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -466,17 +472,35 @@ extension NewRecipeTableViewController: UIPickerViewDelegate, UIPickerViewDataSo
     func setPicker() {
         picker.delegate = self
         picker.dataSource = self
-        picker.backgroundColor = UIColor.white
+
+        picker.backgroundColor = UIColor(named: "lightBackgroundColorSet")?.withAlphaComponent(0.95)
         picker.setValue(UIColor.black, forKey: "textColor")
         picker.autoresizingMask = .flexibleWidth
         picker.contentMode = .center
-        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 460, width: UIScreen.main.bounds.size.width, height: 300)
+        picker.frame = CGRect.init(x: 20, y: self.view.bounds.size.height - 360, width: self.view.bounds.size.width - 40, height: 250)
+        picker.layer.cornerRadius = 15
         
-        self.view.addSubview(picker)
+        toolBar = UIToolbar.init(frame: CGRect.init(x: 29, y: self.view.bounds.size.height - 360, width: self.view.bounds.size.width - 58, height: 40))
+        toolBar.barTintColor = UIColor(named: "lightBackgroundColorSet")
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))
+        done.tintColor = UIColor(named: "pressedButtonColorSet")
+        toolBar.items = [spacer, done]
         
-        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 460, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
-        self.view.addSubview(toolBar)
+        dismissPickerGestureRecognizer()
+        newRecipeViewModel?.recipe.type = MainMenu.desert.rawValue
+        
+        tabBarController?.view.addSubview(picker)
+        tabBarController?.view.addSubview(toolBar)
+
+        let indexPath = IndexPath(row: 1, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    func dismissPickerGestureRecognizer() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer( target: self, action: #selector(onDoneButtonTapped))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     @objc func onDoneButtonTapped() {
@@ -499,53 +523,10 @@ extension NewRecipeTableViewController: UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let value = MainMenu.allCases[row].rawValue
         newRecipeViewModel?.recipe.type = value
-        tableView.reloadData()
+        let indexPath = IndexPath(row: 1, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-}
-
-extension NewRecipeTableViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
-        return true
-    }
-    
-    func addInputAccessoryForTextFields(textFields: [UITextField], dismissable: Bool = true, previousNextable: Bool = false) {
-        for (index, textField) in textFields.enumerated() {
-            let toolbar: UIToolbar = UIToolbar()
-            toolbar.sizeToFit()
-            
-            var items = [UIBarButtonItem]()
-            if previousNextable {
-                let previousButton = UIBarButtonItem(image: UIImage(named: "previous"), style: .plain, target: nil, action: nil)
-                previousButton.width = 30
-                if textField == textFields.first {
-                    previousButton.isEnabled = false
-                } else {
-                    previousButton.target = textFields[index - 1]
-                    previousButton.action = #selector(UITextField.becomeFirstResponder)
-                }
-                
-                let nextButton = UIBarButtonItem(image: UIImage(named: "next"), style: .plain, target: nil, action: nil)
-                nextButton.width = 30
-                if textField == textFields.last {
-                    nextButton.isEnabled = false
-                } else {
-                    nextButton.target = textFields[index + 1]
-                    nextButton.action = #selector(UITextField.becomeFirstResponder)
-                }
-                items.append(contentsOf: [previousButton, nextButton])
-            }
-            
-            let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: view, action: #selector(UIView.endEditing(_:)))
-            items.append(contentsOf: [spacer, doneButton])
-            
-            toolbar.setItems(items, animated: false)
-            textField.inputAccessoryView = toolbar
-        }
-    }
 }
 
 extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

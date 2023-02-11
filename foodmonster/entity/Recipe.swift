@@ -14,7 +14,7 @@ struct Recipe: Codable {
     var time: Int = 0
     var serve: Int = 0
     var level: Double = 0.0
-    var type: String = "Dessert"
+    var type: String = ""
     var about: String = "About"
     private(set) var timestamp: Date = Date()
     private(set) var userId: String = ""
