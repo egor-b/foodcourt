@@ -42,7 +42,7 @@ class ChangeEmailViewController: UIViewController {
                 user.email = emailTextField.text ?? "none"
                 authManager.updateUserInfo(user: user, trigger: "updateEmail") { [weak self] error in
                     if let error = error {
-                        print(error.localizedDescription)
+                        self?.showAlert(title: "Oooops ... ", message: error.localizedDescription)
                     } else {
                         self?.navigationController?.popToRootViewController(animated: true)
                     }

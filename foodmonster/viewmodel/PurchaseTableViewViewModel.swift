@@ -16,7 +16,7 @@ protocol PurchaseTableViewViewModelProtocol {
     func cellCustomPurchaseViewModel(forIndexPath indexPath: IndexPath) -> String?
     func viewForHeader(inSection section: Int, width: CGFloat, height: CGFloat) -> UIView
     
-    func getPurchaseList(completion: @escaping() -> ())
+    func getPurchaseList(completion: @escaping(Error?) -> ())
     
     func getPurchase() -> [Purchase]
     func delteRecipePurchase(forSection section: Int, completion: @escaping(Error?) -> ())
@@ -78,17 +78,16 @@ class PurchaseTableViewViewModel: PurchaseTableViewViewModelProtocol {
         return headerView
     }
     
-    func getPurchaseList(completion: @escaping() -> ()) {
+    func getPurchaseList(completion: @escaping(Error?) -> ()) {
         guard let dataNetworkManager = dataNetworkManager else { return }
         dataNetworkManager.retreivePurchaseList(completion: { [weak self] (list, err)  in
             if let err = err {
-                print(err.localizedDescription)
-                completion()
+                completion(err)
             }
             if let list = list {
                 self?.purchase = list
             }
-            completion()
+            completion(nil)
         })
     }
     

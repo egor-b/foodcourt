@@ -16,7 +16,6 @@ struct User: Codable {
     var name: String = ""
     var lastName: String = ""
     var country: String = ""
-//    var role: String = "USER"
     var isDisable: Bool = false
     var pic: String = ""
     var accountType: String = ""
@@ -28,7 +27,6 @@ struct User: Codable {
         case lastName = "lname"
         case email
         case country
-//        case role
         case pic = "pic"
         case nickname = "username"
         case isDisable = "disable"
@@ -41,7 +39,6 @@ struct User: Codable {
         self.name = name
         self.lastName = lastName
         self.country = Locale.current.regionCode ?? "none"
-//        self.role = role!
         self.isDisable = isDisable
         self.accountType = accountType
         
@@ -54,7 +51,6 @@ struct User: Codable {
         self.name = name
         self.lastName = lastName
         self.country = Locale.current.regionCode ?? "none"
-//        self.role = role!
         self.isDisable = isDisable
         self.pic = pic
         self.accountType = accountType
@@ -81,9 +77,6 @@ struct User: Codable {
         if let country = try values.decode(String?.self, forKey: .country) {
             self.country = country
         }
-//        if let role = try values.decode(String?.self, forKey: .role) {
-//            self.role = role
-//        }
         if let pic = try values.decode(String?.self, forKey: .pic) {
             self.pic = pic
         }
@@ -106,7 +99,6 @@ struct User: Codable {
         try container.encode(name, forKey: .name)
         try container.encode(lastName, forKey: .lastName)
         try container.encode(country, forKey: .country)
-//        try container.encode(role, forKey: .role)
         try container.encode(pic, forKey: .pic)
         try container.encode(isDisable, forKey: .isDisable)
         try container.encode(accountType, forKey: .accountType)

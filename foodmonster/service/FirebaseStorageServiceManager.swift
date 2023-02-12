@@ -51,7 +51,6 @@ class FirebaseStorageServiceManager: FirebaseStorageServiceManagerProtocol {
         }
         uploadTask.observe(.progress) { (snapshot) in
             let uploadPersent = 100.0 * Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
-            debugPrint("uploaded: \(uploadPersent)")
         }
         uploadTask.resume()
         completion(nil)
@@ -59,8 +58,7 @@ class FirebaseStorageServiceManager: FirebaseStorageServiceManagerProtocol {
     
     func deleteImage(imgRef: String) {
         storage.child(imgRef).delete { error in
-            if let error = error {
-                print(error)
+            if let _ = error {
                 return
             }
             imageCash.removeObject(forKey: imgRef as AnyObject)

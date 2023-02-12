@@ -65,6 +65,7 @@ class AuthanticateManager: AuthanticateManagerProtocol {
                 }
                 completion(nil)
             }
+            
         }
     }
     
@@ -158,17 +159,21 @@ class AuthanticateManager: AuthanticateManagerProtocol {
     func getUserToken(completion: @escaping (String) -> ()) {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-          if let error = error {
-              print(error.localizedDescription)
-            return;
-          }
+            if let _ = error {
+                return
+            }
             completion(idToken ?? "none")
         }
     }
     
     func checkEmailVerification() -> Bool {
         guard let auth = Auth.auth().currentUser else { return false }
-        return auth.isEmailVerified
+        if auth.isEmailVerified {
+            return true
+        } else {
+            auth.reload()
+            return false
+        }
     }
     
     func sendEmailVerification(completion: @escaping (Error?) -> ()) {
@@ -181,14 +186,14 @@ class AuthanticateManager: AuthanticateManagerProtocol {
     
     func createUser(user: User, completion: @escaping (Error?) -> ()) {
         getHeader(completion: { header in
-            AF.request("\(host)/v1/user/create", method: .post, parameters: user, encoder: JSONParameterEncoder.default, headers: header).validate().response { response in
+            AF.request("\(host)/v1/user/create", method: .post, parameters: user, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
                 case .success(_):
                     completion(nil)
                 case .failure(let error):
                     if let status = response.response {
-                        if status.statusCode > 226 {
-                            print("Alamofire failed: ", error.localizedDescription)
+                        if status.statusCode > 299 {
+                            print("Alamofire createUser failed: ", error.localizedDescription)
                             completion(error)
                         }
                     }
@@ -206,11 +211,10 @@ class AuthanticateManager: AuthanticateManagerProtocol {
             uri = URL(string: "\(host)/v1/user/update")!
         }
         getHeader { header in
-            AF.request(uri, method: .put, parameters: user, encoder: JSONParameterEncoder.default, headers: header).validate().response { response in
+            AF.request(uri, method: .put, parameters: user, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value ?? "")
-                    print("JSON: \(json)")
                     completion(nil)
                 case .failure(let error):
                     print("Alamofire failed: ", error.localizedDescription)
@@ -222,7 +226,7 @@ class AuthanticateManager: AuthanticateManagerProtocol {
     
     func findUserByid(uid: String, completion: @escaping (User?, Error?) -> ()) {
         getHeader { header in
-            AF.request("\(host)/v1/user/find/\(uid)", headers: header).validate().responseDecodable(of: [User].self) { response in
+            AF.request("\(host)/v1/user/find/\(uid)", headers: header).validate(statusCode: 200 ..< 299).responseDecodable(of: [User].self) { response in
                 switch response.result {
                 case .success(let success):
                     completion(success[0], nil)

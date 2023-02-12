@@ -71,7 +71,6 @@ class RecipeDetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         changeVisabiltyNavigationBar(alpha: offset)
-//        tableView.reloadSections([1], with: .automatic)
     }
     
     // MARK: - Table view data source

@@ -19,7 +19,6 @@ class AppTabBar: UITabBar {
         private func addShape() {
             let shapeLayer = CAShapeLayer()
             shapeLayer.path = createPath()
-//            shapeLayer.strokeColor = UIColor.white.cgColor
             shapeLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             shapeLayer.shadowOffset = CGSize(width:0, height:0)
             shapeLayer.shadowRadius = 10

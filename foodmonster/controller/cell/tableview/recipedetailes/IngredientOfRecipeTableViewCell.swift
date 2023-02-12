@@ -40,7 +40,6 @@ class IngredientOfRecipeTableViewCell: UITableViewCell {
             networkManger.deletePurchase(purchase, completion: { err in
                 if let err = err {
                     print(err.localizedDescription)
-//                    completion()
                 }
                 UIView.transition(with: sender as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
                     sender.setImage(UIImage(named: "checkbox"), for: .normal)
@@ -60,7 +59,6 @@ class IngredientOfRecipeTableViewCell: UITableViewCell {
         networkManger.retreivePurchase(foodId, recipeId) { (purchase, err) in
             if let err = err {
                 print(err.localizedDescription)
-//                completion()
             }
             if let purchase = purchase {
                 self.purchase.id = purchase.id

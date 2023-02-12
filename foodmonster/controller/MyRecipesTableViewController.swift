@@ -19,9 +19,6 @@ class MyRecipesTableViewController: UITableViewController {
     private var defaultSort = "date"
     private var defaultOrder = "DESC"
     
-    private var isLoading = false
-    private var isPaging = true
-    
     var filterCriteria = FilterCriteria()
     
     override func viewDidLoad() {
@@ -49,7 +46,7 @@ class MyRecipesTableViewController: UITableViewController {
     
     func fillOutController() {
         showActivityIndicatory(activityView: activityView)
-        tableViewViewModel?.getListByUserId(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] _, err in
+        tableViewViewModel?.getListByUserId(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] err in
             if let err = err {
                 self?.showAlert(title: "Oooops ... ", message: err.details)
             }
@@ -79,23 +76,18 @@ class MyRecipesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let tableViewViewModel = tableViewViewModel else { return }
-        if tableViewViewModel.getRecipeList().count - 1 == indexPath.row {
-            if !isLoading && isPaging {
-                isLoading = true
-                tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (isLast, err) in
-                    if let err = err {
-                        self?.showAlert(title: "Ooops ... ", message: err.localizedDescription)
-                    }
-                    if isLast {
-                        self?.isPaging = isLast
-                    }
-                    DispatchQueue.main.async {
-                        self?.currentPage += 1
-                        self?.isLoading = false
-                        self?.tableView.reloadData()
-                    }
+        if tableViewViewModel.listOfResipes.totalPages >= currentPage && tableViewViewModel.getRecipeList().count - 1 == indexPath.row {
+
+            tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] err in
+                if let err = err {
+                    self?.showAlert(title: "Ooops ... ", message: err.localizedDescription)
+                }
+                DispatchQueue.main.async {
+                    self?.currentPage += 1
+                    self?.tableView.reloadData()
                 }
             }
+            
         }
     }
     
@@ -131,7 +123,6 @@ extension MyRecipesTableViewController {
         navigationController?.navigationBar.compactAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         
-        //        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = constant.darkTitleColor
         navigationItem.title = title
@@ -157,7 +148,7 @@ extension MyRecipesTableViewController {
         currentPageSize = "25"
         defaultSort = "date"
         defaultOrder = "DESC"
-        tableViewViewModel?.getListByUserId(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] _, err in
+        tableViewViewModel?.getListByUserId(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] err in
             if let err = err {
                 self?.tableView.refreshControl?.endRefreshing()
                 self?.tableView.reloadData()
@@ -179,8 +170,6 @@ extension MyRecipesTableViewController: UISearchBarDelegate, UISearchResultsUpda
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filterCriteria.name = ""
-        isLoading = false
-        isPaging = true
         currentPage = 0
         fillOutController()
     }

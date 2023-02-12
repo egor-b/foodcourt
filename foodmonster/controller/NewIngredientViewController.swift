@@ -55,10 +55,21 @@ extension NewIngredientViewController: UITextFieldDelegate {
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let ACCEPTABLE_CHARACTERS = "0123456789/."
-        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
-        let filtered = string.components(separatedBy: cs).joined(separator: "")
-
-        return (string == filtered)
+        
+        switch textField.tag {
+        case 0:
+            return textField.text!.count < 100
+        case 1:
+            let ACCEPTABLE_CHARACTERS = "0123456789/."
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            
+            return (string == filtered && textField.text!.count < 6)
+        case 2:
+            return textField.text!.count <= 10
+        default:
+            return true
+        }
+        
     }
 }

@@ -21,9 +21,6 @@ class CategoryTableViewController: UITableViewController {
     private var defaultSort = "date"
     private var defaultOrder = "DESC"
     
-    private var isLoading = false
-    private var isPaging = true
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         filterCriteria.isVisible = "true"
@@ -39,7 +36,7 @@ class CategoryTableViewController: UITableViewController {
     
     func fillOutCOntroller() {
         guard let tableViewViewModel = categoryTableViewViewModel else { return }
-        tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (_, error) in
+        tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (error) in
             if let error = error {
                 self?.stopActivityIndicatory(activityView: self!.activityView)
                 self?.showAlert(title: "Oooops ... ", message: error.details)
@@ -73,21 +70,14 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let categoryTableViewViewModel = categoryTableViewViewModel else { return }
-        if categoryTableViewViewModel.getRecipeList().count - 1 == indexPath.row {
-            if !isLoading && isPaging {
-                isLoading = true
-                categoryTableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (isLast, err) in
-                    if let err = err {
-                        print(err.localizedDescription)
-                    }
-                    if isLast {
-                        self?.isPaging = isLast
-                    }
-                    DispatchQueue.main.async {
-                        self?.currentPage += 1
-                        self?.isLoading = false
-                        self?.tableView.reloadData()
-                    }
+        if categoryTableViewViewModel.listOfResipes.totalPages >= currentPage && categoryTableViewViewModel.getRecipeList().count - 1 == indexPath.row {
+            categoryTableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] err in
+                if let err = err {
+                    self?.showAlert(title: "Oooops ... ", message: err.localizedDescription)
+                }
+                DispatchQueue.main.async {
+                    self?.currentPage += 1
+                    self?.tableView.reloadData()
                 }
             }
         }
@@ -134,8 +124,6 @@ extension CategoryTableViewController: UISearchBarDelegate, UISearchResultsUpdat
    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filterCriteria.name = ""
-        isLoading = false
-        isPaging = true
         currentPage = 0
         fillOutCOntroller()
     }

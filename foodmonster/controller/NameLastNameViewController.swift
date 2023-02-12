@@ -44,7 +44,6 @@ class NameLastNameViewController: UIViewController {
                 user.lastName = lastNameTextField.text ?? ""
                 authManager.updateUserInfo(user: user, trigger: "update") { [weak self] error in
                     if let error = error {
-                        print(error.localizedDescription)
                         self?.showAlert(title: "Oooops ... ", message: error.localizedDescription)
                     }
                     self?.navigationController?.popToRootViewController(animated: true)

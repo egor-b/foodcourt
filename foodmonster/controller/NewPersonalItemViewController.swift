@@ -7,14 +7,15 @@
 
 import UIKit
 
-class NewPersonalItemViewController: UIViewController {
+class NewPersonalItemViewController: UIViewController, UITextFieldDelegate {
 
     var item: String = ""
     @IBOutlet weak var newItemTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        newItemTextField.delegate = self
+        newItemTextField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     
@@ -32,4 +33,7 @@ class NewPersonalItemViewController: UIViewController {
     }
     */
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return textField.text!.count <= 100
+    }
 }

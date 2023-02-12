@@ -38,7 +38,6 @@ class FoodPurchaseTableViewCell: UITableViewCell {
         }
         dataManger.updatePurchaseInCart(model.food.id, isAdd: isAdd) { error in
             if let error = error {
-                print(error.localizedDescription)
                 completion(error)
             }
             let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: text)

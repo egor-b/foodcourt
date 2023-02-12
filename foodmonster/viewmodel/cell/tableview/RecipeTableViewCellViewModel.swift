@@ -1,9 +1,9 @@
-////
-////  CathegoryTableViewCellViewModel.swift
-////  foodster
-////
-////  Created by Egor Bryzgalov on 10/7/20.
-////
+//
+//  CathegoryTableViewCellViewModel.swift
+//  foodster
+//
+//  Created by Egor Bryzgalov on 10/7/20.
+//
 
 import Foundation
 

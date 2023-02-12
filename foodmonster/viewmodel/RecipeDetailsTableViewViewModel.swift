@@ -76,7 +76,6 @@ class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
         guard let networkManger = networkManger else { return }
         networkManger.getRecipeByRecipeId(id: id) { [weak self] (recipe, err) in
             if let err = err {
-                print(err.localizedDescription)
                 completion(err)
             }
             self?.recipe = recipe

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NameTimeViewController: UIViewController {
+class NameTimeViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTimeTextField: UITextField!
     @IBOutlet weak var navBar: UINavigationBar!
@@ -17,6 +17,7 @@ class NameTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTimeTextField.delegate = self
         if text != nil {
             nameTimeTextField.text = text
         }
@@ -55,5 +56,8 @@ class NameTimeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return textField.text!.count <= 100
+    }
 
 }

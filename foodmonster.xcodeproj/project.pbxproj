@@ -81,6 +81,8 @@
 		F11B15D825E4D8050001F1C5 /* ServeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B159D25E4D7830001F1C5 /* ServeTableViewCell.xib */; };
 		F11B15E425E4D9320001F1C5 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B15E325E4D9320001F1C5 /* ModelTests.swift */; };
 		F11B160325EC5AFA0001F1C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F11B160225EC5AFA0001F1C5 /* GoogleService-Info.plist */; };
+		F12AB7CF299846190092D5DB /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12AB7CE299846190092D5DB /* ResetPasswordViewController.swift */; };
+		F12AB7D129989F4B0092D5DB /* WrapedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12AB7D029989F4B0092D5DB /* WrapedRecipe.swift */; };
 		F133E4B725EC617F0058D544 /* CustomRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133E4B625EC617F0058D544 /* CustomRegisterViewController.swift */; };
 		F133E4BC25EC64940058D544 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133E4BB25EC64940058D544 /* LaunchViewController.swift */; };
 		F133E4C425EC83C80058D544 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133E4C325EC83C80058D544 /* User.swift */; };
@@ -231,6 +233,8 @@
 		F11B15A825E4D7830001F1C5 /* AddCustomPurchaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomPurchaseTableViewCell.xib; sourceTree = "<group>"; };
 		F11B15E325E4D9320001F1C5 /* ModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		F11B160225EC5AFA0001F1C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F12AB7CE299846190092D5DB /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		F12AB7D029989F4B0092D5DB /* WrapedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapedRecipe.swift; sourceTree = "<group>"; };
 		F133E4B625EC617F0058D544 /* CustomRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegisterViewController.swift; sourceTree = "<group>"; };
 		F133E4BB25EC64940058D544 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchViewController.swift; path = foodmonster/controller/LaunchViewController.swift; sourceTree = SOURCE_ROOT; };
 		F133E4C325EC83C80058D544 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -416,6 +420,7 @@
 				F445BB4127530ECE00929CA6 /* Filter.swift */,
 				F4E71A132785502A009B3AE0 /* Foodstuff.swift */,
 				F4B0B645279668E700BE9964 /* PurchaseFood.swift */,
+				F12AB7D029989F4B0092D5DB /* WrapedRecipe.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				F4E087EA279E56C600B0D54F /* NameLastNameViewController.swift */,
 				F4CE112E27A2693C0041B840 /* ChangeEmailViewController.swift */,
 				F435C7B527A8B8D4000F5DA6 /* NewPersonalItemViewController.swift */,
+				F12AB7CE299846190092D5DB /* ResetPasswordViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1045,6 +1051,7 @@
 				F4E087EB279E56C600B0D54F /* NameLastNameViewController.swift in Sources */,
 				F11B151025E4D6080001F1C5 /* ASCIIControlCharacter.swift in Sources */,
 				F11B152025E4D6080001F1C5 /* Purchase.swift in Sources */,
+				F12AB7D129989F4B0092D5DB /* WrapedRecipe.swift in Sources */,
 				F1409C3A25E4CC7700846534 /* AppDelegate.swift in Sources */,
 				F48A2FA1277184230060FEB7 /* FoodModel.swift in Sources */,
 				F133E4CF25ECAB180058D544 /* ProfileTableViewController.swift in Sources */,
@@ -1052,6 +1059,7 @@
 				F11B152925E4D6080001F1C5 /* MyRecipesTableViewCell.swift in Sources */,
 				F445BB4227530ECE00929CA6 /* Filter.swift in Sources */,
 				F11B153F25E4D6080001F1C5 /* DataNetworkManager.swift in Sources */,
+				F12AB7CF299846190092D5DB /* ResetPasswordViewController.swift in Sources */,
 				F11B154225E4D6080001F1C5 /* FoodPurchaseTableViewCellViewModel.swift in Sources */,
 				F49FA8FF278CF491002A7F8C /* PurchaseModel.swift in Sources */,
 				F1409C3C25E4CC7700846534 /* SceneDelegate.swift in Sources */,

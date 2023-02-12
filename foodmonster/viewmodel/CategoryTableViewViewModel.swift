@@ -10,13 +10,15 @@ import Foundation
 
 protocol CategoryTableViewViewModelProtocol {
     
+    var listOfResipes: WrapedRecipe { get }
+    
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> RecipeTableViewCellViewModelProtocol?
     
     func selectedRow(atIndexPath indexPath: IndexPath)
     
-    func getListByType(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping(Bool, RecipeError?) -> ())
-    func getListByUserId(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping(Bool, RecipeError?) -> ())
+    func getListByType(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping(RecipeError?) -> ())
+    func getListByUserId(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping(RecipeError?) -> ())
     
     func getRecipeList() -> [Recipe]
     
@@ -33,18 +35,18 @@ class CategoryTableViewViewModel: CategoryTableViewViewModelProtocol {
     
     private var selectedIndexPath: IndexPath?
     
-    private var listOfResipes = [Recipe]()
+    var listOfResipes = WrapedRecipe()
     
     init() {
         dataNetworkManager = DataNetworkManager()
     }
         
     func numberOfRows() -> Int {
-        return listOfResipes.count
+        return listOfResipes.recipeList.count
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> RecipeTableViewCellViewModelProtocol? {
-        let recipe = listOfResipes[indexPath.row]
+        let recipe = listOfResipes.recipeList[indexPath.row]
         return RecipeTableViewCellViewModel(recipe: recipe)
     }
     
@@ -53,62 +55,54 @@ class CategoryTableViewViewModel: CategoryTableViewViewModelProtocol {
         self.selectedIndexPath = indexPath
     }
     
-    func getListByType(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping(Bool, RecipeError?) -> ()) {
+    func getListByType(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping(RecipeError?) -> ()) {
         guard let dataNetworkManager = dataNetworkManager else { return }
         dataNetworkManager.getRecipes(page: page, size: size, sort: sort, order: order, filter: filter, completion: { [weak self] (recipe, err) in
             if let err = err {
-                completion(false, err)
+                completion(err)
             }
             if let recipe = recipe {
-                if recipe.count != 0 {
-                    if page == "0" {
-                        self?.listOfResipes = recipe
-                    } else {
-                        self?.listOfResipes += recipe
-                    }
-                    completion(false, nil)
+                if page == "0" {
+                    self?.listOfResipes = recipe
                 } else {
-                    completion(true, nil)
+                    self?.listOfResipes.recipeList += recipe.recipeList
                 }
             }
+            completion(nil)
         })
     }
     
-    func getListByUserId(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping(Bool, RecipeError?) -> ()) {
+    func getListByUserId(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping(RecipeError?) -> ()) {
         guard let dataNetworkManager = dataNetworkManager else { return }
         dataNetworkManager.getRecipesByUser(userId: globalUserId, page: page, size: size, sort: sort, order: order, filter: filter) { [weak self] recipe, err in
             if let err = err {
-                completion(false, err)
+                completion(err)
             }
             if let recipe = recipe {
-                if recipe.count != 0 {
-                    if page == "0" {
-                        self?.listOfResipes = recipe
-                    } else {
-                        self?.listOfResipes += recipe
-                    }
-                    completion(false, nil)
+                if page == "0" {
+                    self?.listOfResipes = recipe
                 } else {
-                    completion(true, nil)
+                    self?.listOfResipes.recipeList += recipe.recipeList
                 }
             }
+            completion(nil)
         }
     }
     
     func getRecipeList() -> [Recipe] {
-        return listOfResipes
+        return listOfResipes.recipeList
     }
     
     func setRecipeList(_ list: [Recipe]) {
-        listOfResipes = list
+        listOfResipes.recipeList = list
     }
     
     func getRecipeByIndex(index: Int) -> Recipe {
-        return listOfResipes[index]
+        return listOfResipes.recipeList[index]
     }
     
     func updateRecipeByIndex(index: Int, recipe: Recipe?) {
         guard let recipe = recipe else { return }
-        listOfResipes[index] = recipe
+        listOfResipes.recipeList[index] = recipe
     }
 }

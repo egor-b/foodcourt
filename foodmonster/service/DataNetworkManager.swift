@@ -11,9 +11,9 @@ import SwiftyJSON
 
 protocol DataNetworkManagerProtocol {
     
-    func getRecipes(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping ([Recipe]?, RecipeError?) -> ())
+    func getRecipes(page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping (WrapedRecipe?, RecipeError?) -> ())
     func getRecipeByRecipeId(id: Int64, completion: @escaping (Recipe?, Error?) -> ())
-    func getRecipesByUser(userId: String, page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping ([Recipe]?, RecipeError?) -> ())
+    func getRecipesByUser(userId: String, page: String, size: String, sort: String, order: String, filter: FilterCriteria, completion: @escaping (WrapedRecipe?, RecipeError?) -> ())
     
     func saveRecipe(recipe: RecipeModel, completion: @escaping (Error?) -> ())
     func updateRecipe(recipe: RecipeModel, completion: @escaping (Error?) -> ())
@@ -38,13 +38,13 @@ class DataNetworkManager: DataNetworkManagerProtocol {
     }
     
     
-    func getRecipes(page: String = "0", size: String = "20", sort: String = "date", order: String = "ASC", filter: FilterCriteria, completion: @escaping ([Recipe]?, RecipeError?) -> ()) {
+    func getRecipes(page: String = "0", size: String = "20", sort: String = "date", order: String = "ASC", filter: FilterCriteria, completion: @escaping (WrapedRecipe?, RecipeError?) -> ()) {
         getHeader { header in
             AF.request("\(host)/v1/recipe/search?page=\(page)&page_size=\(size)&sort_field=\(sort)&order=\(order)",
-                       method: .post, parameters: filter, encoder: JSONParameterEncoder.default, headers: header).validate().responseDecodable(of: [Recipe].self) { response in
+                       method: .post, parameters: filter, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).responseDecodable(of: [WrapedRecipe].self) { response in
                 switch response.result {
                 case .success(let succcess):
-                    completion(succcess, nil)
+                    completion(succcess.first, nil)
                 case .failure(let error):
                     var err = RecipeError()
                     do {
@@ -54,7 +54,7 @@ class DataNetworkManager: DataNetworkManagerProtocol {
                             err.details = message
                         }
                     } catch {}
-                    print("Alamofire failed: ", error.localizedDescription)
+                    print("Alamofire getRecipes failed: ", error.localizedDescription)
                     completion(nil, err)
                 }
             }
@@ -63,12 +63,12 @@ class DataNetworkManager: DataNetworkManagerProtocol {
     
     func getRecipeByRecipeId(id: Int64, completion: @escaping (Recipe?, Error?) -> ()) {
         getHeader { header in
-            AF.request("\(host)/v1/recipe/\(id)", headers: header).validate().responseDecodable(of: [Recipe].self) { response in
+            AF.request("\(host)/v1/recipe/\(id)", headers: header).validate(statusCode: 200 ..< 299).responseDecodable(of: [Recipe].self) { response in
                 switch response.result {
                 case .success(let succcess):
                     completion(succcess[0], nil)
                 case .failure(let error):
-                    print("Alamofire failed: ", error.localizedDescription)
+                    print("Alamofire getRecipeByRecipeId failed: ", error.localizedDescription)
                     completion(nil, error)
                 }
             }
@@ -76,14 +76,14 @@ class DataNetworkManager: DataNetworkManagerProtocol {
         }
     }
     
-    func getRecipesByUser(userId: String, page: String = "0", size: String = "20", sort: String = "date", order: String = "ASC", filter: FilterCriteria, completion: @escaping  ([Recipe]?, RecipeError?) -> ()) {
+    func getRecipesByUser(userId: String, page: String = "0", size: String = "20", sort: String = "date", order: String = "ASC", filter: FilterCriteria, completion: @escaping  (WrapedRecipe?, RecipeError?) -> ()) {
         getHeader { header in
             AF.request("\(host)/v1/recipe/user/\(userId)?page=\(page)&page_size=\(size)&sort_field=\(sort)&order=\(order)",
-                       method: .post, parameters: filter, encoder: JSONParameterEncoder.default, headers: header).validate().responseDecodable(of: [Recipe].self) { response in
+                       method: .post, parameters: filter, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).responseDecodable(of: [WrapedRecipe].self) { response in
                 switch response.result {
                 case .success(let succcess):
-                    completion(succcess, nil)
-                case .failure(let error):
+                    completion(succcess.first, nil)
+                case .failure(_):
                     var err = RecipeError()
                     do {
                         if let data = response.data {
@@ -92,7 +92,6 @@ class DataNetworkManager: DataNetworkManagerProtocol {
                             err.details = message
                         }
                     } catch {}
-                    print("Alamofire failed: ", error.localizedDescription)
                     completion(nil, err)
                 }
             }
@@ -101,14 +100,14 @@ class DataNetworkManager: DataNetworkManagerProtocol {
     
     func saveRecipe(recipe: RecipeModel, completion: @escaping (Error?) -> ()) {
         getHeader { header in
-            AF.request("\(host)/v1/recipe/save", method: .post, parameters: recipe, encoder: JSONParameterEncoder.default, headers: header).validate().response { response in
+            AF.request("\(host)/v1/recipe/save", method: .post, parameters: recipe, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
                 case .success(_):
                     completion(nil)
                 case .failure(let error):
                     if let status = response.response {
-                        if status.statusCode > 226 {
-                            print("Alamofire failed: ", error.localizedDescription)
+                        if status.statusCode > 299 {
+                            print("Alamofire saveRecipe failed: ", error.localizedDescription)
                             completion(error)
                         }
                     }
@@ -120,14 +119,14 @@ class DataNetworkManager: DataNetworkManagerProtocol {
     
     func updateRecipe(recipe: RecipeModel, completion: @escaping (Error?) -> ()) {
         getHeader { header in
-            AF.request("\(host)/v1/recipe/update", method: .post, parameters: recipe, encoder: JSONParameterEncoder.default, headers: header).validate().response { response in
+            AF.request("\(host)/v1/recipe/update", method: .post, parameters: recipe, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
                 case .success(_):
                     completion(nil)
                 case .failure(let error):
                     if let status = response.response {
-                        if status.statusCode > 226 {
-                            print("Alamofire failed: ", error.localizedDescription)
+                        if status.statusCode > 299 {
+                            print("Alamofire updateRecipe failed: ", error.localizedDescription)
                             completion(error)
                         }
                     }
@@ -139,13 +138,13 @@ class DataNetworkManager: DataNetworkManagerProtocol {
 
     func addPurchase(_ purchase: PurchaseModel, completion: @escaping (Error?) -> ()) {
         getHeader { header in
-            AF.request("\(host)/v1/purchase/save", method: .post, parameters: purchase, encoder: JSONParameterEncoder.default, headers: header).validate().response { response in
+            AF.request("\(host)/v1/purchase/save", method: .post, parameters: purchase, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
                 case .success(_):
                     completion(nil)
                 case .failure(let error):
                     completion(error)
-                    print("Alamofire failed: ", error.localizedDescription)
+                    print("Alamofire addPurchase failed: ", error.localizedDescription)
                 }
             }
         }
@@ -158,7 +157,7 @@ class DataNetworkManager: DataNetworkManagerProtocol {
                 case .success(let succcess):
                     completion(succcess, nil)
                 case .failure(let error):
-                    print("Alamofire failed: ", error.localizedDescription)
+                    print("Alamofire retreivePurchaseList failed: ", error.localizedDescription)
                     completion(nil, error)
                 }
             }
@@ -168,12 +167,12 @@ class DataNetworkManager: DataNetworkManagerProtocol {
     //MARK: Find out what that for
     func retreivePurchase(_ foodId: Int64, _ recipeId: Int64, completion: @escaping (PurchaseModel?, Error?) -> ()) {
         getHeader { header in
-            AF.request("\(host)/v1/purchase?foodid=\(foodId)&userid=\(globalUserId)&recipeid=\(recipeId)", headers: header).validate().responseDecodable(of: PurchaseModel.self) { response in
+            AF.request("\(host)/v1/purchase?foodid=\(foodId)&userid=\(globalUserId)&recipeid=\(recipeId)", headers: header).validate(statusCode: 200 ..< 299).responseDecodable(of: PurchaseModel.self) { response in
                 switch response.result {
                 case .success(let succcess):
                     completion(succcess, nil)
                 case .failure(let error):
-                    print("Alamofire failed: ", error.localizedDescription)
+                    print("Alamofire retreivePurchase failed: ", error.localizedDescription)
                     completion(nil, error)
                 }
             }
@@ -187,7 +186,7 @@ class DataNetworkManager: DataNetworkManagerProtocol {
                 case .success(_):
                     completion(nil)
                 case .failure(let error):
-                    print("Alamofire failed: ", error.localizedDescription)
+                    print("Alamofire deletePurchase failed: ", error.localizedDescription)
                     completion(error)
                 }
             }
@@ -203,8 +202,8 @@ class DataNetworkManager: DataNetworkManagerProtocol {
                     completion(nil)
                 case .failure(let error):
                     if let status = response.response {
-                        if status.statusCode > 226 {
-                            print("Alamofire failed: ", error.localizedDescription)
+                        if status.statusCode > 299 {
+                            print("Alamofire deleteCartRecipePurchase failed: ", error.localizedDescription)
                             completion(error)
                         }
                     }
@@ -222,8 +221,8 @@ class DataNetworkManager: DataNetworkManagerProtocol {
                     completion(nil)
                 case .failure(let error):
                     if let status = response.response {
-                        if status.statusCode > 226 {
-                            print("Alamofire failed: ", error.localizedDescription)
+                        if status.statusCode > 299 {
+                            print("Alamofire updatePurchaseInCart failed: ", error.localizedDescription)
                             completion(error)
                         }
                     }
@@ -237,7 +236,6 @@ class DataNetworkManager: DataNetworkManagerProtocol {
         guard let authanticateManager = authanticateManager else { return }
         var headers = HTTPHeaders()
         authanticateManager.getUserToken { token in
-//            print(token)
             headers = [
                 "Authorization": "Bearer \(token)",
                 "Content-Type": "application/json"

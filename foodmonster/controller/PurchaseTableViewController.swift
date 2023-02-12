@@ -29,11 +29,17 @@ class PurchaseTableViewController: UITableViewController {
         guard let purchaseViewModel = purchaseViewModel else { return }
         if !globalUserId.isEmpty {
             showActivityIndicatory(activityView: activityView)
-            purchaseViewModel.getPurchaseList() {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+            purchaseViewModel.getPurchaseList() { error in
+                if let error = error {
+                    self.stopActivityIndicatory(activityView: self.activityView)
+                    self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                } else {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    self.stopActivityIndicatory(activityView: self.activityView)
                 }
-                self.stopActivityIndicatory(activityView: self.activityView)
+                
             }
         }
     }

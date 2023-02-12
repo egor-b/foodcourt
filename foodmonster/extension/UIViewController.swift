@@ -13,7 +13,7 @@ extension UIViewController {
     private func createSubview(activityView: UIActivityIndicatorView) -> UIView {
         let container: UIView = UIView()
         container.tag = 5651489
-        container.frame = CGRect(x: view.bounds.width/2 - 60, y: view.bounds.height/2 - 200, width: 120, height: 120) // Set X and Y whatever you want
+        container.frame = CGRect(x: view.bounds.width/2 - 60, y: view.bounds.height/2 - 200, width: 120, height: 120) 
         container.backgroundColor = UIColor(named: "lightTextColorSet")
         container.alpha = 0.5
         container.layer.cornerRadius = 15
