@@ -37,6 +37,7 @@ class CookStepTableViewCell: UITableViewCell {
                     })
                 } else {
                     stepImageView.image = UIImage(data: viewModel.step.img)
+                    imageHeightConstraint.constant = 150
                 }
             } else {
                 imageHeightConstraint.constant = 0

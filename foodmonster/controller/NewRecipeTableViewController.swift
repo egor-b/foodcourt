@@ -449,7 +449,7 @@ extension NewRecipeTableViewController {
     @IBAction func saveStageUnwindSegue(_ sender: UIStoryboardSegue) {
         guard let stepController = sender.source as? NewStepViewController else { return }
         let desc = stepController.stepDescriptionTextView.text ?? ""
-        let img = stepController.byteImageArray
+        let img = stepController.step.img
         let ref = stepController.step.pic
         if stepController.step.stepNumber == 0 {
             newRecipeViewModel?.addStep(desc: desc, pic: img)

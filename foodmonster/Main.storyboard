@@ -82,7 +82,7 @@
                             <outlet property="delegate" destination="l1I-89-Af1" id="ItM-UZ-vnw"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Home Meals" id="nTh-Vi-LRe"/>
+                    <navigationItem key="navigationItem" title="Home Meals" largeTitleDisplayMode="always" id="nTh-Vi-LRe"/>
                     <connections>
                         <segue destination="5tH-EU-w8m" kind="show" identifier="showDishSegue" id="QhL-8w-EZd"/>
                     </connections>
@@ -305,7 +305,7 @@
                             <outlet property="delegate" destination="5tH-EU-w8m" id="cQd-hd-uIO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="LCO-YL-Xjn"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="LCO-YL-Xjn"/>
                     <connections>
                         <segue destination="GyE-3M-TRZ" kind="show" identifier="recipeDetailSeque" id="xTg-CL-pQJ"/>
                     </connections>
@@ -1940,9 +1940,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="n0g-o6-x5N"/>
+        <segue reference="Xka-Xw-apy"/>
         <segue reference="PMX-6u-Gja"/>
-        <segue reference="xTg-CL-pQJ"/>
+        <segue reference="6XR-wF-Kai"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Appl" width="44" height="44"/>

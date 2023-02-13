@@ -13,7 +13,6 @@ class NewStepViewController: UIViewController {
     @IBOutlet weak var stepDescriptionTextView: UITextView!
     
     var step = StepModel()
-    var byteImageArray = Data()
     
     private let pickerController = UIImagePickerController()
     private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
@@ -71,6 +70,7 @@ extension NewStepViewController: UIImagePickerControllerDelegate, UINavigationCo
         if addStageView.image != nil {
             actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
                 self.addStageView.image = nil
+                step.img = Data()
                 imageCash.removeObject(forKey: step.pic as AnyObject)
             }))
         }
@@ -81,7 +81,7 @@ extension NewStepViewController: UIImagePickerControllerDelegate, UINavigationCo
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             addStageView.image = image
             guard let data = image.jpegData(compressionQuality: 0.1) else { return }
-            byteImageArray = data
+            step.img = data
             if !step.pic.isEmpty {
                 imageCash.removeObject(forKey: step.pic as AnyObject)
             }

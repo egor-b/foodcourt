@@ -161,6 +161,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         } else {
             let name = "image/\(randomString()).jpeg"
             recipe.step[step - 1].pic = name
+            recipe.step[step - 1].img = pic
         }
     }
     
