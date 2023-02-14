@@ -82,7 +82,7 @@
                             <outlet property="delegate" destination="l1I-89-Af1" id="ItM-UZ-vnw"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Home Meals" largeTitleDisplayMode="always" id="nTh-Vi-LRe"/>
+                    <navigationItem key="navigationItem" title="Home Meals" id="nTh-Vi-LRe"/>
                     <connections>
                         <segue destination="5tH-EU-w8m" kind="show" identifier="showDishSegue" id="QhL-8w-EZd"/>
                     </connections>
@@ -305,7 +305,11 @@
                             <outlet property="delegate" destination="5tH-EU-w8m" id="cQd-hd-uIO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="LCO-YL-Xjn"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="LCO-YL-Xjn">
+                        <barButtonItem key="rightBarButtonItem" image="plus.square" catalog="system" id="IhE-Dx-V3z">
+                            <color key="tintColor" name="darkTextColorSet"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="GyE-3M-TRZ" kind="show" identifier="recipeDetailSeque" id="xTg-CL-pQJ"/>
                     </connections>
@@ -921,6 +925,7 @@
                     <navigationItem key="navigationItem" id="zmw-2J-CC5"/>
                     <connections>
                         <outlet property="addStageView" destination="dN6-76-PJs" id="4cU-RX-R7F"/>
+                        <outlet property="saveStepBarButtonItem" destination="TTe-H2-Sse" id="dey-av-e3s"/>
                         <outlet property="stepDescriptionTextView" destination="Ecu-aZ-77R" id="JGV-so-H0y"/>
                     </connections>
                 </viewController>
@@ -940,7 +945,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingredient" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="v4T-sH-dry">
                                 <rect key="frame" x="25" y="139" width="380" height="34"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" keyboardType="alphabet" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCO-DG-0JN">
                                 <rect key="frame" x="25" y="193" width="380" height="34"/>
@@ -953,7 +958,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="yes" returnKeyType="done"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kU8-t9-Gum">
-                                <rect key="frame" x="-5" y="0.0" width="424" height="44"/>
+                                <rect key="frame" x="-6" y="0.0" width="424" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" name="backgroundColorSet"/>
                                 <textAttributes key="titleTextAttributes">
@@ -1002,6 +1007,7 @@
                     <connections>
                         <outlet property="ingredientTextField" destination="v4T-sH-dry" id="WSS-qQ-qct"/>
                         <outlet property="measureTextField" destination="3pU-4o-sk5" id="WjD-NF-xjz"/>
+                        <outlet property="saveBarButtonItem" destination="G2D-9P-M3C" id="5d1-k2-jPz"/>
                         <outlet property="weightTextField" destination="LCO-DG-0JN" id="jcd-kM-qUq"/>
                         <segue destination="8hD-2c-FOF" kind="unwind" identifier="unwindrRecipe" unwindAction="saveIngredientUnwindSegue:" id="uwN-Qu-VFR"/>
                     </connections>
@@ -1327,7 +1333,11 @@
                             <outlet property="delegate" destination="QO1-yQ-6fJ" id="zYb-p7-qQT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kiX-u0-MZw"/>
+                    <navigationItem key="navigationItem" id="kiX-u0-MZw">
+                        <barButtonItem key="rightBarButtonItem" image="plus.square" catalog="system" id="ilC-Lx-Mwz">
+                            <color key="tintColor" name="darkTextColorSet"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="GyE-3M-TRZ" kind="show" identifier="recipeDetailSeque" id="6XR-wF-Kai"/>
                     </connections>
@@ -1355,11 +1365,11 @@
             </objects>
             <point key="canvasLocation" x="-1999" y="1201"/>
         </scene>
-        <!--Purchase-->
+        <!--Shopping List-->
         <scene sceneID="cQn-mC-0sS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GO4-L6-5do" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Purchase" image="ic_buy" landscapeImage="ic_buy" selectedImage="ic_buy_sel" id="Sw2-Nf-WiE"/>
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="ic_buy" landscapeImage="ic_buy" selectedImage="ic_buy_sel" id="Sw2-Nf-WiE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Ogd-Ws-koh">
                         <rect key="frame" x="0.0" y="59" width="430" height="96"/>
@@ -1965,6 +1975,7 @@
         <image name="ic_timewhite" width="20" height="20"/>
         <image name="if_new-google-favicon_682665-3" width="42.666667938232422" height="42.666667938232422"/>
         <image name="photo-1490818387583-1baba5e638af" width="3031" height="2405"/>
+        <image name="plus.square" catalog="system" width="128" height="114"/>
         <namedColor name="activeColorSet">
             <color red="1" green="0.46299999952316284" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

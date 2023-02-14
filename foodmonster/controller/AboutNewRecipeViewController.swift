@@ -17,6 +17,7 @@ class AboutNewRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        itemTextFiled.delegate = self
         if text != nil {
             itemTextFiled.text = text
         }
@@ -50,4 +51,11 @@ class AboutNewRecipeViewController: UIViewController {
     }
     */
 
+}
+extension AboutNewRecipeViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return textView.text.count + (text.count - range.length) <= 1000
+    }
+    
 }

@@ -57,7 +57,12 @@ class NameTimeViewController: UIViewController, UITextFieldDelegate {
     }
     */
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return textField.text!.count <= 100
+        if modType == "Cook time" {
+            return textField.text!.count < 4
+        } else {
+            return textField.text!.count <= 100
+        }
+        
     }
 
 }

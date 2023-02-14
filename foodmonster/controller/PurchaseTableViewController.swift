@@ -17,7 +17,7 @@ class PurchaseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         purchaseViewModel = PurchaseTableViewViewModel()
-        configureNavigationBar(title: "Purchase")
+        configureNavigationBar(title: "Shopping List")
         tableView.register(UINib(nibName: "PurchaseTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.PURCHASE_CELL.rawValue)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Cells.CUSTOM_PURCHASE_CELL.rawValue)
         tableView.register(UINib(nibName: "HeaderPurchaseTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.HEADER_DISH_PURCHASE_CELL.rawValue)

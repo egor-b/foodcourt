@@ -11,6 +11,7 @@ class NewStepViewController: UIViewController {
 
     @IBOutlet weak var addStageView: UIImageView!
     @IBOutlet weak var stepDescriptionTextView: UITextView!
+    @IBOutlet weak var saveStepBarButtonItem: UIBarButtonItem!
     
     var step = StepModel()
     
@@ -19,7 +20,9 @@ class NewStepViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        stepDescriptionTextView.delegate = self
         pickerController.delegate = self
+        saveStepBarButtonItem.isEnabled = false
         firebaseStorage = FirebaseStorageServiceManager()
         setTapGuestureRecognize()
         stepDescriptionTextView.text = step.step
@@ -93,4 +96,17 @@ extension NewStepViewController: UIImagePickerControllerDelegate, UINavigationCo
         pickerController.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension NewStepViewController: UITextViewDelegate {
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if let text = textView.text, text.count < 10 {
+            saveStepBarButtonItem.isEnabled = false
+        } else {
+            saveStepBarButtonItem.isEnabled = true
+        }
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return textView.text.count + (text.count - range.length) <= 1000
+    }
 }

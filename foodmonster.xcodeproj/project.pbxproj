@@ -1236,7 +1236,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NW94WU93C;
 				INFOPLIST_FILE = foodmonster/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = FoodCourt;
+				INFOPLIST_KEY_CFBundleDisplayName = Foodie;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1260,7 +1260,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NW94WU93C;
 				INFOPLIST_FILE = foodmonster/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = FoodCourt;
+				INFOPLIST_KEY_CFBundleDisplayName = Foodie;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

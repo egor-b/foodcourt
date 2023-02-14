@@ -243,8 +243,8 @@ class NewRecipeTableViewController: UITableViewController {
                         }
                     }
                 } else {
-                    if newRecipeViewModel.recipe.type.isEmpty {
-                        showAlert(title: "Oooops ... ", message: "Please select a category of your dish.")
+                    if newRecipeViewModel.recipe.type.isEmpty || newRecipeViewModel.recipe.name.isEmpty {
+                        showAlert(title: "Oooops ... ", message: "Please select a category of dish and/or name your recipe.")
                     } else {
                         if newRecipeViewModel.recipe.food.isEmpty || newRecipeViewModel.recipe.step.isEmpty || newRecipeViewModel.recipe.name.isEmpty {
                             self.customAlertWithHandler(title: "Quite interesting",

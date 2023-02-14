@@ -12,7 +12,8 @@ class NewIngredientViewController: UIViewController {
     @IBOutlet weak var ingredientTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var measureTextField: UITextField!
-    
+    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
+   
     var ingredient = FoodModel()
     var index: Int?
     
@@ -22,7 +23,34 @@ class NewIngredientViewController: UIViewController {
         ingredientTextField.delegate = self
         weightTextField.delegate = self
         measureTextField.delegate = self
+        saveBarButtonItem.isEnabled = false
+        ingredientTextField.addTarget(self, action: #selector(isIngredientExist), for: .allEditingEvents)
+        weightTextField.addTarget(self, action: #selector(isWeightExist), for: .allEditingEvents)
         fillInIngredientModel()
+    }
+    
+    @objc func isIngredientExist() {
+        if let text = ingredientTextField.text, text.count < 2 {
+            saveBarButtonItem.isEnabled = false
+        } else {
+            if let text = weightTextField.text, text.count < 1 {
+                saveBarButtonItem.isEnabled = false
+            } else {
+                saveBarButtonItem.isEnabled = true
+            }
+        }
+    }
+    
+    @objc func isWeightExist() {
+        if let text = weightTextField.text, text.count < 1 {
+            saveBarButtonItem.isEnabled = false
+        } else {
+            if let text = ingredientTextField.text, text.count < 2 {
+                saveBarButtonItem.isEnabled = false
+            } else {
+                saveBarButtonItem.isEnabled = true
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +83,6 @@ extension NewIngredientViewController: UITextFieldDelegate {
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         switch textField.tag {
         case 0:
             return textField.text!.count < 100
@@ -72,4 +99,5 @@ extension NewIngredientViewController: UITextFieldDelegate {
         }
         
     }
+    
 }
