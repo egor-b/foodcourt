@@ -16,7 +16,7 @@ class FoodPurchaseTableViewCell: UITableViewCell {
     weak var viewModel: FoodPurchaseTableViewCellViewModel? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
-            let text = viewModel.food.name + " / " + String(describing: viewModel.food.size) + " " + viewModel.food.measure
+            let text = viewModel.food.name + " / " + String(describing: viewModel.food.amount) + " " + viewModel.food.unit
             let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: text)
             if viewModel.food.isAvailable {
                 attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
@@ -31,7 +31,7 @@ class FoodPurchaseTableViewCell: UITableViewCell {
     func addedToCart(model: FoodPurchaseTableViewCellViewModel?, completion: @escaping (Error?) -> ()) {
         dataManger = DataNetworkManager()
         guard let dataManger = dataManger, let model = model else { return }
-        let text = model.food.name + " / " + String(describing: model.food.size) + " " + model.food.measure
+        let text = model.food.name + " / " + String(describing: model.food.amount) + " " + model.food.unit
         var isAdd = false
         if !model.food.isAvailable {
             isAdd = true

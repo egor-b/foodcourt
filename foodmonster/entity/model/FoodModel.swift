@@ -9,8 +9,9 @@ import Foundation
 
 struct FoodModel: Codable {
     
-    var foodstuff = FoodStoarge()
-    var size: Double = 0.0
-    var measure: String = ""
+    var id: Int64 = 0
+    var product = FoodStorage()
+    var amount: Double = 0.0
+    var unit: String = ""
     
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct Image: Codable {
+    
     var id: Int64 = 0
     var pic: String = ""
     var img = Data()

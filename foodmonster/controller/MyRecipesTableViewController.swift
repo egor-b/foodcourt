@@ -135,7 +135,7 @@ extension MyRecipesTableViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.searchBarStyle = .minimal
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Type name and search recipe"
+        searchController.searchBar.placeholder = "Search my recipes"
         definesPresentationContext = true
     }
     

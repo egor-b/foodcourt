@@ -82,7 +82,7 @@
                             <outlet property="delegate" destination="l1I-89-Af1" id="ItM-UZ-vnw"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Home Meals" id="nTh-Vi-LRe"/>
+                    <navigationItem key="navigationItem" title="Home Meals" largeTitleDisplayMode="always" id="nTh-Vi-LRe"/>
                     <connections>
                         <segue destination="5tH-EU-w8m" kind="show" identifier="showDishSegue" id="QhL-8w-EZd"/>
                     </connections>
@@ -205,7 +205,7 @@
                     <connections>
                         <outlet property="mainImageView" destination="jWa-qG-h7L" id="a69-xH-nOF"/>
                         <outlet property="spinnerView" destination="YRZ-eP-dKO" id="ICi-af-wsc"/>
-                        <segue destination="w7M-kb-1dy" kind="show" identifier="editRecipeSegue" id="n0g-o6-x5N"/>
+                        <segue destination="NFN-VV-Jvz" kind="presentation" identifier="editRecipeSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="f8d-o6-kG4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sff-CT-CUM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -305,11 +305,7 @@
                             <outlet property="delegate" destination="5tH-EU-w8m" id="cQd-hd-uIO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="LCO-YL-Xjn">
-                        <barButtonItem key="rightBarButtonItem" image="plus.square" catalog="system" id="IhE-Dx-V3z">
-                            <color key="tintColor" name="darkTextColorSet"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="LCO-YL-Xjn"/>
                     <connections>
                         <segue destination="GyE-3M-TRZ" kind="show" identifier="recipeDetailSeque" id="xTg-CL-pQJ"/>
                     </connections>
@@ -786,7 +782,7 @@
                             <outlet property="delegate" destination="mU0-OV-5wr" id="ksa-bO-STq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SHP-QV-wiL"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="SHP-QV-wiL"/>
                     <connections>
                         <segue destination="GyE-3M-TRZ" kind="show" identifier="showRecipeSegue" id="hiR-cg-9tY"/>
                         <segue destination="3e1-3Q-7ei" kind="presentation" identifier="newPersonalPurchaseSegue" id="PPY-pN-yJ7"/>
@@ -834,7 +830,14 @@
                             <outlet property="delegate" destination="w7M-kb-1dy" id="wc2-4p-EjI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DmB-zl-UpM"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="DmB-zl-UpM">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RgT-kb-RPu">
+                            <color key="tintColor" name="darkTextColorSet"/>
+                            <connections>
+                                <action selector="dismissControllerBarButtonPressed:" destination="w7M-kb-1dy" id="i35-hg-uBD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addPicImageView" destination="1xL-pe-kaD" id="T5t-RE-LAU"/>
                         <segue destination="fzj-W6-7DN" kind="presentation" identifier="addStepSegue" id="Yje-J9-mba"/>
@@ -947,18 +950,18 @@
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCO-DG-0JN">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCO-DG-0JN">
                                 <rect key="frame" x="25" y="193" width="380" height="34"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Measure" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pU-4o-sk5">
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Units" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pU-4o-sk5">
                                 <rect key="frame" x="25" y="247" width="380" height="34"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="yes" returnKeyType="done"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kU8-t9-Gum">
-                                <rect key="frame" x="-6" y="0.0" width="424" height="44"/>
+                                <rect key="frame" x="-7" y="0.0" width="422" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" name="backgroundColorSet"/>
                                 <textAttributes key="titleTextAttributes">
@@ -1333,11 +1336,7 @@
                             <outlet property="delegate" destination="QO1-yQ-6fJ" id="zYb-p7-qQT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kiX-u0-MZw">
-                        <barButtonItem key="rightBarButtonItem" image="plus.square" catalog="system" id="ilC-Lx-Mwz">
-                            <color key="tintColor" name="darkTextColorSet"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="kiX-u0-MZw"/>
                     <connections>
                         <segue destination="GyE-3M-TRZ" kind="show" identifier="recipeDetailSeque" id="6XR-wF-Kai"/>
                     </connections>
@@ -1580,7 +1579,7 @@
                             <outlet property="delegate" destination="Sw1-XK-7Tm" id="VgJ-zI-R5i"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="HNE-Fq-Q5U">
+                    <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="HNE-Fq-Q5U">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="vKJ-cW-7Xq">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
@@ -1926,7 +1925,7 @@
         <!--Navigation Controller-->
         <scene sceneID="NLl-n2-gHt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NFN-VV-Jvz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="newRecipeViewController" automaticallyAdjustsScrollViewInsets="NO" id="NFN-VV-Jvz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="eGn-nG-FAY"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="L9l-g2-bXW"/>
@@ -1950,9 +1949,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Xka-Xw-apy"/>
+        <segue reference="f8d-o6-kG4"/>
         <segue reference="PMX-6u-Gja"/>
-        <segue reference="6XR-wF-Kai"/>
+        <segue reference="xTg-CL-pQJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Appl" width="44" height="44"/>
@@ -1975,7 +1974,6 @@
         <image name="ic_timewhite" width="20" height="20"/>
         <image name="if_new-google-favicon_682665-3" width="42.666667938232422" height="42.666667938232422"/>
         <image name="photo-1490818387583-1baba5e638af" width="3031" height="2405"/>
-        <image name="plus.square" catalog="system" width="128" height="114"/>
         <namedColor name="activeColorSet">
             <color red="1" green="0.46299999952316284" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

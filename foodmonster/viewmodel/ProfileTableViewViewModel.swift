@@ -120,14 +120,14 @@ class ProfileTableViewViewModel: ProfileTableViewViewModelProtocol {
         guard let firebaseStorage = firebaseStorage, var user = user, let authManger = authManger else { return }
         
         if let img = img {
-            user.pic = "USER/\(globalUserId).jpeg"
-            firebaseStorage.saveImage("USER/\(globalUserId).jpeg", img: img, completion: { error in
+            user.pic = "user/\(globalUserId).jpeg"
+            firebaseStorage.saveImage("user/\(globalUserId).jpeg", img: img, completion: { error in
                 if let error = error {
                     completion(error)
                 }
                 authManger.updateUserInfo(user: user, trigger: "update", completion: { error in
                     if let error = error {
-                        firebaseStorage.deleteImage(imgRef: "USER/\(globalUserId).jpeg")
+                        firebaseStorage.deleteImage(imgRef: "user/\(globalUserId).jpeg")
                         completion(error)
                     }
                 })
@@ -138,7 +138,7 @@ class ProfileTableViewViewModel: ProfileTableViewViewModelProtocol {
                 if let error = error {
                     completion(error)
                 }
-                firebaseStorage.deleteImage(imgRef: "USER/\(globalUserId).jpeg")
+                firebaseStorage.deleteImage(imgRef: "user/\(globalUserId).jpeg")
             })
         }
         imageCash.removeObject(forKey: user.pic as AnyObject)

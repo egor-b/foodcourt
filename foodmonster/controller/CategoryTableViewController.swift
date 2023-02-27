@@ -34,6 +34,11 @@ class CategoryTableViewController: UITableViewController {
         fillOutCOntroller()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func fillOutCOntroller() {
         guard let tableViewViewModel = categoryTableViewViewModel else { return }
         tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (error) in
@@ -111,7 +116,7 @@ extension CategoryTableViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.searchBarStyle = .minimal
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Start typing to find"
+        searchController.searchBar.placeholder = "Type name and search recipe"
         definesPresentationContext = true
     }
     

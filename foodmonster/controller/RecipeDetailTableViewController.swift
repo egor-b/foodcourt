@@ -170,10 +170,12 @@ class RecipeDetailTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editRecipeSegue" {
-            if let recipeIndex = recipeIndex, let recipesTableViewViewModel = recipesTableViewViewModel {
-                let vc: NewRecipeTableViewController = segue.destination as! NewRecipeTableViewController
-                let recipe = recipesTableViewViewModel.getRecipeByIndex(index: recipeIndex)
-                vc.editRecipe = recipe
+            if let navigation = segue.destination as? UINavigationController {
+                if let recipeIndex = recipeIndex, let recipesTableViewViewModel = recipesTableViewViewModel {
+                    let vc =  navigation.viewControllers[0] as! NewRecipeTableViewController
+                    let recipe = recipesTableViewViewModel.getRecipeByIndex(index: recipeIndex)
+                    vc.editRecipe = recipe
+                }
             }
         }
     }

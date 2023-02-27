@@ -12,7 +12,7 @@ struct PurchaseModel: Codable {
     var id: Int64 = 0
     var recipeName: String = ""
     var serve: Int = 0
-    var size: Double = 0.0
+    var amount: Double = 0.0
     var recipeId: Int64 = 0
     var isAvailable: Bool = false
     var foodId: Int64 = 0
@@ -24,7 +24,7 @@ struct PurchaseModel: Codable {
         case id = "id"
         case recipeName = "recipeName"
         case serve = "serve"
-        case size = "size"
+        case amount = "amount"
         case recipeId = "recipeId"
         case isAvailable = "isAvailable"
         case foodId = "foodId"
@@ -44,8 +44,8 @@ struct PurchaseModel: Codable {
         if let serve = try values.decodeIfPresent(Int.self, forKey: .serve) {
             self.serve = serve
         }
-        if let size = try values.decodeIfPresent(Double.self, forKey: .size){
-            self.size = size
+        if let amount = try values.decodeIfPresent(Double.self, forKey: .amount){
+            self.amount = amount
         }
         if let recipeId = try values.decodeIfPresent(Int64.self, forKey: .recipeId) {
             self.recipeId = recipeId

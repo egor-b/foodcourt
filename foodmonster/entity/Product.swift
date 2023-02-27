@@ -1,5 +1,5 @@
 //
-//  Foodstuff.swift
+//  Product.swift
 //  foodmonster
 //
 //  Created by Egor Bryzgalov on 1/4/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Foodstuff: Codable {
+struct Product: Codable {
     
     var id: Int64 = 0
     var name: String = ""

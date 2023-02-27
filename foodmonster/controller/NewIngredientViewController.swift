@@ -63,11 +63,11 @@ class NewIngredientViewController: UIViewController {
     }
     
     func fillInIngredientModel() {
-        ingredientTextField.text = ingredient.foodstuff.name
-        if ingredient.size != 0.0 {
-            weightTextField.text = String(describing: ingredient.size)
+        ingredientTextField.text = ingredient.product.name
+        if ingredient.amount != 0.0 {
+            weightTextField.text = String(describing: ingredient.amount)
         }
-        measureTextField.text = ingredient.measure
+        measureTextField.text = ingredient.unit
     }
 
 }

@@ -11,8 +11,8 @@ struct PurchaseFood: Codable {
     
     var id: Int64 = 0
     var name = ""
-    var size = ""
-    var measure = ""
+    var amount = ""
+    var unit = ""
     var isAvailable = false
     
     

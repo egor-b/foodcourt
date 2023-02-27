@@ -17,6 +17,7 @@ class NewStepViewController: UIViewController {
     
     private let pickerController = UIImagePickerController()
     private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
+    var newRecipeViewModelProtocol: NewRecipeTableViewViewModelProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +75,8 @@ extension NewStepViewController: UIImagePickerControllerDelegate, UINavigationCo
             actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
                 self.addStageView.image = nil
                 step.img = Data()
-                imageCash.removeObject(forKey: step.pic as AnyObject)
+                newRecipeViewModelProtocol?.deleteImage.append(step.pic)
+                step.pic = ""
             }))
         }
         present(actionSheet, animated: true, completion: nil)
@@ -100,7 +102,7 @@ extension NewStepViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension NewStepViewController: UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
-        if let text = textView.text, text.count < 10 {
+        if let text = textView.text, text.count < 5 {
             saveStepBarButtonItem.isEnabled = false
         } else {
             saveStepBarButtonItem.isEnabled = true

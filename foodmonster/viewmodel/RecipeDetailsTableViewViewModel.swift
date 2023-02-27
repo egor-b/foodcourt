@@ -88,17 +88,17 @@ class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
         
         for (i,f) in recipe.food.enumerated() {
             var newWeight = Double()
-            let portionWeight = f.size / Double(recipe.serve)
+            let portionWeight = f.amount / Double(recipe.serve)
             if recipe.serve < portions {
-                newWeight = recipe.food[i].size + portionWeight
+                newWeight = recipe.food[i].amount + portionWeight
             } else {
-                newWeight = recipe.food[i].size - portionWeight
+                newWeight = recipe.food[i].amount - portionWeight
             }
             let userRepresent = round(newWeight * 100) / 100
-            recipe.food[i].size = userRepresent
+            recipe.food[i].amount = userRepresent
             if let cell = tableView.cellForRow(at: IndexPath(row: i+1, section: 1)) as? IngredientOfRecipeTableViewCell {
-                cell.countOfIngredientLabel.text = "\(userRepresent) \(recipe.food[i].measure)"
-                cell.purchase.size = userRepresent
+                cell.countOfIngredientLabel.text = "\(userRepresent) \(recipe.food[i].unit)"
+                cell.purchase.amount = userRepresent
                 cell.purchase.serve = portions
             }
         }

@@ -10,9 +10,9 @@ import Foundation
 struct Food: Codable {
     
     var id: Int64 = 0
-    var foodstuff = Foodstuff()
-    var size: Double = 0.0
-    var measure: String = ""
+    var product = Product()
+    var amount: Double = 0.0
+    var unit: String = ""
     
     internal init() {
         
@@ -20,9 +20,9 @@ struct Food: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case foodstuff = "foodstuff"
-        case size = "size"
-        case measure = "measure"
+        case product = "product"
+        case amount = "amount"
+        case unit = "unit"
     }
     
     init(from decoder: Decoder) throws {
@@ -32,14 +32,14 @@ struct Food: Codable {
             self.id = id
         }
         
-        if let foodstuff = try values.decodeIfPresent(Foodstuff.self, forKey: .foodstuff) {
-            self.foodstuff = foodstuff
+        if let product = try values.decodeIfPresent(Product.self, forKey: .product) {
+            self.product = product
         }
-        if let size = try values.decodeIfPresent(Double.self, forKey: .size) {
-            self.size = size
+        if let amount = try values.decodeIfPresent(Double.self, forKey: .amount) {
+            self.amount = amount
         }
-        if let measure = try values.decodeIfPresent(String.self, forKey: .measure){
-            self.measure = measure
+        if let unit = try values.decodeIfPresent(String.self, forKey: .unit){
+            self.unit = unit
         }
     }
 }

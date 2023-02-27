@@ -10,6 +10,7 @@ import UIKit
 protocol NewRecipeTableViewViewModelProtocol {
     
     var recipe: RecipeModel { get set }
+    var deleteImage: [String] { get set }
     
     func numberOfRows(inSection section: Int) -> Int
     func viewForHeader(inSection section: Int, width: CGFloat, height: CGFloat) -> UIView
@@ -42,7 +43,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
     
     var recipe = RecipeModel()
-    var recipeImg = [String:Data]()
+    var deleteImage = [String]()
     
     init() {
         dataNetworkManager = DataNetworkManager()
@@ -51,7 +52,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     }
     
     func numberOfRows(inSection section: Int) -> Int {
-        if section == 0{
+        if section == 0 {
             return 5
         }
         if section == 1 {
@@ -70,10 +71,10 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         let label = UILabel(frame: CGRect(x: 15, y: 5, width: headerView.frame.width - 50, height: headerView.frame.height/2))
         if section == 1 {
-            label.text = "Ingredients"
+            label.text = "Ingredients (1 min.)"
         }
         if section == 2 {
-            label.text = "Steps"
+            label.text = "Steps (2 min.)"
         }
         label.textColor = UIColor(named: "lightTextColorSet")
         headerView.addSubview(label)
@@ -104,9 +105,9 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     
     func addIngredient(name: String, count: Double, messure: String) {
         var f = FoodModel()
-        f.foodstuff.name = name
-        f.size = count
-        f.measure = messure
+        f.product.name = name
+        f.amount = count
+        f.unit = messure
         recipe.food.append(f)
     }
     
@@ -145,9 +146,9 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     }
     
     func updateIngredient(index: Int, name: String, count: Double, messure: String) {
-        recipe.food[index].foodstuff.name = name
-        recipe.food[index].size = count
-        recipe.food[index].measure = messure
+        recipe.food[index].product.name = name
+        recipe.food[index].amount = count
+        recipe.food[index].unit = messure
     }
     
     func updateStep(step: Int, desc: String, img: String, pic: Data) {
@@ -158,9 +159,12 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         } else if pic.isEmpty && !img.isEmpty {
             recipe.step[step - 1].pic = ""
             imageCash.removeObject(forKey: img as AnyObject)
-        } else {
-            let name = "image/\(randomString()).jpeg"
+        } else if !pic.isEmpty && img.isEmpty {
+            let name = "stage/\(randomString()).jpeg"
             recipe.step[step - 1].pic = name
+            recipe.step[step - 1].img = pic
+        } else {
+            recipe.step[step - 1].pic = img
             recipe.step[step - 1].img = pic
         }
     }
@@ -190,6 +194,9 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         dataNetworkManager.updateRecipe(recipe: dbr, completion: { err in
             if let err = err {
                 completion(err)
+            }
+            if !self.deleteImage.isEmpty {
+                self.deleteImages()
             }
             self.saveImages { error in
                 if let error = error {
@@ -222,6 +229,14 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         completion(nil)
     }
     
+    func deleteImages() {
+        guard let firebaseStorage = firebaseStorage else { return }
+        for img in deleteImage {
+            firebaseStorage.deleteImage(imgRef: img)
+        }
+        deleteImage = [String]()
+    }
+    
     func loadEditRecipe(_ editRecipe: Recipe) {
         var image = [ImageModel]()
         var food = [FoodModel]()
@@ -236,6 +251,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         recipe.visible = editRecipe.visible
         for img in editRecipe.image {
             var el = ImageModel()
+            el.id = img.id
             el.pic = img.pic
             if let imageFromCache = imageCash.object(forKey: img.pic as AnyObject) as? Data {
                 el.img = imageFromCache
@@ -244,15 +260,18 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         }
         for f in editRecipe.food {
             var el = FoodModel()
-            el.size = f.size
-            el.foodstuff.pic = f.foodstuff.pic
-            el.foodstuff.img = f.foodstuff.img
-            el.foodstuff.name = f.foodstuff.name
-            el.measure = f.measure
+            el.id = f.id
+            el.amount = f.amount
+            el.product.id = f.product.id
+            el.product.pic = f.product.pic
+            el.product.img = f.product.img
+            el.product.name = f.product.name
+            el.unit = f.unit
             food.append(el)
         }
         for s in editRecipe.step {
             var el = StepModel()
+            el.id = s.id
             el.step = s.step
             el.pic = s.pic
             el.stepNumber = s.stepNumber
@@ -278,21 +297,24 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         
         for f in recipe.food {
             var fd = Food()
-            fd.size = f.size
-            if !f.foodstuff.pic.isEmpty {
-                fd.foodstuff.pic = f.foodstuff.pic
+            fd.amount = f.amount
+            fd.id = f.id
+            fd.product.id = f.product.id
+            if !f.product.pic.isEmpty {
+                fd.product.pic = f.product.pic
             }
-            if !f.foodstuff.img.isEmpty {
-                fd.foodstuff.img = f.foodstuff.img
+            if !f.product.img.isEmpty {
+                fd.product.img = f.product.img
             }
-            if !f.foodstuff.name.isEmpty {
-                fd.foodstuff.name = f.foodstuff.name
+            if !f.product.name.isEmpty {
+                fd.product.name = f.product.name
             }
-            fd.measure = f.measure
+            fd.unit = f.unit
             model.food.append(fd)
         }
         for s in recipe.step {
             var st = Step()
+            st.id = s.id
             st.step = s.step
             st.img = s.img
             st.pic = s.pic
@@ -301,6 +323,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         }
         for img in recipe.image {
             var im = Image()
+            im.id = img.id
             im.pic = img.pic
             im.img = img.img
             model.image.append(im)
@@ -310,8 +333,10 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     }
     
     func updateStepNumber() {
-        for index in 0...recipe.step.count-1 {
-            recipe.step[index].stepNumber = index + 1
+        if recipe.step.count != 0 {
+            for index in 0...recipe.step.count-1 {
+                recipe.step[index].stepNumber = index + 1
+            }
         }
     }
     
@@ -334,7 +359,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
             rm.image[i].img = Data()
         }
         for (i, _) in rm.food.enumerated() {
-            rm.food[i].foodstuff.img = Data()
+            rm.food[i].product.img = Data()
         }
         
         return rm

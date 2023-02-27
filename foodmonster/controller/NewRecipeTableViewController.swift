@@ -32,6 +32,7 @@ class NewRecipeTableViewController: UITableViewController {
         auth = AuthanticateManager()
         firebaseStorage = FirebaseStorageServiceManager()
         if let editRecipe = editRecipe {
+            configureNavigationBar(title: "Edit recipe")
             newRecipeViewModel?.loadEditRecipe(editRecipe)
             newRecipeViewModel?.recipe.type = editRecipe.type
             if !editRecipe.image.isEmpty {
@@ -41,8 +42,6 @@ class NewRecipeTableViewController: UITableViewController {
             }
             
         }
-        
-        
         setTableFooter()
     }
     
@@ -264,14 +263,7 @@ class NewRecipeTableViewController: UITableViewController {
                             self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
                         } else {
                             self.customAlertHandlerOkButton(title: "Success", message: "Recipe was saved", submitTitle: "Sweet") {
-                                if self.editRecipe != nil {
-                                    self.editRecipe = nil
-                                } else {
-                                    self.newRecipeViewModel?.recipe = RecipeModel()
-                                }
-                                self.addPicImageView.image = nil
-                                self.tableView.reloadData()
-                                self.tabBarController?.selectedIndex = 1
+                                self.dismiss(animated: true)
                             }
                         }
                     }
@@ -304,7 +296,6 @@ class NewRecipeTableViewController: UITableViewController {
                 }
             }
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -377,10 +368,16 @@ class NewRecipeTableViewController: UITableViewController {
                 if identifier == Segue.ADD_STEP_SEGUE.rawValue {
                     if let destinationVC = segue.destination as? NewStepViewController {
                         destinationVC.step = newRecipeViewModel.getStep(atIndexPath: indexPath)
+                        destinationVC.newRecipeViewModelProtocol = newRecipeViewModel
                     }
                 }
             }
         }
+    }
+    
+    @IBAction func dismissControllerBarButtonPressed(_ sender: Any) {
+        dismiss(animated: true)
+        newRecipeViewModel?.deleteImage = [String]()
     }
     
 }
@@ -451,7 +448,7 @@ extension NewRecipeTableViewController {
         let desc = stepController.stepDescriptionTextView.text ?? ""
         let img = stepController.step.img
         let ref = stepController.step.pic
-        if stepController.step.stepNumber == 0 {
+        if stepController.step.stepNumber == 0 { 
             newRecipeViewModel?.addStep(desc: desc, pic: img)
         } else {
             let step = stepController.step.stepNumber
@@ -478,7 +475,7 @@ extension NewRecipeTableViewController: UIPickerViewDelegate, UIPickerViewDataSo
         picker.autoresizingMask = .flexibleWidth
         picker.contentMode = .center
         picker.frame = CGRect.init(x: 20, y: self.view.bounds.size.height - 360, width: self.view.bounds.size.width - 40, height: 250)
-        picker.layer.cornerRadius = 15
+        picker.layer.cornerRadius = 10
         
         toolBar = UIToolbar.init(frame: CGRect.init(x: 29, y: self.view.bounds.size.height - 360, width: self.view.bounds.size.width - 58, height: 40))
         toolBar.barTintColor = UIColor(named: "lightBackgroundColorSet")
@@ -488,10 +485,12 @@ extension NewRecipeTableViewController: UIPickerViewDelegate, UIPickerViewDataSo
         toolBar.items = [spacer, done]
         
         dismissPickerGestureRecognizer()
-        newRecipeViewModel?.recipe.type = MainMenu.desert.rawValue
-        
-        tabBarController?.view.addSubview(picker)
-        tabBarController?.view.addSubview(toolBar)
+        newRecipeViewModel?.recipe.type = MainMenu.appetizer.rawValue
+//        navigationController?.navigationBar.addSubview(picker)
+//        navigationController?.navigationBar.addSubview(toolBar)
+
+        view.addSubview(picker)
+        view.addSubview(toolBar)
 
         let indexPath = IndexPath(row: 1, section: 0)
         tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -589,7 +588,10 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
         if addPicImageView.image != nil {
             actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
                 self.addPicImageView.image = nil
-                newRecipeViewModel?.recipe.image.remove(at: 0)
+                if let newRecipeViewModel = self.newRecipeViewModel {
+                    self.newRecipeViewModel?.deleteImage.append(newRecipeViewModel.recipe.image[0].pic)
+                    self.newRecipeViewModel?.recipe.image.remove(at: 0)
+                }
             }))
         }
         present(actionSheet, animated: true, completion: nil)

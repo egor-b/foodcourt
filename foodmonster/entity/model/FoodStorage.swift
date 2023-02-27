@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct FoodStoarge: Codable {
+struct FoodStorage: Codable {
     
+    var id: Int64 = 0
     var name: String = ""
     var pic: String = ""
     var img = Data()

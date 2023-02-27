@@ -23,14 +23,14 @@ class IngredientOfRecipeTableViewCell: UITableViewCell {
             networkManger = DataNetworkManager()
             checkMarkBoxButton.addTarget(self, action: #selector(addToPurches), for: .touchUpInside)
             guard let viewModel = viewModel else { return }
-            ingredientNameLabel?.text = viewModel.ingredient.foodstuff.name
+            ingredientNameLabel?.text = viewModel.ingredient.product.name
             purchase.recipeName = viewModel.recipe.name
             purchase.recipeId = viewModel.recipe.id
             purchase.serve = viewModel.recipe.serve
             purchase.foodId = viewModel.ingredient.id
-            purchase.size = viewModel.ingredient.size
+            purchase.amount = viewModel.ingredient.amount
             checkPurchase(viewModel.ingredient.id, viewModel.recipe.id)
-            countOfIngredientLabel?.text = "\(viewModel.ingredient.size) \(viewModel.ingredient.measure)"
+            countOfIngredientLabel?.text = "\(viewModel.ingredient.amount) \(viewModel.ingredient.unit)"
         }
     }
     

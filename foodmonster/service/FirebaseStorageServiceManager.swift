@@ -24,7 +24,7 @@ class FirebaseStorageServiceManager: FirebaseStorageServiceManagerProtocol {
         if let imageFromCache = imageCash.object(forKey: ref as AnyObject) as? Data {
             completion(imageFromCache)
         } else {
-            self.storage.child(ref).getData(maxSize: 1 * 1024 * 1024) { data, error in
+            self.storage.child(ref).getData(maxSize: 3 * 1024 * 1024) { data, error in
                 if let error = error {
                     print("ERROR LOAD IMAGE \(error.localizedDescription)")
                     let defaultImage = UIImage(named: "cook")
