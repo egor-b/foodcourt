@@ -49,7 +49,7 @@ class NewRecipeTableViewController: UITableViewController {
         super.viewDidAppear(true)
         
         if globalUserId.isEmpty {
-            showUnknownUserAlert()
+            showNewRecipeUnknownUserAlert()
         }
         
         if let auth = auth {

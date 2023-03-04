@@ -63,6 +63,24 @@ extension UIViewController {
         self.present(dialogMessage, animated: true, completion: nil)
     }
     
+    func showNewRecipeUnknownUserAlert() {
+        let dialogMessage = UIAlertController(title: "Ooops ... ", message: "Please, log in or create new acccount for start building you cook book.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Log In", style: .default, handler: { _ in
+            UserDefaults.standard.removeObject(forKey: Anon.ANON.rawValue)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let newRecipeController = storyboard.instantiateViewController(withIdentifier: "loginStoryboard") as! LoginViewController
+            newRecipeController.modalTransitionStyle = .crossDissolve
+            newRecipeController.modalPresentationStyle = .fullScreen
+            self.present(newRecipeController, animated: true, completion: nil)
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            self.dismiss(animated: true)
+        }
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
     func customAlertWithHandler(title: String, message: String, submitTitle: String, declineTitle: String, succcessHandler: @escaping () -> (), declineHandler: @escaping () -> ()) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: submitTitle, style: .default, handler: { _ in

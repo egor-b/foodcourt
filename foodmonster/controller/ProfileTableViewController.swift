@@ -40,7 +40,7 @@ class ProfileTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if isReload {
+        if isReload || globalUserId.isEmpty {
             fillOutController()
         }
     }
@@ -65,6 +65,7 @@ class ProfileTableViewController: UITableViewController {
             self.stopActivityIndicatory(activityView: self.activityView)
             showUnknownUserAlert()
         }
+        isReload = false
     }
     
     func loadUserImage() {

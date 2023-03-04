@@ -114,6 +114,38 @@
             endingLineNumber = "195"
             landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2754518D-F34B-4149-9DA4-4E330A0EFC25 - 161ae65d3dce08ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "foodmonster.LoginViewController.authorizationController(controller: __C.ASAuthorizationController, didCompleteWithAuthorization: __C.ASAuthorization) -&gt; ()"
+                  moduleName = "foodmonster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ebryzga/Documents/foodcrunch/foodmonster/foodmonster/controller/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "1804">
+               </Location>
+               <Location
+                  uuid = "2754518D-F34B-4149-9DA4-4E330A0EFC25 - 590b43f3c8621280"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in foodmonster.LoginViewController.authorizationController(controller: __C.ASAuthorizationController, didCompleteWithAuthorization: __C.ASAuthorization) -&gt; ()"
+                  moduleName = "foodmonster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ebryzga/Documents/foodcrunch/foodmonster/foodmonster/controller/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
