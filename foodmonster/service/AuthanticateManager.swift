@@ -10,7 +10,6 @@ import Firebase
 import FirebaseCore
 import GoogleSignIn
 import Alamofire
-import SwiftyJSON
 import FBSDKCoreKit
 import FBSDKLoginKit
 import CryptoKit
@@ -240,7 +239,6 @@ class AuthanticateManager: AuthanticateManagerProtocol {
             AF.request(uri, method: .put, parameters: user, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
                 case .success(let value):
-                    let json = JSON(value ?? "")
                     completion(nil)
                 case .failure(let error):
                     print("Alamofire failed: ", error.localizedDescription)
