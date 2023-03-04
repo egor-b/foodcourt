@@ -47,37 +47,54 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginByGoogle(_ sender: Any) {
-        loginViewModel?.loginByGoogle(view: self) { error in
-            if let error = error {
-                self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+        
+        self.customAlertWithHandler(title: "Terms and Conditions", message: "By continuing to register, you accept the terms and conditions.", submitTitle: "Ok", declineTitle: "Show") {
+            self.loginViewModel?.loginByGoogle(view: self) { error in
+                if let error = error {
+                    self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                }
+                self.performSegue(withIdentifier: Segue.LOGIN_SEGUE.rawValue, sender: nil)
             }
-            self.performSegue(withIdentifier: Segue.LOGIN_SEGUE.rawValue, sender: nil)
+        } declineHandler: {
+            self.showTermsAndConditions()
         }
-       
     }
     
     @IBAction func loginByFacebook(_ sender: Any) {
-        loginViewModel?.loginByFacebook(view: self) { error in
-            if let error = error {
-                self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+        self.customAlertWithHandler(title: "Terms and Conditions", message: "By continuing to register, you accept the terms and conditions.", submitTitle: "Ok", declineTitle: "Show") {
+            self.loginViewModel?.loginByFacebook(view: self) { error in
+                if let error = error {
+                    self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                }
+                self.performSegue(withIdentifier: Segue.LOGIN_SEGUE.rawValue, sender: nil)
             }
-            self.performSegue(withIdentifier: Segue.LOGIN_SEGUE.rawValue, sender: nil)
+        } declineHandler: {
+            self.showTermsAndConditions()
         }
     }
     
     @IBAction func loginByApple(_ sender: Any) {
-        guard let loginViewModel = loginViewModel else { showAlert(title: "Ooops ... ", message: "Something was wrong. We work on it. Please try again little later."); return }
-        loginViewModel.randomNonceString(length: 32)
-        guard let sha = loginViewModel.sha256() else { showAlert(title: "Ooops ... ", message: "Something was wrong. We work on it. Please try again little later."); return }
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        request.nonce = sha
-        
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
-        
+        self.customAlertWithHandler(title: "Terms and Conditions", message: "By continuing to register, you accept the terms and conditions.", submitTitle: "Ok", declineTitle: "Show") {
+            guard let loginViewModel = self.loginViewModel else {
+                self.showAlert(title: "Ooops ... ", message: "Something was wrong. We work on it. Please try again little later.")
+                return
+            }
+            loginViewModel.randomNonceString(length: 32)
+            guard let sha = loginViewModel.sha256() else {
+                self.showAlert(title: "Ooops ... ", message: "Something was wrong. We work on it. Please try again little later.")
+                return
+            }
+            let request = self.appleIDProvider.createRequest()
+            request.requestedScopes = [.fullName, .email]
+            request.nonce = sha
+            
+            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+            authorizationController.delegate = self
+            authorizationController.presentationContextProvider = self
+            authorizationController.performRequests()
+        } declineHandler: {
+            self.showTermsAndConditions()
+        }
     }
     
     @IBAction func anonymouslogin(_ sender: Any) {
@@ -122,6 +139,12 @@ class LoginViewController: UIViewController {
             
         })
     }
+    
+    func showTermsAndConditions() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "termsAndConditionsController") as! TermsAndConditionsViewController
+        self.present(newViewController, animated: true, completion: nil)
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -161,12 +184,15 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                 return
             }
+            if let authorizationCode = appleIDCredential.authorizationCode,
+               let codeString = String(data: authorizationCode, encoding: .utf8) {
+                UserDefaults.standard.set(codeString, forKey: "authorizationCode")
+            }
             var new = false
             if let _ = appleIDCredential.email {
                 new = true
             }
-            
-            loginViewModel?.loginByApple(idTokenString: idTokenString, isNew: new, completion: { error in
+            loginViewModel?.loginByApple(idTokenString: idTokenString, appleIDCredential: appleIDCredential, completion: { error in
                 if let error = error {
                     self.stopActivityIndicatory(activityView: self.activityView)
                     self.showAlert(title: "Ooops ... ", message: error.localizedDescription)

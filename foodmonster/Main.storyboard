@@ -453,7 +453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hL0-TM-Utz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2782.3255813953488" y="-344.42060085836914"/>
+            <point key="canvasLocation" x="-3063" y="-344"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="FI1-jK-IpU">
@@ -467,15 +467,7 @@
                                 <rect key="frame" x="159" y="184" width="146" height="114"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="146" id="KBs-04-Fiw"/>
-                                    <constraint firstAttribute="height" constant="114" id="l4w-Iw-mzg"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cook" translatesAutoresizingMaskIntoConstraints="NO" id="kAx-l2-t0Z">
-                                <rect key="frame" x="174" y="234" width="76" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="GFy-ir-NhW"/>
-                                    <constraint firstAttribute="height" constant="51" id="PFk-JD-DDh"/>
+                                    <constraint firstAttribute="width" secondItem="RLV-iR-P8w" secondAttribute="height" multiplier="73:57" id="ry5-M4-fRG"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjm-lb-d5X">
@@ -515,6 +507,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cE2-kl-hUM">
                                 <rect key="frame" x="15" y="853" width="400" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cE2-kl-hUM" secondAttribute="height" multiplier="40:3" id="htx-P0-MUb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Enter with no login">
                                     <color key="titleColor" name="darkTextColorSet"/>
@@ -527,7 +522,7 @@
                                 <rect key="frame" x="35" y="559" width="360" height="40"/>
                                 <color key="backgroundColor" name="activeColorSet"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="I8N-Ay-n8L"/>
+                                    <constraint firstAttribute="width" secondItem="Ezv-U2-tOC" secondAttribute="height" multiplier="9:1" id="hrE-Jd-l3V"/>
                                 </constraints>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -538,18 +533,27 @@
                             </button>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sj7-Xw-VRb">
                                 <rect key="frame" x="35" y="495" width="360" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Sj7-Xw-VRb" secondAttribute="height" multiplier="180:17" id="IEe-bN-TNw"/>
+                                </constraints>
                                 <color key="textColor" name="darkTextColorSet"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="go" secureTextEntry="YES" smartDashesType="no" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sgE-Ci-L6F">
                                 <rect key="frame" x="35" y="446" width="360" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sgE-Ci-L6F" secondAttribute="height" multiplier="180:17" id="WOz-U4-Dt4"/>
+                                </constraints>
                                 <color key="textColor" name="darkTextColorSet"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8E-lC-U49">
                                 <rect key="frame" x="45" y="679" width="340" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S8E-lC-U49" secondAttribute="height" multiplier="85:6" id="rER-ml-D2e"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="darkTextColorSet"/>
                                 <nil key="highlightedColor"/>
@@ -557,7 +561,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iX-zc-Q2S">
                                 <rect key="frame" x="45" y="793" width="340" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="vh9-TH-bT7"/>
+                                    <constraint firstAttribute="width" secondItem="4iX-zc-Q2S" secondAttribute="height" multiplier="34:3" id="KTT-sG-GeL"/>
                                 </constraints>
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" name="pressedButtonColorSet"/>
@@ -604,12 +608,10 @@
                             <constraint firstItem="Sj7-Xw-VRb" firstAttribute="top" secondItem="sgE-Ci-L6F" secondAttribute="bottom" constant="15" id="Fp2-W7-SX3"/>
                             <constraint firstItem="S8E-lC-U49" firstAttribute="top" secondItem="ohN-Ry-h0U" secondAttribute="bottom" constant="35" id="IAc-a3-7YC"/>
                             <constraint firstItem="pjr-Tk-50N" firstAttribute="centerY" secondItem="rNl-1m-WBx" secondAttribute="centerY" id="JSz-FL-y5M"/>
-                            <constraint firstItem="RLV-iR-P8w" firstAttribute="leading" secondItem="kAx-l2-t0Z" secondAttribute="trailing" constant="-91" id="KyA-ac-2rc"/>
                             <constraint firstItem="S8E-lC-U49" firstAttribute="leading" secondItem="67s-i0-b9Y" secondAttribute="leading" constant="45" id="Lb3-Th-xQE"/>
                             <constraint firstItem="ohN-Ry-h0U" firstAttribute="centerX" secondItem="gXI-QV-c8a" secondAttribute="centerX" id="Lv9-Co-uOn"/>
                             <constraint firstItem="sgE-Ci-L6F" firstAttribute="centerX" secondItem="gXI-QV-c8a" secondAttribute="centerX" id="N58-Xg-ugt"/>
                             <constraint firstItem="rNl-1m-WBx" firstAttribute="top" secondItem="S8E-lC-U49" secondAttribute="bottom" constant="15" id="Tzw-a9-Rvw"/>
-                            <constraint firstItem="RLV-iR-P8w" firstAttribute="baseline" secondItem="kAx-l2-t0Z" secondAttribute="bottom" constant="13" id="WMf-Ep-dsv"/>
                             <constraint firstItem="pjr-Tk-50N" firstAttribute="leading" secondItem="rNl-1m-WBx" secondAttribute="trailing" constant="15" id="X8n-Eq-bkv"/>
                             <constraint firstItem="cE2-kl-hUM" firstAttribute="leading" secondItem="67s-i0-b9Y" secondAttribute="leading" constant="15" id="XZg-X8-G9Y"/>
                             <constraint firstItem="67s-i0-b9Y" firstAttribute="bottom" secondItem="cE2-kl-hUM" secondAttribute="bottom" constant="15" id="cYw-A8-zV3"/>
@@ -675,7 +677,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="join" textContentType="family-name"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kee-vN-Hv8">
-                                <rect key="frame" x="30" y="468" width="180" height="50"/>
+                                <rect key="frame" x="30" y="494" width="180" height="50"/>
                                 <color key="backgroundColor" name="activeColorSet"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fVZ-kD-flV"/>
@@ -690,7 +692,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUb-Q1-Poc">
-                                <rect key="frame" x="220" y="468" width="180" height="50"/>
+                                <rect key="frame" x="220" y="494" width="180" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Fag-cz-YRm"/>
                                 </constraints>
@@ -707,11 +709,26 @@
                                 <color key="textColor" name="darkTextColorSet"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK5-qw-GwM">
+                                <rect key="frame" x="145" y="448" width="140" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DK5-qw-GwM" secondAttribute="height" multiplier="43:8" id="MKf-QR-xkf"/>
+                                </constraints>
+                                <color key="tintColor" name="darkTextColorSet"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Terms and Conditions">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="tdF-ES-hTl" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="nqd-6X-QG9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZYN-eZ-W8P"/>
                         <color key="backgroundColor" name="backgroundColorSet"/>
                         <constraints>
                             <constraint firstItem="h5q-eJ-lOV" firstAttribute="top" secondItem="0R1-Pn-qpA" secondAttribute="bottom" constant="25" id="1um-Ji-3QW"/>
+                            <constraint firstItem="DK5-qw-GwM" firstAttribute="centerX" secondItem="WFV-1m-dOw" secondAttribute="centerX" id="4hK-yP-Ow2"/>
                             <constraint firstItem="6dA-5g-lMd" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="40" id="57A-2d-Gpb"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="h5q-eJ-lOV" secondAttribute="trailing" constant="40" id="5KK-gH-DjQ"/>
                             <constraint firstItem="6dA-5g-lMd" firstAttribute="top" secondItem="zIY-rd-Hxz" secondAttribute="bottom" constant="20" id="9Fz-ds-p4Z"/>
@@ -722,13 +739,13 @@
                             <constraint firstItem="xar-t6-uvH" firstAttribute="top" secondItem="6dA-5g-lMd" secondAttribute="bottom" constant="20" id="N4f-6T-A6g"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="xar-t6-uvH" secondAttribute="trailing" constant="40" id="Nxo-tl-krq"/>
                             <constraint firstItem="kee-vN-Hv8" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="30" id="PQo-bM-SdH"/>
+                            <constraint firstItem="DK5-qw-GwM" firstAttribute="top" secondItem="xar-t6-uvH" secondAttribute="bottom" constant="15" id="QfO-AM-T2G"/>
                             <constraint firstItem="kee-vN-Hv8" firstAttribute="centerY" secondItem="hUb-Q1-Poc" secondAttribute="centerY" id="RMK-dd-a3S"/>
                             <constraint firstItem="zIY-rd-Hxz" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="40" id="T0u-aw-tKF"/>
                             <constraint firstItem="kee-vN-Hv8" firstAttribute="width" secondItem="hUb-Q1-Poc" secondAttribute="width" id="ZDm-pI-0Um"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="DvH-i4-5RW" secondAttribute="trailing" constant="40" id="Zwn-FW-R3g"/>
                             <constraint firstItem="DvH-i4-5RW" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="40" id="aqF-O7-sIc"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="0R1-Pn-qpA" secondAttribute="trailing" constant="30" id="b2M-De-dIC"/>
-                            <constraint firstItem="kee-vN-Hv8" firstAttribute="top" secondItem="xar-t6-uvH" secondAttribute="bottom" constant="35" id="cIa-x4-fc1"/>
                             <constraint firstItem="zIY-rd-Hxz" firstAttribute="top" secondItem="yhB-OE-rlQ" secondAttribute="bottom" constant="20" id="ekf-PL-EBk"/>
                             <constraint firstItem="yhB-OE-rlQ" firstAttribute="top" secondItem="DvH-i4-5RW" secondAttribute="bottom" constant="20" id="hsq-Dr-Dzj"/>
                             <constraint firstItem="0R1-Pn-qpA" firstAttribute="top" secondItem="ZYN-eZ-W8P" secondAttribute="top" constant="15" id="jgH-qg-ER9"/>
@@ -736,6 +753,7 @@
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="yhB-OE-rlQ" secondAttribute="trailing" constant="40" id="m1z-NN-OsN"/>
                             <constraint firstItem="xar-t6-uvH" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="40" id="oO8-o0-uhe"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="6dA-5g-lMd" secondAttribute="trailing" constant="40" id="on5-8z-Hbb"/>
+                            <constraint firstItem="kee-vN-Hv8" firstAttribute="top" secondItem="DK5-qw-GwM" secondAttribute="bottom" constant="20" id="s9Y-C1-mOY"/>
                             <constraint firstItem="0R1-Pn-qpA" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="30" id="u1X-3D-Bsf"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="hUb-Q1-Poc" secondAttribute="trailing" constant="30" id="wiy-sz-4sb"/>
                         </constraints>
@@ -755,6 +773,529 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mo2-eZ-F7G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-513" y="-344"/>
+        </scene>
+        <!--Terms And Conditions View Controller-->
+        <scene sceneID="rz7-jH-WQn">
+            <objects>
+                <viewController storyboardIdentifier="termsAndConditionsController" id="tdF-ES-hTl" customClass="TermsAndConditionsViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gel-WB-YVo">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmC-bp-oDJ">
+                                <rect key="frame" x="0.0" y="59" width="430" height="839"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfV-3D-uOT">
+                                        <rect key="frame" x="20" y="5" width="390" height="27"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="23"/>
+                                        <color key="textColor" name="darkTextColorSet"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5r4-wc-9Ns">
+                                        <rect key="frame" x="15" y="47" width="400" height="1733"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">     1. Introduction
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">These terms and conditions govern the use of the application and its services provided by Food Crunch ("we," "us," "our"), which includes user registration and user-generated content.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     2. Acceptance of Terms and Conditions
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">By using our application and services, you agree to these terms and conditions. If you do not agree, you should not use our application and services.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     3. User Registration
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">To access our application and services, you must register and create an account with us. During the registration process, you will be required to provide certain personal information, including your name, email address, and other details.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     4. User-Generated Content
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Our application allows users to generate and share text and media content, including but not limited to, photos, videos, audio files, and other multimedia content (collectively, "Media Content"). By using our application, you acknowledge and agree that any Media Content you share or contribute to our application becomes our property and may be used, reproduced, modified, adapted, published, translated, distributed, displayed, broadcasted, performed, and/or otherwise exploited in any manner or form, whether now known or hereafter devised, without further notice, payment, or attribution to you.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     5. License to Use User-Generated Content
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">By contributing or sharing Media Content through our application, you grant us a worldwide, non-exclusive, royalty-free, transferable, sub-licensable, and perpetual license to use, copy, modify, create derivative works based on, distribute, publicly display, publicly perform, and otherwise exploit in any manner such Media Content in all formats and distribution channels now known or hereafter devised (including in connection with the application and our business and on third-party sites and services), without further notice to or consent from you, and without the requirement of payment to you or any other person or entity.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     6. User Responsibility for User-Generated Content
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">You are solely responsible for any Media Content that you share or contribute to our application, and you agree not to post or share any Media Content that infringes upon or violates any third-party rights, including intellectual property rights, privacy rights, or any other proprietary or personal rights.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     7. Access to Content Saved by Other Users
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Our application allows users to save content created by other users. By using our application and services, you agree to comply with our Access Guidelines, which are incorporated into these terms and conditions.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     8. Intellectual Property
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We own all intellectual property rights in our application and services, including but not limited to the design, layout, graphics, and content. You may not reproduce, distribute, modify, or use our intellectual property without our express written permission.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     9. Termination
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We reserve the right to terminate your account and access to our application and services at any time and for any reason, without notice.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     10. Limitation of Liability
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We are not liable for any damages, including but not limited to direct, indirect, incidental, consequential, or punitive damages, arising from your use of our application and services.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     11. Indemnification
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">You agree to indemnify, defend, and hold harmless us, our affiliates, officers, directors, employees, and agents from and against any and all claims, damages, liabilities, costs, and expenses, including reasonable attorneys' fees, arising from your use of our application and services.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     12. Governing Law and Dispute Resolution
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">As our application can be used in countries around the world, these terms and conditions and any dispute arising out of or relating to them shall be governed by and construed in accordance with the laws of the United States of America and the applicable laws of the country where the user is located, without giving effect to any choice or conflict of law provision or rule.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     13. Informal Negotiation
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">In the event of any dispute arising out of or relating to these terms and conditions or our application and services, you agree to first attempt to resolve the dispute through informal negotiation. If the dispute cannot be resolved through negotiation, you agree to submit to the exclusive jurisdiction of the courts located in the United States of America or the applicable country where the user is located.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     14. Waiver of Class Action
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action. You waive any right to participate in any class, consolidated, or representative action.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     15. Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Our application may collect and store personal data, including but not limited to your name, email address, and other details provided during the registration process. By using our application and services, you consent to the collection, storage, and processing of your personal data in accordance with our Privacy Policy, which is incorporated into these terms and conditions.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     16. Use of Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We may use your personal data to provide you with personalized content and recommendations, to communicate with you about our application and services, and for other purposes as set forth in our Privacy Policy.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     17. Disclosure of Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We may disclose your personal data to third parties, including but not limited to service providers, affiliates, and partners, for the purposes of providing you with our application and services. We will not disclose your personal data to third parties for marketing purposes without your express consent.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     18. Security of Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We take reasonable measures to protect your personal data from unauthorized access, use, or disclosure. However, we cannot guarantee the security of your personal data.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     19. Access to Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">You have the right to access and request the correction or deletion of your personal data held by us. Please contact us at [contact information] to exercise your rights.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     20. Data Retention
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We will retain your personal data for as long as necessary to provide you with our application and services, or as required by applicable law. After this period, we will delete your personal data in accordance with our data retention policies.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     21. User-Generated Data Deletion
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Please note that user-generated data, including but not limited to text and media, cannot be deleted from our application and services once it has been shared by a user. This is because other users may have saved or shared the content, and deleting it would disrupt their access to the content. Therefore, please ensure that you are comfortable with sharing any user-generated data before doing so.
+
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">     22. Responsibility for User-Generated Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">As a user of our application and services, you are solely responsible for any user-generated data that you create and share. We do not endorse or guarantee the accuracy, completeness, or quality of any user-generated data shared through our application and services. We reserve the right to remove any user-generated data that violates our Content Guidelines or applicable laws and regulations.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     23. Changes to Terms and Conditions
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We reserve the right to change these terms and conditions at any time and without notice. Your continued use of our application and services after any such changes constitutes your acceptance of the new terms and conditions.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-7t-ABm">
+                                        <rect key="frame" x="165" y="1795" width="100" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="cqT-vW-ciN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Close">
+                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="dismissController:" destination="tdF-ES-hTl" eventType="touchUpInside" id="uzI-6j-93j"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5r4-wc-9Ns" firstAttribute="top" secondItem="BfV-3D-uOT" secondAttribute="bottom" constant="15" id="ANS-tZ-aet"/>
+                                    <constraint firstAttribute="trailing" secondItem="BfV-3D-uOT" secondAttribute="trailing" constant="20" id="H70-89-ffV"/>
+                                    <constraint firstItem="BfV-3D-uOT" firstAttribute="centerX" secondItem="lmC-bp-oDJ" secondAttribute="centerX" id="IRE-xp-41I"/>
+                                    <constraint firstAttribute="bottom" secondItem="UXH-7t-ABm" secondAttribute="bottom" constant="25" id="KT1-5o-4Zt"/>
+                                    <constraint firstItem="5r4-wc-9Ns" firstAttribute="centerX" secondItem="lmC-bp-oDJ" secondAttribute="centerX" id="Mal-iY-oTC"/>
+                                    <constraint firstItem="UXH-7t-ABm" firstAttribute="top" secondItem="5r4-wc-9Ns" secondAttribute="bottom" constant="15" id="TXu-K8-bWf"/>
+                                    <constraint firstItem="5r4-wc-9Ns" firstAttribute="leading" secondItem="lmC-bp-oDJ" secondAttribute="leading" constant="15" id="b5v-PE-rds"/>
+                                    <constraint firstItem="UXH-7t-ABm" firstAttribute="centerX" secondItem="lmC-bp-oDJ" secondAttribute="centerX" id="eBb-J2-BbB"/>
+                                    <constraint firstItem="BfV-3D-uOT" firstAttribute="top" secondItem="lmC-bp-oDJ" secondAttribute="top" constant="5" id="nYO-oa-0u3"/>
+                                    <constraint firstAttribute="trailing" secondItem="5r4-wc-9Ns" secondAttribute="trailing" constant="15" id="wzb-sv-8PF"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M49-4b-6qz"/>
+                        <color key="backgroundColor" name="lightBackgroundColorSet"/>
+                        <constraints>
+                            <constraint firstItem="lmC-bp-oDJ" firstAttribute="leading" secondItem="M49-4b-6qz" secondAttribute="leading" id="Heu-Dc-yGj"/>
+                            <constraint firstItem="lmC-bp-oDJ" firstAttribute="trailing" secondItem="M49-4b-6qz" secondAttribute="trailing" id="PPm-pk-66h"/>
+                            <constraint firstItem="lmC-bp-oDJ" firstAttribute="top" secondItem="M49-4b-6qz" secondAttribute="top" id="vWr-Tl-mDc"/>
+                            <constraint firstItem="lmC-bp-oDJ" firstAttribute="bottom" secondItem="M49-4b-6qz" secondAttribute="bottom" id="zB7-2a-EFp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XCS-5D-bRd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6m-BU-a3p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="553.95348837209303" y="-344.42060085836914"/>
         </scene>
         <!--Purchase Table View Controller-->
         <scene sceneID="3TG-RG-RQL">
@@ -961,7 +1502,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="yes" returnKeyType="done"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kU8-t9-Gum">
-                                <rect key="frame" x="-7" y="0.0" width="422" height="44"/>
+                                <rect key="frame" x="-9" y="0.0" width="422" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" name="backgroundColorSet"/>
                                 <textAttributes key="titleTextAttributes">
@@ -1486,7 +2027,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="430" height="40.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1w-7a-hHh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1w-7a-hHh">
                                                     <rect key="frame" x="20" y="10.999999999999998" width="390" height="18.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" name="darkTextColorSet"/>
@@ -1573,6 +2114,33 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="7mG-qj-lek">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fTO-mO-c4F">
+                                        <rect key="frame" x="0.0" y="603.33332824707031" width="430" height="40.333332061767578"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fTO-mO-c4F" id="6Rb-af-0n8">
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="40.333332061767578"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9v-Bq-pTj">
+                                                    <rect key="frame" x="20" y="10.999999999999998" width="390" height="18.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="T9v-Bq-pTj" firstAttribute="leading" secondItem="6Rb-af-0n8" secondAttribute="leadingMargin" id="70J-f9-rdV"/>
+                                                <constraint firstItem="T9v-Bq-pTj" firstAttribute="centerY" secondItem="6Rb-af-0n8" secondAttribute="centerY" id="7jx-AC-ZLG"/>
+                                                <constraint firstItem="T9v-Bq-pTj" firstAttribute="centerX" secondItem="6Rb-af-0n8" secondAttribute="centerX" id="aKp-sp-SY2"/>
+                                                <constraint firstItem="T9v-Bq-pTj" firstAttribute="top" secondItem="6Rb-af-0n8" secondAttribute="topMargin" id="xqG-B4-gzL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="lightBackgroundColorSet"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Sw1-XK-7Tm" id="t4R-SQ-wPj"/>
@@ -1599,7 +2167,7 @@
             </objects>
             <point key="canvasLocation" x="431.8840579710145" y="1974.7767857142856"/>
         </scene>
-        <!--About-->
+        <!--Terms and Conditions-->
         <scene sceneID="YuR-Wy-xy3">
             <objects>
                 <viewController id="ney-wI-Q54" sceneMemberID="viewController">
@@ -1607,46 +2175,493 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9V-97-JkK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgg-bQ-JX6">
                                 <rect key="frame" x="0.0" y="103" width="430" height="746"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmw-g9-LhE">
-                                        <rect key="frame" x="40" y="177.66666666666669" width="350" height="193.33333333333331"/>
-                                        <string key="text">With the Cook Book Application, you can store all your favorite recipes in one convenient place. Whether it's a family recipe passed down through generations or a new dish you created, the Cook Book Application makes it easy to save and organize your recipes. Simply type in the ingredients, instructions, and any notes, and your recipe is ready to be accessed anytime, anywhere.</string>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXg-6s-QgQ">
-                                        <rect key="frame" x="40" y="50.000000000000007" width="350" height="107.66666666666669"/>
-                                        <string key="text">Gone are the days of scribbling your favorite recipes on notepads or searching for them in a pile of cookbooks. The Cook Book Application is here to revolutionize the way you save and share your recipes.</string>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d25-kp-6yn">
+                                        <rect key="frame" x="15" y="15" width="400" height="1733"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">     1. Introduction
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">These terms and conditions govern the use of the application and its services provided by Food Crunch ("we," "us," "our"), which includes user registration and user-generated content.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     2. Acceptance of Terms and Conditions
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">By using our application and services, you agree to these terms and conditions. If you do not agree, you should not use our application and services.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     3. User Registration
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">To access our application and services, you must register and create an account with us. During the registration process, you will be required to provide certain personal information, including your name, email address, and other details.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     4. User-Generated Content
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Our application allows users to generate and share text and media content, including but not limited to, photos, videos, audio files, and other multimedia content (collectively, "Media Content"). By using our application, you acknowledge and agree that any Media Content you share or contribute to our application becomes our property and may be used, reproduced, modified, adapted, published, translated, distributed, displayed, broadcasted, performed, and/or otherwise exploited in any manner or form, whether now known or hereafter devised, without further notice, payment, or attribution to you.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     5. License to Use User-Generated Content
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">By contributing or sharing Media Content through our application, you grant us a worldwide, non-exclusive, royalty-free, transferable, sub-licensable, and perpetual license to use, copy, modify, create derivative works based on, distribute, publicly display, publicly perform, and otherwise exploit in any manner such Media Content in all formats and distribution channels now known or hereafter devised (including in connection with the application and our business and on third-party sites and services), without further notice to or consent from you, and without the requirement of payment to you or any other person or entity.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     6. User Responsibility for User-Generated Content
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">You are solely responsible for any Media Content that you share or contribute to our application, and you agree not to post or share any Media Content that infringes upon or violates any third-party rights, including intellectual property rights, privacy rights, or any other proprietary or personal rights.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     7. Access to Content Saved by Other Users
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Our application allows users to save content created by other users. By using our application and services, you agree to comply with our Access Guidelines, which are incorporated into these terms and conditions.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     8. Intellectual Property
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We own all intellectual property rights in our application and services, including but not limited to the design, layout, graphics, and content. You may not reproduce, distribute, modify, or use our intellectual property without our express written permission.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     9. Termination
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We reserve the right to terminate your account and access to our application and services at any time and for any reason, without notice.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     10. Limitation of Liability
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We are not liable for any damages, including but not limited to direct, indirect, incidental, consequential, or punitive damages, arising from your use of our application and services.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     11. Indemnification
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">You agree to indemnify, defend, and hold harmless us, our affiliates, officers, directors, employees, and agents from and against any and all claims, damages, liabilities, costs, and expenses, including reasonable attorneys' fees, arising from your use of our application and services.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     12. Governing Law and Dispute Resolution
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">As our application can be used in countries around the world, these terms and conditions and any dispute arising out of or relating to them shall be governed by and construed in accordance with the laws of the United States of America and the applicable laws of the country where the user is located, without giving effect to any choice or conflict of law provision or rule.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     13. Informal Negotiation
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">In the event of any dispute arising out of or relating to these terms and conditions or our application and services, you agree to first attempt to resolve the dispute through informal negotiation. If the dispute cannot be resolved through negotiation, you agree to submit to the exclusive jurisdiction of the courts located in the United States of America or the applicable country where the user is located.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     14. Waiver of Class Action
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action. You waive any right to participate in any class, consolidated, or representative action.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     15. Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Our application may collect and store personal data, including but not limited to your name, email address, and other details provided during the registration process. By using our application and services, you consent to the collection, storage, and processing of your personal data in accordance with our Privacy Policy, which is incorporated into these terms and conditions.
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+     16. Use of Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We may use your personal data to provide you with personalized content and recommendations, to communicate with you about our application and services, and for other purposes as set forth in our Privacy Policy.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     17. Disclosure of Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We may disclose your personal data to third parties, including but not limited to service providers, affiliates, and partners, for the purposes of providing you with our application and services. We will not disclose your personal data to third parties for marketing purposes without your express consent.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     18. Security of Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We take reasonable measures to protect your personal data from unauthorized access, use, or disclosure. However, we cannot guarantee the security of your personal data.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     19. Access to Personal Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">You have the right to access and request the correction or deletion of your personal data held by us. Please contact us at [contact information] to exercise your rights.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     20. Data Retention
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We will retain your personal data for as long as necessary to provide you with our application and services, or as required by applicable law. After this period, we will delete your personal data in accordance with our data retention policies.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     21. User-Generated Data Deletion
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Please note that user-generated data, including but not limited to text and media, cannot be deleted from our application and services once it has been shared by a user. This is because other users may have saved or shared the content, and deleting it would disrupt their access to the content. Therefore, please ensure that you are comfortable with sharing any user-generated data before doing so.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+
+     22. Responsibility for User-Generated Data
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">As a user of our application and services, you are solely responsible for any user-generated data that you create and share. We do not endorse or guarantee the accuracy, completeness, or quality of any user-generated data shared through our application and services. We reserve the right to remove any user-generated data that violates our Content Guidelines or applicable laws and regulations.
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+     23. Changes to Terms and Conditions
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">We reserve the right to change these terms and conditions at any time and without notice. Your continued use of our application and services after any such changes constitutes your acceptance of the new terms and conditions.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="darkTextColorSet"/>
+                                                    <font key="NSFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <font key="NSOriginalFont" size="11" name="SFProDisplay-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Tmw-g9-LhE" secondAttribute="trailing" constant="40" id="2OF-pY-4jD"/>
-                                    <constraint firstAttribute="bottom" secondItem="Tmw-g9-LhE" secondAttribute="bottom" constant="50" id="Igb-r7-J9L"/>
-                                    <constraint firstItem="Tmw-g9-LhE" firstAttribute="centerX" secondItem="H9V-97-JkK" secondAttribute="centerX" id="SMz-Wt-XnI"/>
-                                    <constraint firstItem="Tmw-g9-LhE" firstAttribute="top" secondItem="dXg-6s-QgQ" secondAttribute="bottom" constant="20" id="i47-hJ-V95"/>
-                                    <constraint firstItem="dXg-6s-QgQ" firstAttribute="top" secondItem="H9V-97-JkK" secondAttribute="top" constant="50" id="iEe-kg-3zq"/>
-                                    <constraint firstItem="dXg-6s-QgQ" firstAttribute="leading" secondItem="H9V-97-JkK" secondAttribute="leading" constant="40" id="jcS-OM-O6F"/>
-                                    <constraint firstItem="Tmw-g9-LhE" firstAttribute="leading" secondItem="H9V-97-JkK" secondAttribute="leading" constant="40" id="kW8-qB-bh0"/>
-                                    <constraint firstAttribute="trailing" secondItem="dXg-6s-QgQ" secondAttribute="trailing" constant="40" id="mgI-7b-RTF"/>
+                                    <constraint firstItem="d25-kp-6yn" firstAttribute="centerX" secondItem="xgg-bQ-JX6" secondAttribute="centerX" id="6eN-JG-31K"/>
+                                    <constraint firstItem="d25-kp-6yn" firstAttribute="top" secondItem="xgg-bQ-JX6" secondAttribute="top" constant="15" id="MDQ-lh-rIB"/>
+                                    <constraint firstAttribute="trailing" secondItem="d25-kp-6yn" secondAttribute="trailing" constant="15" id="Q6z-3x-f84"/>
+                                    <constraint firstAttribute="bottom" secondItem="d25-kp-6yn" secondAttribute="bottom" constant="25" id="h0y-UG-5jT"/>
+                                    <constraint firstItem="d25-kp-6yn" firstAttribute="leading" secondItem="xgg-bQ-JX6" secondAttribute="leading" constant="15" id="mGA-hd-E8J"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RTd-x1-LxR"/>
                         <color key="backgroundColor" name="backgroundColorSet"/>
                         <constraints>
-                            <constraint firstItem="RTd-x1-LxR" firstAttribute="trailing" secondItem="H9V-97-JkK" secondAttribute="trailing" id="13x-ho-HaP"/>
-                            <constraint firstItem="H9V-97-JkK" firstAttribute="top" secondItem="RTd-x1-LxR" secondAttribute="top" id="YNL-DB-8YL"/>
-                            <constraint firstItem="H9V-97-JkK" firstAttribute="leading" secondItem="RTd-x1-LxR" secondAttribute="leading" id="ewK-qZ-dnv"/>
-                            <constraint firstItem="RTd-x1-LxR" firstAttribute="bottom" secondItem="H9V-97-JkK" secondAttribute="bottom" id="uDX-yP-86f"/>
+                            <constraint firstItem="xgg-bQ-JX6" firstAttribute="top" secondItem="RTd-x1-LxR" secondAttribute="top" id="C6I-z9-rC0"/>
+                            <constraint firstItem="xgg-bQ-JX6" firstAttribute="leading" secondItem="RTd-x1-LxR" secondAttribute="leading" id="ZXK-Lk-6iu"/>
+                            <constraint firstItem="xgg-bQ-JX6" firstAttribute="bottom" secondItem="RTd-x1-LxR" secondAttribute="bottom" id="kvM-9t-2i1"/>
+                            <constraint firstItem="xgg-bQ-JX6" firstAttribute="trailing" secondItem="RTd-x1-LxR" secondAttribute="trailing" id="rXR-Jy-X7Y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="About" largeTitleDisplayMode="never" id="WER-m4-sdo"/>
+                    <navigationItem key="navigationItem" title="Terms and Conditions" largeTitleDisplayMode="never" id="WER-m4-sdo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLk-Po-6Sf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2000,6 +3015,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

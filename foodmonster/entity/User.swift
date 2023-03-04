@@ -19,6 +19,7 @@ struct User: Codable {
     var isDisable: Bool = false
     var pic: String = ""
     var accountType: String = ""
+    var isTermsAccepted = true
     
     enum CodingKeys: String, CodingKey {
         case id

@@ -88,6 +88,7 @@
 		F133E4C425EC83C80058D544 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133E4C325EC83C80058D544 /* User.swift */; };
 		F133E4CF25ECAB180058D544 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133E4CE25ECAB180058D544 /* ProfileTableViewController.swift */; };
 		F13A81F1298961BA003D5E12 /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A81F0298961BA003D5E12 /* RecipeError.swift */; };
+		F13F15B429ADBE9B0013ABEA /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F15B329ADBE9B0013ABEA /* TermsAndConditionsViewController.swift */; };
 		F1409C3A25E4CC7700846534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1409C3925E4CC7700846534 /* AppDelegate.swift */; };
 		F1409C3C25E4CC7700846534 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1409C3B25E4CC7700846534 /* SceneDelegate.swift */; };
 		F1409C4425E4CC7700846534 /* foodmonster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1409C4225E4CC7700846534 /* foodmonster.xcdatamodeld */; };
@@ -241,6 +242,7 @@
 		F133E4CE25ECAB180058D544 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		F13A81EF29863BAD003D5E12 /* foodmonster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = foodmonster.entitlements; sourceTree = "<group>"; };
 		F13A81F0298961BA003D5E12 /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
+		F13F15B329ADBE9B0013ABEA /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		F1409C3625E4CC7700846534 /* foodmonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodmonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1409C3925E4CC7700846534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1409C3B25E4CC7700846534 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				F4CE112E27A2693C0041B840 /* ChangeEmailViewController.swift */,
 				F435C7B527A8B8D4000F5DA6 /* NewPersonalItemViewController.swift */,
 				F12AB7CE299846190092D5DB /* ResetPasswordViewController.swift */,
+				F13F15B329ADBE9B0013ABEA /* TermsAndConditionsViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1043,6 +1046,7 @@
 				F11B153E25E4D6080001F1C5 /* CategoryTableViewController.swift in Sources */,
 				F11B154625E4D6080001F1C5 /* HeaderPurchaseTableViewCellViewModel.swift in Sources */,
 				F11B152F25E4D6080001F1C5 /* RecipeNameTableViewCell.swift in Sources */,
+				F13F15B429ADBE9B0013ABEA /* TermsAndConditionsViewController.swift in Sources */,
 				F11B151725E4D6080001F1C5 /* RecipeTableViewCellViewModelProtocol.swift in Sources */,
 				F133E4B725EC617F0058D544 /* CustomRegisterViewController.swift in Sources */,
 				F11B152325E4D6080001F1C5 /* Credentials.swift in Sources */,
@@ -1236,7 +1240,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NW94WU93C;
 				INFOPLIST_FILE = foodmonster/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Foodie;
+				INFOPLIST_KEY_CFBundleDisplayName = Cooker;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1245,6 +1249,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodcrunch.foodmonster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1260,7 +1267,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NW94WU93C;
 				INFOPLIST_FILE = foodmonster/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Foodie;
+				INFOPLIST_KEY_CFBundleDisplayName = Cooker;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1269,6 +1276,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodcrunch.foodmonster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

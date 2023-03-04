@@ -96,7 +96,7 @@ class ProfileTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -173,8 +173,25 @@ class ProfileTableViewController: UITableViewController {
                 if indexPath.row == 3 {
                     print("CONTACT US")
                 }
-                tableView.deselectRow(at: indexPath, animated: true)
             }
+            if indexPath.section == 2 {
+                if indexPath.row == 0 {
+                    customAlertWithHandler(title: "Account deletion", message: "Are you sure you want to delete your account? By deleting your account, you will permanently lose access to your recipes.", submitTitle: "Delete", declineTitle: "Cancel") {
+                        self.showActivityIndicatory(activityView: self.activityView)
+                        self.profileTableViewModel?.deleteUser(completion: { error in
+                            if let error = error {
+                                self.showAlert(title: "Oooops ...", message: error.localizedDescription)
+                            } else {
+                                self.dismiss(animated: true) { [self] in
+                                    self.stopActivityIndicatory(activityView: activityView)
+                                    auth?.logout()
+                                }
+                            }
+                        })
+                    } declineHandler: { }
+                }
+            }
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     

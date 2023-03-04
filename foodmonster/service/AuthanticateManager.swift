@@ -14,6 +14,7 @@ import SwiftyJSON
 import FBSDKCoreKit
 import FBSDKLoginKit
 import CryptoKit
+import AuthenticationServices
 
 protocol AuthanticateManagerProtocol {
     
@@ -26,8 +27,9 @@ protocol AuthanticateManagerProtocol {
     func loginByEmail(credential: Credentials, completion: @escaping (Error?, TabBarViewController?) -> ())
     func loginByGoogle(view: UIViewController, completion: @escaping (Error?) -> ())
     func loginByFacebook(view: UIViewController, completion: @escaping (Error?) -> ())
-    func loginByApple(idTokenString:String, isNew: Bool, completion: @escaping (Error?) -> ())
+    func loginByApple(idTokenString:String, appleIDCredential: ASAuthorizationAppleIDCredential, completion: @escaping (Error?) -> ())
     func anonymousLogin(completion: @escaping (TabBarViewController) -> ())
+    func deleteUser(uri: String, user: User, completion: @escaping (Error?) -> ())
     
     func sha256() -> String?
     func randomNonceString(length: Int)
@@ -124,16 +126,19 @@ class AuthanticateManager: AuthanticateManagerProtocol {
         }
     }
     
-    func loginByApple(idTokenString: String, isNew: Bool, completion: @escaping (Error?) -> ()) {
+    func loginByApple(idTokenString: String, appleIDCredential: ASAuthorizationAppleIDCredential, completion: @escaping (Error?) -> ()) {
         if let currentNonce = currentNonce {
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: currentNonce)
             Auth.auth().signIn(with: credential) { (authResult, error) in
                 if let error = error {
                     completion(error)
                 } else {
-                    if isNew {
-                        guard let auth = authResult else { return }
-                        let newUser = User(uid: auth.user.uid, email: auth.user.email!, name: auth.user.displayName ?? "", lastName: "", pic: "", accountType: AccountType.APPLE.rawValue)
+                    if appleIDCredential.email != nil {
+                        guard let auth = authResult, let fullName = appleIDCredential.fullName else { return }
+                        let name = fullName.givenName ?? ""
+                        let lastName = fullName.familyName ?? ""
+                        let email = appleIDCredential.email ?? ""
+                        let newUser = User(uid: auth.user.uid, email: email, name: name, lastName: lastName, pic: "", accountType: AccountType.APPLE.rawValue)
                         self.createUser(user: newUser, completion: { _ in completion(nil)})
                     }else {
                         completion(nil)
@@ -182,6 +187,27 @@ class AuthanticateManager: AuthanticateManagerProtocol {
                 completion(error)
             }
         }
+    }
+    
+    func deleteUser(uri: String, user: User, completion: @escaping (Error?) -> ()) {
+        
+        getHeader(completion: { header in
+            AF.request("\(host)\(uri)", method: .delete, headers: header).validate(statusCode: 200 ..< 299).response { response in
+                switch response.result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    if let status = response.response {
+                        if status.statusCode > 299 {
+                            print("Alamofire createUser failed: ", error.localizedDescription)
+                            completion(error)
+                        }
+                    }
+                    completion(nil)
+                }
+            }
+        })
+        
     }
     
     func createUser(user: User, completion: @escaping (Error?) -> ()) {
@@ -286,11 +312,6 @@ class AuthanticateManager: AuthanticateManagerProtocol {
         }
         completion(headers)
     }
-    
-    func prepareAppleSignIn() {
-        
-    }
-    
     
     func randomNonceString(length: Int = 32) {
       precondition(length > 0)

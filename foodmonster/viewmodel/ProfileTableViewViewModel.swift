@@ -14,13 +14,11 @@ protocol ProfileTableViewViewModelProtocol {
     func cellViewModel(forIndexPath indexPath: IndexPath) -> UserProfileCellViewModelProtocol?
     
     func retriveUserData(uid: String, completion: @escaping(Error?) -> ())
-    func resetPassword(completion: @escaping(Error?) -> ())
-    func rateApp(completion: @escaping(Error?) -> ())
-    func contactUs(completion: @escaping(Error?) -> ())
     
     func getUser() -> User
     func updateUserPic(img: Data?, completion: @escaping (Error?) -> ())
     func loadUserPic(completion: @escaping (Data?, Error?) -> ())
+    func deleteUser(completion: @escaping (Error?) -> ())
     
 }
 
@@ -58,6 +56,9 @@ class ProfileTableViewViewModel: ProfileTableViewViewModelProtocol {
         if section == 1 {
             return 3
         }
+        if section == 2 {
+            return 1
+        }
         return 0
     }
     
@@ -76,18 +77,6 @@ class ProfileTableViewViewModel: ProfileTableViewViewModelProtocol {
             completion(nil)
         })
         
-    }
-    
-    func resetPassword(completion: @escaping (Error?) -> ()) {
-        completion(nil)
-    }
-    
-    func rateApp(completion: @escaping (Error?) -> ()) {
-        completion(nil)
-    }
-    
-    func contactUs(completion: @escaping (Error?) -> ()) {
-        completion(nil)
     }
     
     func loadUserPic(completion: @escaping (Data?, Error?) -> ()) {
@@ -144,4 +133,27 @@ class ProfileTableViewViewModel: ProfileTableViewViewModelProtocol {
         imageCash.removeObject(forKey: user.pic as AnyObject)
         completion(nil)
     }
+    
+    func deleteUser(completion: @escaping (Error?) -> ()) {
+        guard let user = user, let authManger = authManger else { return }
+        var URI = String()
+        
+        if user.accountType == "APPLE" {
+            let authCode = UserDefaults.standard.object(forKey: "authorizationCode") as! String
+            URI = "/v1/user/apple/\(String(describing: authCode))/\(user.uid)"
+        } else {
+            if !user.pic.isEmpty {
+                firebaseStorage?.deleteImage(imgRef: user.pic)
+            }
+            URI = "/v1/user/\(user.uid)"
+        }
+        authManger.deleteUser(uri: URI, user: user, completion: { error in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        })
+    }
+    
 }

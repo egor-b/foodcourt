@@ -60,11 +60,12 @@ class NewRecipeTableViewController: UITableViewController {
                     auth.sendEmailVerification(completion: { error in
                         if let error = error {
                             self.showAlert(title: "Too many requests", message: error.localizedDescription)
+                        } else {
+                            self.dismiss(animated: true)
                         }
                     })
-                    self.tabBarController?.selectedIndex = 0
                 } declineHandler: {
-                    self.tabBarController?.selectedIndex = 0
+                    self.dismiss(animated: true)
                 }
             }
         }

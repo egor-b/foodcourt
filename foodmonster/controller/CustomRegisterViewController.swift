@@ -16,6 +16,7 @@ class CustomRegisterViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastnameTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var checkmarkButton: UIButton!
     
     private let activityView = UIActivityIndicatorView(style: .large)
     private var auth: AuthanticateManagerProtocol?
@@ -54,15 +55,21 @@ class CustomRegisterViewController: UIViewController {
         let user = fillOutUserModel()
         if isValidEmail(emailTextField.text!) {
             if passwoedTextField.text == repeatPasswordTextField.text {
-                showActivityIndicatory(activityView: activityView)
-                auth.registerByEmail(user: user, pass: passwoedTextField.text!, completion: { error in
-                    if let error = error {
+                
+                self.customAlertWithHandler(title: "Terms and Conditions", message: "By continuing to register, you accept the terms and conditions.", submitTitle: "Ok", declineTitle: "Cancel") {
+                    self.showActivityIndicatory(activityView: self.activityView)
+                    auth.registerByEmail(user: user, pass: self.passwoedTextField.text!, completion: { error in
+                        if let error = error {
+                            self.stopActivityIndicatory(activityView: self.activityView)
+                            self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                        }
                         self.stopActivityIndicatory(activityView: self.activityView)
-                        self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
-                    }
-                    self.stopActivityIndicatory(activityView: self.activityView)
-                    self.performSegue(withIdentifier: Segue.SIGNUP_SEGUE.rawValue, sender: nil)
-                })
+                        self.performSegue(withIdentifier: Segue.SIGNUP_SEGUE.rawValue, sender: nil)
+                    })
+                } declineHandler: {
+                    
+                }
+                
             } else {
                 showAlert(title: "Oooops ... ", message: "Check your password")
             }
