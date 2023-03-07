@@ -257,24 +257,6 @@
 		F180D3B3298E183B00F7B69D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		F180D3B5298F1B5200F7B69D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F18737C3298226B200385A56 /* Anon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anon.swift; sourceTree = "<group>"; };
-		F19188BD2963715F00339FF5 /* SF-Pro-Display-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-UltralightItalic.otf"; sourceTree = "<group>"; };
-		F19188BE2963716000339FF5 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
-		F19188BF2963716100339FF5 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
-		F19188C02963716200339FF5 /* SF-Pro-Display-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-MediumItalic.otf"; sourceTree = "<group>"; };
-		F19188C12963716200339FF5 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
-		F19188C22963716300339FF5 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
-		F19188C32963716400339FF5 /* SF-Pro-Display-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-RegularItalic.otf"; sourceTree = "<group>"; };
-		F19188C42963716500339FF5 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
-		F19188C52963716500339FF5 /* SF-Pro-Display-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-ThinItalic.otf"; sourceTree = "<group>"; };
-		F19188C62963716600339FF5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
-		F19188C72963716700339FF5 /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
-		F19188C82963716800339FF5 /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
-		F19188C92963716B00339FF5 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
-		F19188CA2963716C00339FF5 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
-		F19188CB2963716D00339FF5 /* SF-Pro-Display-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-LightItalic.otf"; sourceTree = "<group>"; };
-		F19188CC2963716E00339FF5 /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
-		F19188CD2963716F00339FF5 /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
-		F19188CE2963716F00339FF5 /* SF-Pro-Display-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-HeavyItalic.otf"; sourceTree = "<group>"; };
 		F40335E528B32D02004A1314 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F435C7B327A8A396000F5DA6 /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
 		F435C7B527A8B8D4000F5DA6 /* NewPersonalItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonalItemViewController.swift; sourceTree = "<group>"; };
@@ -679,7 +661,6 @@
 				F11B150125E4D6080001F1C5 /* viewmodel */,
 				F11B159725E4D7830001F1C5 /* XiB */,
 				F1409C3B25E4CC7700846534 /* SceneDelegate.swift */,
-				F19188BC2963712C00339FF5 /* fonts */,
 				F11B14A225E4D5940001F1C5 /* AppTabBar.swift */,
 				F11B14A125E4D5940001F1C5 /* Constant.swift */,
 				F49FA8FC278CA2AA002A7F8C /* GlobalVariable.swift */,
@@ -711,31 +692,6 @@
 				F1409C6025E4CC7800846534 /* Info.plist */,
 			);
 			path = foodmonsterUITests;
-			sourceTree = "<group>";
-		};
-		F19188BC2963712C00339FF5 /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				F19188CA2963716C00339FF5 /* SF-Pro-Display-Black.otf */,
-				F19188CD2963716F00339FF5 /* SF-Pro-Display-BlackItalic.otf */,
-				F19188C22963716300339FF5 /* SF-Pro-Display-Bold.otf */,
-				F19188CC2963716E00339FF5 /* SF-Pro-Display-BoldItalic.otf */,
-				F19188BE2963716000339FF5 /* SF-Pro-Display-Heavy.otf */,
-				F19188CE2963716F00339FF5 /* SF-Pro-Display-HeavyItalic.otf */,
-				F19188C42963716500339FF5 /* SF-Pro-Display-Light.otf */,
-				F19188CB2963716D00339FF5 /* SF-Pro-Display-LightItalic.otf */,
-				F19188C62963716600339FF5 /* SF-Pro-Display-Medium.otf */,
-				F19188C02963716200339FF5 /* SF-Pro-Display-MediumItalic.otf */,
-				F19188C12963716200339FF5 /* SF-Pro-Display-Regular.otf */,
-				F19188C32963716400339FF5 /* SF-Pro-Display-RegularItalic.otf */,
-				F19188BF2963716100339FF5 /* SF-Pro-Display-Semibold.otf */,
-				F19188C82963716800339FF5 /* SF-Pro-Display-SemiboldItalic.otf */,
-				F19188C92963716B00339FF5 /* SF-Pro-Display-Thin.otf */,
-				F19188C52963716500339FF5 /* SF-Pro-Display-ThinItalic.otf */,
-				F19188C72963716700339FF5 /* SF-Pro-Display-Ultralight.otf */,
-				F19188BD2963715F00339FF5 /* SF-Pro-Display-UltralightItalic.otf */,
-			);
-			path = fonts;
 			sourceTree = "<group>";
 		};
 		F456D43D27A241B60001C8BD /* profile */ = {
