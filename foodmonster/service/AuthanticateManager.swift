@@ -238,7 +238,7 @@ class AuthanticateManager: AuthanticateManagerProtocol {
         getHeader { header in
             AF.request(uri, method: .put, parameters: user, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
-                case .success(let value):
+                case .success(_):
                     completion(nil)
                 case .failure(let error):
                     print("Alamofire failed: ", error.localizedDescription)
