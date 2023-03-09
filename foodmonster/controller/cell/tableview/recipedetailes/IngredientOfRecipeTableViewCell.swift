@@ -31,48 +31,59 @@ class IngredientOfRecipeTableViewCell: UITableViewCell {
             purchase.amount = viewModel.ingredient.amount
             checkPurchase(viewModel.ingredient.id, viewModel.recipe.id)
             countOfIngredientLabel?.text = "\(viewModel.ingredient.amount) \(viewModel.ingredient.unit)"
+            if globalUserId.isEmpty {
+                checkMarkBoxButton.isEnabled = false
+            } else {
+                checkPurchase(viewModel.ingredient.id, viewModel.recipe.id)
+            }
         }
     }
     
     @objc func addToPurches(sender: UIButton) {
-        guard let networkManger = networkManger else { return }
-        if sender.currentImage == UIImage(named: "checkmark") {
-            networkManger.deletePurchase(purchase, completion: { err in
-                if let err = err {
-                    print(err.localizedDescription)
-                }
-                UIView.transition(with: sender as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
-                    sender.setImage(UIImage(named: "checkbox"), for: .normal)
-                }, completion: nil)
-            })
-        } else {
-            networkManger.addPurchase(purchase, completion: { err in
-                UIView.transition(with: sender as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
-                    sender.setImage(UIImage(named: "checkmark"), for: .normal)
-                }, completion: nil)
-            })
+        if !globalUserId.isEmpty {
+            guard let networkManger = networkManger else { return }
+            if sender.currentImage == UIImage(named: "checkmark") {
+                networkManger.deletePurchase(purchase, completion: { err in
+                    if let err = err {
+                        print(err.localizedDescription)
+                    }
+                    UIView.transition(with: sender as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
+                        sender.setImage(UIImage(named: "checkbox"), for: .normal)
+                    }, completion: nil)
+                })
+            } else {
+                networkManger.addPurchase(purchase, completion: { err in
+                    UIView.transition(with: sender as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
+                        sender.setImage(UIImage(named: "checkmark"), for: .normal)
+                    }, completion: nil)
+                })
+            }
         }
     }
     
     func checkPurchase(_ foodId: Int64, _ recipeId: Int64) {
-        guard let networkManger = networkManger else { return }
-        networkManger.retreivePurchase(foodId, recipeId) { (purchase, err) in
-            if let err = err {
-                print(err.localizedDescription)
-            }
-            if let purchase = purchase {
-                self.purchase.id = purchase.id
-                if !purchase.userId.isEmpty && !purchase.isAvailable {
-                    UIView.transition(with: self.checkMarkBoxButton as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
-                        self.checkMarkBoxButton.setImage(UIImage(named: "checkmark"), for: .normal)
+        if !globalUserId.isEmpty {
+            guard let networkManger = networkManger else { return }
+            networkManger.retreivePurchase(foodId, recipeId) { (purchase, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                }
+                if let purchase = purchase {
+                    self.purchase.id = purchase.id
+                    if !purchase.userId.isEmpty && !purchase.isAvailable {
+                        UIView.transition(with: self.checkMarkBoxButton as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
+                            self.checkMarkBoxButton.setImage(UIImage(named: "checkmark"), for: .normal)
+                        }, completion: nil)
+                    }
+                } else {
+                    UIView.transition(with:  self.checkMarkBoxButton as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
+                        self.checkMarkBoxButton.setImage(UIImage(named: "checkbox"), for: .normal)
                     }, completion: nil)
                 }
-            } else {
-                UIView.transition(with:  self.checkMarkBoxButton as UIView, duration: 0.5, options: .showHideTransitionViews, animations: {
-                    self.checkMarkBoxButton.setImage(UIImage(named: "checkbox"), for: .normal)
-                }, completion: nil)
+                
             }
-            
+        } else {
+            print("dfiregor")
         }
     }
     

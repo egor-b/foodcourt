@@ -577,7 +577,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Reset Password"/>
+                                <state key="normal" title="Reset Password">
+                                    <color key="titleColor" name="darkTextColorSet"/>
+                                </state>
                                 <connections>
                                     <segue destination="zCq-tC-CGP" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="iJJ-w4-mFo"/>
                                 </connections>

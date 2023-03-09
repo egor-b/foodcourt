@@ -173,6 +173,7 @@ class AuthanticateManager: AuthanticateManagerProtocol {
     func checkEmailVerification() -> Bool {
         guard let auth = Auth.auth().currentUser else { return false }
         if auth.isEmailVerified {
+            UserDefaults.standard.set(true, forKey: "isEmailVerified")
             return true
         } else {
             auth.reload()
