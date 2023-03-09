@@ -71,10 +71,10 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         let label = UILabel(frame: CGRect(x: 15, y: 5, width: headerView.frame.width - 50, height: headerView.frame.height/2))
         if section == 1 {
-            label.text = "Ingredients (1 min.)"
+            label.text = "Ingredients (at least 1)"
         }
         if section == 2 {
-            label.text = "Steps (2 min.)"
+            label.text = "Directions (at least 2)"
         }
         label.textColor = UIColor(named: "lightTextColorSet")
         headerView.addSubview(label)

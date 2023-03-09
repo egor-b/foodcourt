@@ -51,21 +51,23 @@ class NewRecipeTableViewController: UITableViewController {
         if globalUserId.isEmpty {
             showNewRecipeUnknownUserAlert()
         }
-        
-        if let auth = auth {
-            if !auth.checkEmailVerification() {
-                self.customAlertWithHandler(title: "Verification error",
-                                            message: "Your email was not verified. Please check you email and complete registration.",
-                                            submitTitle: "ReSend", declineTitle: "Cancel") {
-                    auth.sendEmailVerification(completion: { error in
-                        if let error = error {
-                            self.showAlert(title: "Too many requests", message: error.localizedDescription)
-                        } else {
-                            self.dismiss(animated: true)
-                        }
-                    })
-                } declineHandler: {
-                    self.dismiss(animated: true)
+        let isEmailVerified = UserDefaults.standard.object(forKey: "isEmailVerified") as? Bool ?? false
+        if !isEmailVerified {
+            if let auth = auth {
+                if !auth.checkEmailVerification() {
+                    self.customAlertWithHandler(title: "Verification error", message: "Your email was not verified. Please check you email and complete registration.", submitTitle: "ReSend", declineTitle: "Cancel") {
+                        auth.sendEmailVerification(completion: { error in
+                            if let error = error {
+                                self.customAlertHandlerOkButton(title: "Too many requests", message: error.localizedDescription, submitTitle: "Ok") {
+                                    self.dismiss(animated: true)
+                                }
+                            } else {
+                                self.dismiss(animated: true)
+                            }
+                        })
+                    } declineHandler: {
+                        self.dismiss(animated: true)
+                    }
                 }
             }
         }

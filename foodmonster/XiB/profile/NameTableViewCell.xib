@@ -20,7 +20,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="FWl-Ae-QqT"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <color key="textColor" name="darkTextColorSet"/>
                     <nil key="highlightedColor"/>
                 </label>

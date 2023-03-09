@@ -10,7 +10,6 @@ import Firebase
 import FirebaseCore
 import GoogleSignIn
 import Alamofire
-import SwiftyJSON
 import FBSDKCoreKit
 import FBSDKLoginKit
 import CryptoKit
@@ -174,6 +173,7 @@ class AuthanticateManager: AuthanticateManagerProtocol {
     func checkEmailVerification() -> Bool {
         guard let auth = Auth.auth().currentUser else { return false }
         if auth.isEmailVerified {
+            UserDefaults.standard.set(true, forKey: "isEmailVerified")
             return true
         } else {
             auth.reload()
@@ -239,8 +239,7 @@ class AuthanticateManager: AuthanticateManagerProtocol {
         getHeader { header in
             AF.request(uri, method: .put, parameters: user, encoder: JSONParameterEncoder.default, headers: header).validate(statusCode: 200 ..< 299).response { response in
                 switch response.result {
-                case .success(let value):
-                    let json = JSON(value ?? "")
+                case .success(_):
                     completion(nil)
                 case .failure(let error):
                     print("Alamofire failed: ", error.localizedDescription)

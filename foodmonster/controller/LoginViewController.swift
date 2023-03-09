@@ -99,8 +99,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func anonymouslogin(_ sender: Any) {
         guard let loginViewModel = loginViewModel else { return }
+        showActivityIndicatory(activityView: activityView)
         loginViewModel.anonymousLogin { (controller:TabBarViewController) in
             controller.modalTransitionStyle = .crossDissolve
+            self.stopActivityIndicatory(activityView: self.activityView)
             self.present(controller, animated: true, completion: nil)
         }
     }
@@ -187,10 +189,6 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             if let authorizationCode = appleIDCredential.authorizationCode,
                let codeString = String(data: authorizationCode, encoding: .utf8) {
                 UserDefaults.standard.set(codeString, forKey: "authorizationCode")
-            }
-            var new = false
-            if let _ = appleIDCredential.email {
-                new = true
             }
             loginViewModel?.loginByApple(idTokenString: idTokenString, appleIDCredential: appleIDCredential, completion: { error in
                 if let error = error {
