@@ -14,7 +14,7 @@ class CookTimeTableViewCell: UITableViewCell {
     weak var viewModel: NewRecipeTableViewCellViewModelProtocol? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
-            cookTimeLabel.text = String(viewModel.recipe.time) + " min"
+            cookTimeLabel.text = String(viewModel.recipe.time) + " \(Bundle.main.localizedString(forKey: "min", value: LocalizationDefaultValues.MIN.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue))"
         }
     }
 

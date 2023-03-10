@@ -15,13 +15,14 @@ class StepOfRecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var stepImageHeighConstraint: NSLayoutConstraint!
     
     private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
+    private let step = Bundle.main.localizedString(forKey: "step", value: LocalizationDefaultValues.STEP.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
     
     weak var viewModel: StepOfRecipeTableViewCellViewModelProtocol? {
         willSet(viewModel) {
             spinnerView.startAnimating()
             guard let viewModel = viewModel else { return }
             firebaseStorage = FirebaseStorageServiceManager()
-            stepDescriptionLabel?.text = "STEP \(viewModel.step.stepNumber) \n" + viewModel.step.step
+            stepDescriptionLabel?.text = "\(step) \(viewModel.step.stepNumber) \n" + viewModel.step.step
             if !viewModel.step.img.isEmpty && !viewModel.step.pic.isEmpty {
                 self.stepImage.image = UIImage(data: viewModel.step.img)
                 stepImageHeighConstraint.constant = 150

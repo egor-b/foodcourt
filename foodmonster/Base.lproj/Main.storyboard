@@ -21,7 +21,7 @@
         <!--Home Meals-->
         <scene sceneID="ACM-cH-a3G">
             <objects>
-                <collectionViewController id="l1I-89-Af1" customClass="MainMenuCollectionViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="l1I-89-Af1" customClass="MainMenuCollectionViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="89w-JF-gja">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                             <inset key="sectionInset" minX="12" minY="12" maxX="12" maxY="12"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="mainMenuCell" id="56k-Ed-zYF" customClass="MainMenuCollectionViewCell" customModule="foodmonster" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="mainMenuCell" id="56k-Ed-zYF" customClass="MainMenuCollectionViewCell" customModule="Cooker" customModuleProvider="target">
                                 <rect key="frame" x="12" y="12" width="175" height="168"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dRv-XL-cik">
@@ -88,8 +88,8 @@
         <!--Recipe Detail Table View Controller-->
         <scene sceneID="ebt-VT-Jmf">
             <objects>
-                <tableViewController id="GyE-3M-TRZ" customClass="RecipeDetailTableViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4tF-MP-yRK" customClass="HeaderDetailRecipeTableView" customModule="foodmonster" customModuleProvider="target">
+                <tableViewController id="GyE-3M-TRZ" customClass="RecipeDetailTableViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4tF-MP-yRK" customClass="HeaderDetailRecipeTableView" customModule="Cooker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="lightBackgroundColorSet"/>
@@ -103,7 +103,7 @@
                                         <constraint firstAttribute="height" constant="250" identifier="heightHeader" id="T9D-AX-934"/>
                                     </constraints>
                                 </imageView>
-                                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShU-QV-Y7C" customClass="GradientView" customModule="foodmonster" customModuleProvider="target">
+                                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShU-QV-Y7C" customClass="GradientView" customModule="Cooker" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="430" height="250"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -209,13 +209,13 @@
         <!--Category Table View Controller-->
         <scene sceneID="nCN-3Z-gbQ">
             <objects>
-                <tableViewController storyboardIdentifier="CathegoryTableViewController" id="5tH-EU-w8m" customClass="CategoryTableViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CathegoryTableViewController" id="5tH-EU-w8m" customClass="CategoryTableViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YVd-co-Ftc">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="backgroundColorSet"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="220" id="cnD-A6-8hc" customClass="CathegoryTableViewCell" customModule="foodmonster" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="220" id="cnD-A6-8hc" customClass="CathegoryTableViewCell" customModule="Cooker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="430" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cnD-A6-8hc" id="fdA-Dc-gev">
@@ -311,10 +311,10 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="w6O-oc-wg4">
             <objects>
-                <tabBarController storyboardIdentifier="startupStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="d1R-B1-aUC" customClass="TabBarViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="startupStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="d1R-B1-aUC" customClass="TabBarViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="SWx-nb-wDx"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w5N-ox-fSV" customClass="AppTabBar" customModule="foodmonster" customModuleProvider="target">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w5N-ox-fSV" customClass="AppTabBar" customModule="Cooker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -343,7 +343,7 @@
         <!--Launch View Controller-->
         <scene sceneID="H74-CN-WoP">
             <objects>
-                <viewController id="eGA-LX-vel" customClass="LaunchViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eGA-LX-vel" customClass="LaunchViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gcc-Sr-azn">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,7 +373,7 @@
         <!--Reset Password View Controller-->
         <scene sceneID="vCf-gL-z0H">
             <objects>
-                <viewController id="zCq-tC-CGP" customClass="ResetPasswordViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zCq-tC-CGP" customClass="ResetPasswordViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZuX-7N-kp0">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,7 +454,7 @@
         <!--Login View Controller-->
         <scene sceneID="FI1-jK-IpU">
             <objects>
-                <viewController storyboardIdentifier="loginStoryboard" id="OgP-HK-lTa" customClass="LoginViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginStoryboard" id="OgP-HK-lTa" customClass="LoginViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gXI-QV-c8a">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -637,7 +637,7 @@
         <!--Custom Register View Controller-->
         <scene sceneID="iGE-Cq-ipv">
             <objects>
-                <viewController id="zCw-at-b3K" customClass="CustomRegisterViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zCw-at-b3K" customClass="CustomRegisterViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WFV-1m-dOw">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -673,7 +673,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="join" textContentType="family-name"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kee-vN-Hv8">
-                                <rect key="frame" x="30" y="494" width="180" height="50"/>
+                                <rect key="frame" x="30" y="493" width="180" height="50"/>
                                 <color key="backgroundColor" name="activeColorSet"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fVZ-kD-flV"/>
@@ -690,7 +690,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUb-Q1-Poc">
-                                <rect key="frame" x="220" y="494" width="180" height="50"/>
+                                <rect key="frame" x="220" y="493" width="180" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Fag-cz-YRm"/>
                                 </constraints>
@@ -709,9 +709,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK5-qw-GwM">
-                                <rect key="frame" x="145" y="448" width="140" height="26"/>
+                                <rect key="frame" x="125" y="448" width="180" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="DK5-qw-GwM" secondAttribute="height" multiplier="43:8" id="MKf-QR-xkf"/>
+                                    <constraint firstAttribute="height" constant="25" id="URi-FA-4ii"/>
                                 </constraints>
                                 <color key="tintColor" name="darkTextColorSet"/>
                                 <state key="normal" title="Button"/>
@@ -727,6 +727,7 @@
                         <color key="backgroundColor" name="backgroundColorSet"/>
                         <constraints>
                             <constraint firstItem="h5q-eJ-lOV" firstAttribute="top" secondItem="0R1-Pn-qpA" secondAttribute="bottom" constant="25" id="1um-Ji-3QW"/>
+                            <constraint firstItem="DK5-qw-GwM" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="125" id="3Sk-SJ-9VL"/>
                             <constraint firstItem="DK5-qw-GwM" firstAttribute="centerX" secondItem="WFV-1m-dOw" secondAttribute="centerX" id="4hK-yP-Ow2"/>
                             <constraint firstItem="6dA-5g-lMd" firstAttribute="leading" secondItem="ZYN-eZ-W8P" secondAttribute="leading" constant="40" id="57A-2d-Gpb"/>
                             <constraint firstItem="ZYN-eZ-W8P" firstAttribute="trailing" secondItem="h5q-eJ-lOV" secondAttribute="trailing" constant="40" id="5KK-gH-DjQ"/>
@@ -776,7 +777,7 @@
         <!--Terms And Conditions View Controller-->
         <scene sceneID="rz7-jH-WQn">
             <objects>
-                <viewController storyboardIdentifier="termsAndConditionsController" id="tdF-ES-hTl" customClass="TermsAndConditionsViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="termsAndConditionsController" id="tdF-ES-hTl" customClass="TermsAndConditionsViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gel-WB-YVo">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1254,30 +1255,42 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-7t-ABm">
-                                        <rect key="frame" x="165" y="1817.6666666666667" width="100" height="33"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="cqT-vW-ciN"/>
-                                        </constraints>
+                                        <rect key="frame" x="252.66666666666666" y="1817.6666666666667" width="112.33333333333334" height="33"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Close">
+                                        <state key="normal" title="Accept">
                                             <color key="titleColor" name="darkTextColorSet"/>
                                         </state>
                                         <connections>
-                                            <action selector="dismissController:" destination="tdF-ES-hTl" eventType="touchUpInside" id="uzI-6j-93j"/>
+                                            <action selector="acceptTerms:" destination="tdF-ES-hTl" eventType="touchUpInside" id="MdB-N9-LGZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZD-YF-Ab4">
+                                        <rect key="frame" x="65" y="1817.6666666666667" width="112.66666666666669" height="33"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" name="darkTextColorSet"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissController:" destination="tdF-ES-hTl" eventType="touchUpInside" id="UO9-jb-Yzh"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UXH-7t-ABm" secondAttribute="trailing" constant="65" id="7tq-9v-21O"/>
                                     <constraint firstItem="5r4-wc-9Ns" firstAttribute="top" secondItem="BfV-3D-uOT" secondAttribute="bottom" constant="15" id="ANS-tZ-aet"/>
+                                    <constraint firstItem="dZD-YF-Ab4" firstAttribute="width" secondItem="UXH-7t-ABm" secondAttribute="width" id="EvK-IS-YSP"/>
+                                    <constraint firstItem="UXH-7t-ABm" firstAttribute="leading" relation="lessThanOrEqual" secondItem="dZD-YF-Ab4" secondAttribute="trailing" constant="75" id="GId-7R-iVp"/>
                                     <constraint firstAttribute="trailing" secondItem="BfV-3D-uOT" secondAttribute="trailing" constant="20" id="H70-89-ffV"/>
                                     <constraint firstItem="BfV-3D-uOT" firstAttribute="centerX" secondItem="lmC-bp-oDJ" secondAttribute="centerX" id="IRE-xp-41I"/>
                                     <constraint firstAttribute="bottom" secondItem="UXH-7t-ABm" secondAttribute="bottom" constant="25" id="KT1-5o-4Zt"/>
                                     <constraint firstItem="5r4-wc-9Ns" firstAttribute="centerX" secondItem="lmC-bp-oDJ" secondAttribute="centerX" id="Mal-iY-oTC"/>
                                     <constraint firstItem="UXH-7t-ABm" firstAttribute="top" secondItem="5r4-wc-9Ns" secondAttribute="bottom" constant="15" id="TXu-K8-bWf"/>
+                                    <constraint firstItem="dZD-YF-Ab4" firstAttribute="leading" secondItem="lmC-bp-oDJ" secondAttribute="leading" constant="65" id="Xdk-qc-YGE"/>
                                     <constraint firstItem="5r4-wc-9Ns" firstAttribute="leading" secondItem="lmC-bp-oDJ" secondAttribute="leading" constant="15" id="b5v-PE-rds"/>
-                                    <constraint firstItem="UXH-7t-ABm" firstAttribute="centerX" secondItem="lmC-bp-oDJ" secondAttribute="centerX" id="eBb-J2-BbB"/>
                                     <constraint firstItem="BfV-3D-uOT" firstAttribute="top" secondItem="lmC-bp-oDJ" secondAttribute="top" constant="5" id="nYO-oa-0u3"/>
+                                    <constraint firstItem="UXH-7t-ABm" firstAttribute="centerY" secondItem="dZD-YF-Ab4" secondAttribute="centerY" id="tqI-Uh-Fkq"/>
                                     <constraint firstAttribute="trailing" secondItem="5r4-wc-9Ns" secondAttribute="trailing" constant="15" id="wzb-sv-8PF"/>
                                 </constraints>
                             </scrollView>
@@ -1295,12 +1308,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6m-BU-a3p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553.95348837209303" y="-344.42060085836914"/>
+            <point key="canvasLocation" x="548" y="-344"/>
         </scene>
-        <!--Purchase Table View Controller-->
+        <!--Shopping List-->
         <scene sceneID="3TG-RG-RQL">
             <objects>
-                <tableViewController id="mU0-OV-5wr" customClass="PurchaseTableViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="mU0-OV-5wr" customClass="PurchaseTableViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jo5-kn-1bR">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1308,7 +1321,7 @@
                         <color key="separatorColor" red="0.43921568630000002" green="0.22352941179999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="purchaseCell" id="kee-hI-wfc" customClass="FoodPurchaseTableViewCell" customModule="foodmonster" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="purchaseCell" id="kee-hI-wfc" customClass="FoodPurchaseTableViewCell" customModule="Cooker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="430" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kee-hI-wfc" id="icn-fV-BoD">
@@ -1323,7 +1336,7 @@
                             <outlet property="delegate" destination="mU0-OV-5wr" id="ksa-bO-STq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="SHP-QV-wiL"/>
+                    <navigationItem key="navigationItem" title="Shopping List" largeTitleDisplayMode="always" id="SHP-QV-wiL"/>
                     <connections>
                         <segue destination="GyE-3M-TRZ" kind="show" identifier="showRecipeSegue" id="hiR-cg-9tY"/>
                         <segue destination="3e1-3Q-7ei" kind="presentation" identifier="newPersonalPurchaseSegue" id="PPY-pN-yJ7"/>
@@ -1336,7 +1349,7 @@
         <!--New Recipe Table View Controller-->
         <scene sceneID="gqh-bG-tp5">
             <objects>
-                <tableViewController id="w7M-kb-1dy" customClass="NewRecipeTableViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="w7M-kb-1dy" customClass="NewRecipeTableViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dvD-jA-ez6">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1396,7 +1409,7 @@
         <!--New Step View Controller-->
         <scene sceneID="w3c-Yx-evV">
             <objects>
-                <viewController id="fzj-W6-7DN" customClass="NewStepViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fzj-W6-7DN" customClass="NewStepViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i5v-Cf-bb9">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1480,7 +1493,7 @@
         <!--New ingredient-->
         <scene sceneID="84e-Mm-oZV">
             <objects>
-                <viewController id="K1i-OH-MDC" customClass="NewIngredientViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="K1i-OH-MDC" customClass="NewIngredientViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="edb-xT-ysa">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1568,7 +1581,7 @@
         <!--About New Recipe View Controller-->
         <scene sceneID="VcV-ZX-ilK">
             <objects>
-                <viewController id="gsi-Ef-4zC" customClass="AboutNewRecipeViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gsi-Ef-4zC" customClass="AboutNewRecipeViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Th-Ph-RYI">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1580,7 +1593,7 @@
                                     <color key="textColor" name="darkTextColorSet"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Title" id="Nkf-sT-xYU">
+                                    <navigationItem title="About" id="Nkf-sT-xYU">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Mgg-oD-Kge">
                                             <color key="tintColor" name="darkTextColorSet"/>
                                             <connections>
@@ -1631,7 +1644,7 @@
         <!--Name Time View Controller-->
         <scene sceneID="zMS-Uh-Nkb">
             <objects>
-                <viewController id="Qm9-5q-xPU" customClass="NameTimeViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qm9-5q-xPU" customClass="NameTimeViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bV2-pZ-4Zi">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1694,7 +1707,7 @@
         <!--New Personal Item View Controller-->
         <scene sceneID="9YW-f4-DL7">
             <objects>
-                <viewController id="3e1-3Q-7ei" customClass="NewPersonalItemViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3e1-3Q-7ei" customClass="NewPersonalItemViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="US7-Go-8yf">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1706,7 +1719,7 @@
                                     <color key="textColor" name="darkTextColorSet"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Title" id="AJx-gE-nzX">
+                                    <navigationItem title="Purchase" id="AJx-gE-nzX">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ElE-O5-GyC">
                                             <color key="tintColor" name="darkTextColorSet"/>
                                             <connections>
@@ -1773,17 +1786,17 @@
             </objects>
             <point key="canvasLocation" x="-2736.231884057971" y="1200.6696428571429"/>
         </scene>
-        <!--My Recipes Table View Controller-->
+        <!--My Recipes-->
         <scene sceneID="bJL-CW-3hk">
             <objects>
-                <tableViewController id="QO1-yQ-6fJ" customClass="MyRecipesTableViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="QO1-yQ-6fJ" customClass="MyRecipesTableViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vy5-2f-Wh2">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="backgroundColorSet"/>
                         <color key="separatorColor" name="backgroundColorSet"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myRecipeCell" rowHeight="220" id="G8F-Qh-jeO" customClass="MyRecipesTableViewCell" customModule="foodmonster" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myRecipeCell" rowHeight="220" id="G8F-Qh-jeO" customClass="MyRecipesTableViewCell" customModule="Cooker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="430" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G8F-Qh-jeO" id="HuB-hU-K4b">
@@ -1883,7 +1896,7 @@
                             <outlet property="delegate" destination="QO1-yQ-6fJ" id="zYb-p7-qQT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="kiX-u0-MZw"/>
+                    <navigationItem key="navigationItem" title="My Recipes" largeTitleDisplayMode="always" id="kiX-u0-MZw"/>
                     <connections>
                         <segue destination="GyE-3M-TRZ" kind="show" identifier="recipeDetailSeque" id="6XR-wF-Kai"/>
                     </connections>
@@ -1933,7 +1946,7 @@
         <!--Profile-->
         <scene sceneID="KD2-I5-hpn">
             <objects>
-                <tableViewController id="Sw1-XK-7Tm" customClass="ProfileTableViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Sw1-XK-7Tm" customClass="ProfileTableViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qi6-ld-vxU">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1979,7 +1992,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="lightBackgroundColorSet"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="emailCell" id="r7d-M0-f28" customClass="EmailTableViewCell" customModule="foodmonster" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="emailCell" id="r7d-M0-f28" customClass="EmailTableViewCell" customModule="Cooker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="202" width="430" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r7d-M0-f28" id="cxY-r2-czJ">
@@ -2155,7 +2168,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="HNE-Fq-Q5U">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="vKJ-cW-7Xq">
-                            <color key="tintColor" systemColor="labelColor"/>
+                            <color key="tintColor" name="darkTextColorSet"/>
                             <connections>
                                 <action selector="logoutBarButton:" destination="Sw1-XK-7Tm" id="RQH-se-z2z"/>
                             </connections>
@@ -2676,7 +2689,7 @@
         <!--New Email-->
         <scene sceneID="Djz-vU-p8I">
             <objects>
-                <viewController id="Arg-PP-olu" customClass="ChangeEmailViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Arg-PP-olu" customClass="ChangeEmailViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="meh-8O-Gdk">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2759,7 +2772,7 @@
         <!--New Password-->
         <scene sceneID="wiW-oA-NtN">
             <objects>
-                <viewController id="fkC-iq-9Yb" customClass="ChangePasswordViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fkC-iq-9Yb" customClass="ChangePasswordViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e6o-ay-uz5">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2833,6 +2846,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Password" largeTitleDisplayMode="never" id="r07-Eh-wbv"/>
                     <connections>
+                        <outlet property="confirmButton" destination="3bt-1k-XpO" id="w8h-u0-y0Z"/>
                         <outlet property="passwordTextField" destination="gbQ-0s-h8n" id="HLI-1V-btg"/>
                         <outlet property="repeatPasswordTextField" destination="HYc-0M-mfp" id="CBL-lg-ESs"/>
                     </connections>
@@ -2844,7 +2858,7 @@
         <!--Change Name-->
         <scene sceneID="Fp4-R2-Jp0">
             <objects>
-                <viewController id="0KK-iZ-xfl" customClass="NameLastNameViewController" customModule="foodmonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0KK-iZ-xfl" customClass="NameLastNameViewController" customModule="Cooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C0C-vO-Y7U">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2971,8 +2985,8 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="f8d-o6-kG4"/>
-        <segue reference="HVY-g3-80p"/>
-        <segue reference="6XR-wF-Kai"/>
+        <segue reference="PMX-6u-Gja"/>
+        <segue reference="hiR-cg-9tY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Appl" width="44" height="44"/>
@@ -3016,9 +3030,6 @@
         <namedColor name="pressedButtonColorSet">
             <color red="0.81999999284744263" green="0.31799998879432678" blue="0.039000000804662704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,6 +18,25 @@ class NewRecipeTableViewController: UITableViewController {
     private let pickerController = UIImagePickerController()
     private let activityView = UIActivityIndicatorView(style: .large)
     
+    private let alertTitle =  Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let newRecipeTitle = Bundle.main.localizedString(forKey: "newRecipe", value: LocalizationDefaultValues.NEW_RECIPE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let editRecipeTitle = Bundle.main.localizedString(forKey: "editRecipe", value: LocalizationDefaultValues.EDIT_RECIPE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let verificationTitle = Bundle.main.localizedString(forKey: "verificationError", value: LocalizationDefaultValues.VERIFICATION_ERROR.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let verificationMessage = Bundle.main.localizedString(forKey: "verificationMessageError", value: LocalizationDefaultValues.VERIFICATION_ERROR_MESSAGE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let reSendTitle = Bundle.main.localizedString(forKey: "reSend", value: LocalizationDefaultValues.RESEND.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let cancelTitle = Bundle.main.localizedString(forKey: "cancel", value: LocalizationDefaultValues.CANCEL.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let toManyRequestsTitle = Bundle.main.localizedString(forKey: "toManyRequests", value: LocalizationDefaultValues.TOO_MANY_REQUESTS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    
+    private let successTitle = Bundle.main.localizedString(forKey: "success", value: LocalizationDefaultValues.SUCCESS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let recipeUpdateMessage = Bundle.main.localizedString(forKey: "recipeUpdate", value: LocalizationDefaultValues.RECIPE_UPDATE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let sweet = Bundle.main.localizedString(forKey: "sweet", value: "Sweet", table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let alertNewRecipeMessage = Bundle.main.localizedString(forKey: "alertNewRecipeMessage", value: LocalizationDefaultValues.ALERT_NEW_RECIPE_MESSAGE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let toLowIngrStepsTitle = Bundle.main.localizedString(forKey: "toLowIngrStepsTitle", value: LocalizationDefaultValues.TOO_LOW_INGR_STEPS_TITLE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let toLowIngrStepsMessage = Bundle.main.localizedString(forKey: "toLowIngrStepsMessage", value: LocalizationDefaultValues.TOO_LOW_INGR_STEPS_MESSAGE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let saveAnyway = Bundle.main.localizedString(forKey: "saveAnyway", value: LocalizationDefaultValues.SAVE_ANYWAY.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    
+    private let recipeSaved = Bundle.main.localizedString(forKey: "recipeSaved", value: LocalizationDefaultValues.RECIPE_SAVED.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    
     var editRecipe: Recipe?
     
     @IBOutlet weak var addPicImageView: UIImageView!
@@ -27,12 +46,12 @@ class NewRecipeTableViewController: UITableViewController {
         pickerController.delegate = self
         registerTableViewElements()
         setTapGuestureRecognize()
-        configureNavigationBar(title: "New recipe")
+        configureNavigationBar(title: newRecipeTitle)
         newRecipeViewModel = NewRecipeTableViewViewModel()
         auth = AuthanticateManager()
         firebaseStorage = FirebaseStorageServiceManager()
         if let editRecipe = editRecipe {
-            configureNavigationBar(title: "Edit recipe")
+            configureNavigationBar(title: editRecipeTitle)
             newRecipeViewModel?.loadEditRecipe(editRecipe)
             newRecipeViewModel?.recipe.type = editRecipe.type
             if !editRecipe.image.isEmpty {
@@ -55,10 +74,10 @@ class NewRecipeTableViewController: UITableViewController {
         if !isEmailVerified {
             if let auth = auth {
                 if !auth.checkEmailVerification() {
-                    self.customAlertWithHandler(title: "Verification error", message: "Your email was not verified. Please check you email and complete registration.", submitTitle: "ReSend", declineTitle: "Cancel") {
+                    self.customAlertWithHandler(title: verificationTitle, message: verificationMessage, submitTitle: reSendTitle, declineTitle: cancelTitle) {
                         auth.sendEmailVerification(completion: { error in
                             if let error = error {
-                                self.customAlertHandlerOkButton(title: "Too many requests", message: error.localizedDescription, submitTitle: "Ok") {
+                                self.customAlertHandlerOkButton(title: self.toManyRequestsTitle, message: error.localizedDescription, submitTitle: "Ok") {
                                     self.dismiss(animated: true)
                                 }
                             } else {
@@ -236,23 +255,23 @@ class NewRecipeTableViewController: UITableViewController {
                 if editRecipe != nil {
                     newRecipeViewModel.updateRecipe() { [self] error in
                         if let error = error {
-                            self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                            self.showAlert(title: alertTitle, message: error.localizedDescription)
                             return
                         } else {
-                            self.customAlertHandlerOkButton(title: "Success", message: "Recipe is updated", submitTitle: "Sweet") {
+                            self.customAlertHandlerOkButton(title: successTitle, message: recipeUpdateMessage, submitTitle: sweet) {
                                 self.performSegue(withIdentifier: "saveUpdatedRecipeUnwindSegue", sender: self)
                             }
                         }
                     }
                 } else {
                     if newRecipeViewModel.recipe.type.isEmpty || newRecipeViewModel.recipe.name.isEmpty {
-                        showAlert(title: "Oooops ... ", message: "Please select a category of dish and/or name your recipe.")
+                        showAlert(title: alertTitle, message: alertNewRecipeMessage)
                     } else {
                         if newRecipeViewModel.recipe.food.isEmpty || newRecipeViewModel.recipe.step.isEmpty || newRecipeViewModel.recipe.name.isEmpty {
-                            self.customAlertWithHandler(title: "Quite interesting",
-                                                        message: "Looks like you do not have name or not enough ingredients or cooking steps for your masterpeace.",
-                                                        submitTitle: "Save Anyway",
-                                                        declineTitle: "Cancel") {
+                            self.customAlertWithHandler(title: toLowIngrStepsTitle,
+                                                        message: toLowIngrStepsMessage,
+                                                        submitTitle: saveAnyway,
+                                                        declineTitle: cancelTitle) {
                                 finalyzing()
                             } declineHandler: { }
                         } else {
@@ -261,11 +280,11 @@ class NewRecipeTableViewController: UITableViewController {
                     }
                 }
                 func finalyzing() {
-                    newRecipeViewModel.save() { error in
+                    newRecipeViewModel.save() { [self] error in
                         if let error = error {
-                            self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                            self.showAlert(title: self.alertTitle, message: error.localizedDescription)
                         } else {
-                            self.customAlertHandlerOkButton(title: "Success", message: "Recipe was saved", submitTitle: "Sweet") {
+                            self.customAlertHandlerOkButton(title: successTitle, message: recipeSaved, submitTitle: sweet) {
                                 self.dismiss(animated: true)
                             }
                         }
@@ -544,16 +563,27 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
     }
     
     func presentAlertController() {
+        
+        let camTtitle = Bundle.main.localizedString(forKey: "takePhoto", value: LocalizationDefaultValues.TAKE_PHOTO.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let alertTitle = Bundle.main.localizedString(forKey: "missCamera", value: LocalizationDefaultValues.MISS_CAMERA.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let alertMessage = Bundle.main.localizedString(forKey: "cameraPhoto", value: LocalizationDefaultValues.CAMERA_PHOTO.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let photoLibTitle = Bundle.main.localizedString(forKey: "chooseFromLib", value: LocalizationDefaultValues.CHOOSE_FROM_LIB.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let removePhotoTitle = Bundle.main.localizedString(forKey: "removePhoto", value: LocalizationDefaultValues.REMOVE_PHOTO.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        
+        let noPermission = Bundle.main.localizedString(forKey: "noPermission", value: LocalizationDefaultValues.NO_PERMISSION.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let moveToSettings = Bundle.main.localizedString(forKey: "moveToSettings", value: LocalizationDefaultValues.MOVE_TO_SETTINGS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let go = Bundle.main.localizedString(forKey: "go", value: LocalizationDefaultValues.GO.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [self] (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: camTtitle, style: .default, handler: { [self] (action:UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 self.pickerController.sourceType = .camera
                 self.present(pickerController, animated: true, completion: nil)
             } else {
-                self.showAlert(withTitle: "Missing camera", andMessage: "You can't take photo, there is no camera.")
+                self.showAlert(withTitle: alertTitle, andMessage: alertMessage)
             }
         }))
-        actionSheet.addAction(UIAlertAction(title: "Choose From Library", style: .default, handler: { [self] (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: photoLibTitle, style: .default, handler: { [self] (action:UIAlertAction) in
             let status = PHPhotoLibrary.authorizationStatus()
             switch status {
             case .notDetermined:
@@ -569,8 +599,8 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
                 self.pickerController.sourceType = .photoLibrary
                 self.present(self.pickerController, animated: true, completion: nil)
             default:
-                let alertController = UIAlertController (title: "No Permission", message: "Would you like to go settings and chenge permissions?", preferredStyle: .alert)
-                let settingsAction = UIAlertAction(title: "Let's go!", style: .default) { (_) -> Void in
+                let alertController = UIAlertController (title: noPermission, message: moveToSettings, preferredStyle: .alert)
+                let settingsAction = UIAlertAction(title: go, style: .default) { (_) -> Void in
                     guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                         return
                     }
@@ -581,15 +611,15 @@ extension NewRecipeTableViewController: UIImagePickerControllerDelegate, UINavig
                     }
                 }
                 alertController.addAction(settingsAction)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                let cancelAction = UIAlertAction(title: cancelTitle, style: .default, handler: nil)
                 alertController.addAction(cancelAction)
                 present(alertController, animated: true, completion: nil)
             }
             
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: nil))
         if addPicImageView.image != nil {
-            actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
+            actionSheet.addAction(UIAlertAction(title: removePhotoTitle, style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
                 self.addPicImageView.image = nil
                 if let newRecipeViewModel = self.newRecipeViewModel {
                     self.newRecipeViewModel?.deleteImage.append(newRecipeViewModel.recipe.image[0].pic)

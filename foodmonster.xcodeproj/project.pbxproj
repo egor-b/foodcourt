@@ -11,7 +11,6 @@
 		F11B14A425E4D5950001F1C5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B14A125E4D5940001F1C5 /* Constant.swift */; };
 		F11B14A525E4D5950001F1C5 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B14A225E4D5940001F1C5 /* AppTabBar.swift */; };
 		F11B14A625E4D5950001F1C5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B14A325E4D5950001F1C5 /* TabBarViewController.swift */; };
-		F11B14B725E4D5DF0001F1C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11B14B525E4D5DE0001F1C5 /* Main.storyboard */; };
 		F11B14B825E4D5DF0001F1C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11B14B625E4D5DF0001F1C5 /* LaunchScreen.storyboard */; };
 		F11B150F25E4D6080001F1C5 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B14C025E4D6060001F1C5 /* Cells.swift */; };
 		F11B151025E4D6080001F1C5 /* ASCIIControlCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B14C125E4D6060001F1C5 /* ASCIIControlCharacter.swift */; };
@@ -69,20 +68,16 @@
 		F11B15AB25E4D7830001F1C5 /* AboutRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B159A25E4D7830001F1C5 /* AboutRecipeTableViewCell.xib */; };
 		F11B15AC25E4D7830001F1C5 /* InfoRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B159B25E4D7830001F1C5 /* InfoRecipeTableViewCell.xib */; };
 		F11B15AD25E4D7830001F1C5 /* StepOfRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B159C25E4D7830001F1C5 /* StepOfRecipeTableViewCell.xib */; };
-		F11B15AF25E4D7830001F1C5 /* CookTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B159F25E4D7830001F1C5 /* CookTimeTableViewCell.xib */; };
 		F11B15B025E4D7830001F1C5 /* CookStepTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B15A025E4D7830001F1C5 /* CookStepTableViewCell.xib */; };
 		F11B15B125E4D7830001F1C5 /* NewIngredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B15A125E4D7830001F1C5 /* NewIngredientTableViewCell.xib */; };
-		F11B15B225E4D7830001F1C5 /* AddItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B15A225E4D7830001F1C5 /* AddItemTableViewCell.xib */; };
-		F11B15B325E4D7830001F1C5 /* RecipeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B15A325E4D7830001F1C5 /* RecipeCategoryTableViewCell.xib */; };
-		F11B15B425E4D7830001F1C5 /* RecipeNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B15A425E4D7830001F1C5 /* RecipeNameTableViewCell.xib */; };
 		F11B15B525E4D7830001F1C5 /* HeaderPurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B15A625E4D7830001F1C5 /* HeaderPurchaseTableViewCell.xib */; };
 		F11B15B625E4D7830001F1C5 /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B15A725E4D7830001F1C5 /* PurchaseTableViewCell.xib */; };
-		F11B15B725E4D7830001F1C5 /* AddCustomPurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B15A825E4D7830001F1C5 /* AddCustomPurchaseTableViewCell.xib */; };
 		F11B15D825E4D8050001F1C5 /* ServeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11B159D25E4D7830001F1C5 /* ServeTableViewCell.xib */; };
 		F11B15E425E4D9320001F1C5 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B15E325E4D9320001F1C5 /* ModelTests.swift */; };
 		F11B160325EC5AFA0001F1C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F11B160225EC5AFA0001F1C5 /* GoogleService-Info.plist */; };
 		F12AB7CF299846190092D5DB /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12AB7CE299846190092D5DB /* ResetPasswordViewController.swift */; };
 		F12AB7D129989F4B0092D5DB /* WrapedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12AB7D029989F4B0092D5DB /* WrapedRecipe.swift */; };
+		F12F220329BB7C580054A480 /* LocalizationDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F220229BB7C580054A480 /* LocalizationDefaultValues.swift */; };
 		F133E4B725EC617F0058D544 /* CustomRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133E4B625EC617F0058D544 /* CustomRegisterViewController.swift */; };
 		F133E4BC25EC64940058D544 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133E4BB25EC64940058D544 /* LaunchViewController.swift */; };
 		F133E4C425EC83C80058D544 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133E4C325EC83C80058D544 /* User.swift */; };
@@ -97,6 +92,15 @@
 		F180D3B4298E183B00F7B69D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F180D3B3298E183B00F7B69D /* UIImageView.swift */; };
 		F180D3B6298F1B5200F7B69D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F180D3B5298F1B5200F7B69D /* GradientView.swift */; };
 		F18737C4298226B200385A56 /* Anon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18737C3298226B200385A56 /* Anon.swift */; };
+		F1A4732729B97BE200EBB6FD /* NameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A4732929B97BE200EBB6FD /* NameTableViewCell.xib */; };
+		F1A4732D29B97FD600EBB6FD /* CookTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A4732F29B97FD600EBB6FD /* CookTimeTableViewCell.xib */; };
+		F1A4733429B9801800EBB6FD /* AddItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A4733629B9801800EBB6FD /* AddItemTableViewCell.xib */; };
+		F1A4733B29B9804000EBB6FD /* RecipeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A4733D29B9804000EBB6FD /* RecipeCategoryTableViewCell.xib */; };
+		F1A4734229B9805F00EBB6FD /* RecipeNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A4734429B9805F00EBB6FD /* RecipeNameTableViewCell.xib */; };
+		F1A4734929B9807700EBB6FD /* PortionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A4734B29B9807700EBB6FD /* PortionsTableViewCell.xib */; };
+		F1A4735029B9809A00EBB6FD /* AddCustomPurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A4735229B9809A00EBB6FD /* AddCustomPurchaseTableViewCell.xib */; };
+		F1A4735729B9811800EBB6FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A4735929B9811800EBB6FD /* Main.storyboard */; };
+		F1A4736B29B98CD300EBB6FD /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1A4736D29B98CD300EBB6FD /* Localization.strings */; };
 		F40335E628B32D02004A1314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F40335E528B32D02004A1314 /* Assets.xcassets */; };
 		F435C7B427A8A396000F5DA6 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435C7B327A8A396000F5DA6 /* AccountType.swift */; };
 		F435C7B627A8B8D4000F5DA6 /* NewPersonalItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435C7B527A8B8D4000F5DA6 /* NewPersonalItemViewController.swift */; };
@@ -120,7 +124,6 @@
 		F48A2FB1277C06670060FEB7 /* AboutNewRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A2FB0277C06670060FEB7 /* AboutNewRecipeTableViewCell.swift */; };
 		F48A2FB3277D37010060FEB7 /* AboutNewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A2FB2277D37010060FEB7 /* AboutNewRecipeViewController.swift */; };
 		F48A2FB7278279120060FEB7 /* AboutNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48A2FB6278279120060FEB7 /* AboutNewTableViewCell.xib */; };
-		F48A2FB92782A5FE0060FEB7 /* PortionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48A2FB82782A5FE0060FEB7 /* PortionsTableViewCell.xib */; };
 		F48A2FBB2782A7A60060FEB7 /* PortionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A2FBA2782A7A60060FEB7 /* PortionsTableViewCell.swift */; };
 		F48A2FBF2782CB9C0060FEB7 /* NameTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A2FBE2782CB9C0060FEB7 /* NameTimeViewController.swift */; };
 		F49FA8FD278CA2AA002A7F8C /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49FA8FC278CA2AA002A7F8C /* GlobalVariable.swift */; };
@@ -129,7 +132,6 @@
 		F4B0B644279519C200BE9964 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B643279519C200BE9964 /* UIViewController.swift */; };
 		F4B0B646279668E700BE9964 /* PurchaseFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B645279668E700BE9964 /* PurchaseFood.swift */; };
 		F4B0B648279768EF00BE9964 /* ProfileTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B647279768EF00BE9964 /* ProfileTableViewViewModel.swift */; };
-		F4CE112B27A261DC0041B840 /* NameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4CE112A27A261DC0041B840 /* NameTableViewCell.xib */; };
 		F4CE112D27A2677B0041B840 /* EmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4CE112C27A2677B0041B840 /* EmailTableViewCell.xib */; };
 		F4CE112F27A2693C0041B840 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CE112E27A2693C0041B840 /* ChangeEmailViewController.swift */; };
 		F4E087EB279E56C600B0D54F /* NameLastNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E087EA279E56C600B0D54F /* NameLastNameViewController.swift */; };
@@ -164,7 +166,6 @@
 		F11B14A125E4D5940001F1C5 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F11B14A225E4D5940001F1C5 /* AppTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		F11B14A325E4D5950001F1C5 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		F11B14B525E4D5DE0001F1C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F11B14B625E4D5DF0001F1C5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F11B14C025E4D6060001F1C5 /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
 		F11B14C125E4D6060001F1C5 /* ASCIIControlCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCIIControlCharacter.swift; sourceTree = "<group>"; };
@@ -223,19 +224,15 @@
 		F11B159B25E4D7830001F1C5 /* InfoRecipeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoRecipeTableViewCell.xib; sourceTree = "<group>"; };
 		F11B159C25E4D7830001F1C5 /* StepOfRecipeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StepOfRecipeTableViewCell.xib; sourceTree = "<group>"; };
 		F11B159D25E4D7830001F1C5 /* ServeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServeTableViewCell.xib; sourceTree = "<group>"; };
-		F11B159F25E4D7830001F1C5 /* CookTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CookTimeTableViewCell.xib; sourceTree = "<group>"; };
 		F11B15A025E4D7830001F1C5 /* CookStepTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CookStepTableViewCell.xib; sourceTree = "<group>"; };
 		F11B15A125E4D7830001F1C5 /* NewIngredientTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewIngredientTableViewCell.xib; sourceTree = "<group>"; };
-		F11B15A225E4D7830001F1C5 /* AddItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemTableViewCell.xib; sourceTree = "<group>"; };
-		F11B15A325E4D7830001F1C5 /* RecipeCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCategoryTableViewCell.xib; sourceTree = "<group>"; };
-		F11B15A425E4D7830001F1C5 /* RecipeNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeNameTableViewCell.xib; sourceTree = "<group>"; };
 		F11B15A625E4D7830001F1C5 /* HeaderPurchaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderPurchaseTableViewCell.xib; sourceTree = "<group>"; };
 		F11B15A725E4D7830001F1C5 /* PurchaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseTableViewCell.xib; sourceTree = "<group>"; };
-		F11B15A825E4D7830001F1C5 /* AddCustomPurchaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCustomPurchaseTableViewCell.xib; sourceTree = "<group>"; };
 		F11B15E325E4D9320001F1C5 /* ModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		F11B160225EC5AFA0001F1C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F12AB7CE299846190092D5DB /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		F12AB7D029989F4B0092D5DB /* WrapedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapedRecipe.swift; sourceTree = "<group>"; };
+		F12F220229BB7C580054A480 /* LocalizationDefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationDefaultValues.swift; sourceTree = "<group>"; };
 		F133E4B625EC617F0058D544 /* CustomRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegisterViewController.swift; sourceTree = "<group>"; };
 		F133E4BB25EC64940058D544 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchViewController.swift; path = foodmonster/controller/LaunchViewController.swift; sourceTree = SOURCE_ROOT; };
 		F133E4C325EC83C80058D544 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -243,7 +240,7 @@
 		F13A81EF29863BAD003D5E12 /* foodmonster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = foodmonster.entitlements; sourceTree = "<group>"; };
 		F13A81F0298961BA003D5E12 /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 		F13F15B329ADBE9B0013ABEA /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
-		F1409C3625E4CC7700846534 /* foodmonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodmonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1409C3625E4CC7700846534 /* Cooker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1409C3925E4CC7700846534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1409C3B25E4CC7700846534 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F1409C4325E4CC7700846534 /* foodmonster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = foodmonster.xcdatamodel; sourceTree = "<group>"; };
@@ -257,6 +254,32 @@
 		F180D3B3298E183B00F7B69D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		F180D3B5298F1B5200F7B69D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F18737C3298226B200385A56 /* Anon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anon.swift; sourceTree = "<group>"; };
+		F1A4732829B97BE200EBB6FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NameTableViewCell.xib; sourceTree = "<group>"; };
+		F1A4732B29B97BF100EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NameTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4732C29B97C9400EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/NameTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4732E29B97FD600EBB6FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CookTimeTableViewCell.xib; sourceTree = "<group>"; };
+		F1A4733129B97FDD00EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CookTimeTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4733329B97FE200EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CookTimeTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4733529B9801800EBB6FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddItemTableViewCell.xib; sourceTree = "<group>"; };
+		F1A4733829B9801D00EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddItemTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4733A29B9801F00EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddItemTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4733C29B9804000EBB6FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RecipeCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		F1A4733F29B9804400EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecipeCategoryTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4734129B9804700EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RecipeCategoryTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4734329B9805F00EBB6FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RecipeNameTableViewCell.xib; sourceTree = "<group>"; };
+		F1A4734629B9806200EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecipeNameTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4734829B9806400EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RecipeNameTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4734A29B9807700EBB6FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PortionsTableViewCell.xib; sourceTree = "<group>"; };
+		F1A4734D29B9807B00EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PortionsTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4734F29B9807D00EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PortionsTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4735129B9809A00EBB6FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddCustomPurchaseTableViewCell.xib; sourceTree = "<group>"; };
+		F1A4735429B9809D00EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddCustomPurchaseTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4735629B9809F00EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddCustomPurchaseTableViewCell.strings; sourceTree = "<group>"; };
+		F1A4735829B9811800EBB6FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1A4736C29B98CD300EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
+		F1A4736E29B98CD800EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localization.strings; sourceTree = "<group>"; };
+		F1A4737029BA5DDF00EBB6FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F1A4737229BA5DF500EBB6FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		F40335E528B32D02004A1314 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F435C7B327A8A396000F5DA6 /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
 		F435C7B527A8B8D4000F5DA6 /* NewPersonalItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonalItemViewController.swift; sourceTree = "<group>"; };
@@ -280,7 +303,6 @@
 		F48A2FB0277C06670060FEB7 /* AboutNewRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutNewRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		F48A2FB2277D37010060FEB7 /* AboutNewRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutNewRecipeViewController.swift; sourceTree = "<group>"; };
 		F48A2FB6278279120060FEB7 /* AboutNewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutNewTableViewCell.xib; sourceTree = "<group>"; };
-		F48A2FB82782A5FE0060FEB7 /* PortionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortionsTableViewCell.xib; sourceTree = "<group>"; };
 		F48A2FBA2782A7A60060FEB7 /* PortionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortionsTableViewCell.swift; sourceTree = "<group>"; };
 		F48A2FBE2782CB9C0060FEB7 /* NameTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTimeViewController.swift; sourceTree = "<group>"; };
 		F49FA8FC278CA2AA002A7F8C /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
@@ -289,7 +311,6 @@
 		F4B0B643279519C200BE9964 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F4B0B645279668E700BE9964 /* PurchaseFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFood.swift; sourceTree = "<group>"; };
 		F4B0B647279768EF00BE9964 /* ProfileTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewViewModel.swift; sourceTree = "<group>"; };
-		F4CE112A27A261DC0041B840 /* NameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameTableViewCell.xib; sourceTree = "<group>"; };
 		F4CE112C27A2677B0041B840 /* EmailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailTableViewCell.xib; sourceTree = "<group>"; };
 		F4CE112E27A2693C0041B840 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		F4E087EA279E56C600B0D54F /* NameLastNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameLastNameViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +374,7 @@
 				F11B14C325E4D6060001F1C5 /* Seque.swift */,
 				F435C7B327A8A396000F5DA6 /* AccountType.swift */,
 				F18737C3298226B200385A56 /* Anon.swift */,
+				F12F220229BB7C580054A480 /* LocalizationDefaultValues.swift */,
 			);
 			path = enum;
 			sourceTree = "<group>";
@@ -594,14 +616,14 @@
 		F11B159E25E4D7830001F1C5 /* NewRecipe */ = {
 			isa = PBXGroup;
 			children = (
-				F11B159F25E4D7830001F1C5 /* CookTimeTableViewCell.xib */,
+				F1A4732F29B97FD600EBB6FD /* CookTimeTableViewCell.xib */,
 				F11B15A025E4D7830001F1C5 /* CookStepTableViewCell.xib */,
 				F11B15A125E4D7830001F1C5 /* NewIngredientTableViewCell.xib */,
-				F11B15A225E4D7830001F1C5 /* AddItemTableViewCell.xib */,
-				F11B15A325E4D7830001F1C5 /* RecipeCategoryTableViewCell.xib */,
-				F11B15A425E4D7830001F1C5 /* RecipeNameTableViewCell.xib */,
+				F1A4733629B9801800EBB6FD /* AddItemTableViewCell.xib */,
+				F1A4733D29B9804000EBB6FD /* RecipeCategoryTableViewCell.xib */,
+				F1A4734429B9805F00EBB6FD /* RecipeNameTableViewCell.xib */,
 				F48A2FB6278279120060FEB7 /* AboutNewTableViewCell.xib */,
-				F48A2FB82782A5FE0060FEB7 /* PortionsTableViewCell.xib */,
+				F1A4734B29B9807700EBB6FD /* PortionsTableViewCell.xib */,
 				F4E71A0D2783F01E009B3AE0 /* SaveRecipeTableViewCell.xib */,
 			);
 			path = NewRecipe;
@@ -612,7 +634,7 @@
 			children = (
 				F11B15A625E4D7830001F1C5 /* HeaderPurchaseTableViewCell.xib */,
 				F11B15A725E4D7830001F1C5 /* PurchaseTableViewCell.xib */,
-				F11B15A825E4D7830001F1C5 /* AddCustomPurchaseTableViewCell.xib */,
+				F1A4735229B9809A00EBB6FD /* AddCustomPurchaseTableViewCell.xib */,
 			);
 			path = Purchase;
 			sourceTree = "<group>";
@@ -640,7 +662,7 @@
 		F1409C3725E4CC7700846534 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1409C3625E4CC7700846534 /* foodmonster.app */,
+				F1409C3625E4CC7700846534 /* Cooker.app */,
 				F1409C4F25E4CC7800846534 /* foodmonsterTests.xctest */,
 				F1409C5A25E4CC7800846534 /* foodmonsterUITests.xctest */,
 			);
@@ -651,8 +673,9 @@
 			isa = PBXGroup;
 			children = (
 				F13A81EF29863BAD003D5E12 /* foodmonster.entitlements */,
-				F4B0B642279519B200BE9964 /* extension */,
 				F1409C3925E4CC7700846534 /* AppDelegate.swift */,
+				F1A4736D29B98CD300EBB6FD /* Localization.strings */,
+				F4B0B642279519B200BE9964 /* extension */,
 				F11B14DB25E4D6070001F1C5 /* controller */,
 				F11B14BF25E4D6060001F1C5 /* enum */,
 				F11B14D525E4D6070001F1C5 /* entity */,
@@ -666,7 +689,7 @@
 				F49FA8FC278CA2AA002A7F8C /* GlobalVariable.swift */,
 				F11B14A325E4D5950001F1C5 /* TabBarViewController.swift */,
 				F11B14B625E4D5DF0001F1C5 /* LaunchScreen.storyboard */,
-				F11B14B525E4D5DE0001F1C5 /* Main.storyboard */,
+				F1A4735929B9811800EBB6FD /* Main.storyboard */,
 				F40335E528B32D02004A1314 /* Assets.xcassets */,
 				F1409C4A25E4CC7800846534 /* Info.plist */,
 				F1409C4225E4CC7700846534 /* foodmonster.xcdatamodeld */,
@@ -706,7 +729,7 @@
 		F456D44227A2612C0001C8BD /* profile */ = {
 			isa = PBXGroup;
 			children = (
-				F4CE112A27A261DC0041B840 /* NameTableViewCell.xib */,
+				F1A4732929B97BE200EBB6FD /* NameTableViewCell.xib */,
 				F4CE112C27A2677B0041B840 /* EmailTableViewCell.xib */,
 			);
 			path = profile;
@@ -739,9 +762,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1409C3525E4CC7700846534 /* foodmonster */ = {
+		F1409C3525E4CC7700846534 /* Cooker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1409C6325E4CC7800846534 /* Build configuration list for PBXNativeTarget "foodmonster" */;
+			buildConfigurationList = F1409C6325E4CC7800846534 /* Build configuration list for PBXNativeTarget "Cooker" */;
 			buildPhases = (
 				681C4945BF43E28471EA6842 /* [CP] Check Pods Manifest.lock */,
 				F1409C3225E4CC7700846534 /* Sources */,
@@ -753,9 +776,9 @@
 			);
 			dependencies = (
 			);
-			name = foodmonster;
+			name = Cooker;
 			productName = foodmonster;
-			productReference = F1409C3625E4CC7700846534 /* foodmonster.app */;
+			productReference = F1409C3625E4CC7700846534 /* Cooker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F1409C4E25E4CC7800846534 /* foodmonsterTests */ = {
@@ -823,13 +846,14 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = F1409C2D25E4CC7700846534;
 			productRefGroup = F1409C3725E4CC7700846534 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1409C3525E4CC7700846534 /* foodmonster */,
+				F1409C3525E4CC7700846534 /* Cooker */,
 				F1409C4E25E4CC7800846534 /* foodmonsterTests */,
 				F1409C5925E4CC7800846534 /* foodmonsterUITests */,
 			);
@@ -842,19 +866,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11B15D825E4D8050001F1C5 /* ServeTableViewCell.xib in Resources */,
-				F11B14B725E4D5DF0001F1C5 /* Main.storyboard in Resources */,
-				F11B15B425E4D7830001F1C5 /* RecipeNameTableViewCell.xib in Resources */,
+				F1A4735729B9811800EBB6FD /* Main.storyboard in Resources */,
+				F1A4734229B9805F00EBB6FD /* RecipeNameTableViewCell.xib in Resources */,
 				F11B15AB25E4D7830001F1C5 /* AboutRecipeTableViewCell.xib in Resources */,
 				F40335E628B32D02004A1314 /* Assets.xcassets in Resources */,
-				F11B15B225E4D7830001F1C5 /* AddItemTableViewCell.xib in Resources */,
+				F1A4733429B9801800EBB6FD /* AddItemTableViewCell.xib in Resources */,
 				F11B15B025E4D7830001F1C5 /* CookStepTableViewCell.xib in Resources */,
-				F4CE112B27A261DC0041B840 /* NameTableViewCell.xib in Resources */,
+				F1A4732729B97BE200EBB6FD /* NameTableViewCell.xib in Resources */,
 				F11B15AD25E4D7830001F1C5 /* StepOfRecipeTableViewCell.xib in Resources */,
-				F11B15B325E4D7830001F1C5 /* RecipeCategoryTableViewCell.xib in Resources */,
+				F1A4733B29B9804000EBB6FD /* RecipeCategoryTableViewCell.xib in Resources */,
 				F11B15B525E4D7830001F1C5 /* HeaderPurchaseTableViewCell.xib in Resources */,
 				F11B15B625E4D7830001F1C5 /* PurchaseTableViewCell.xib in Resources */,
 				F11B14B825E4D5DF0001F1C5 /* LaunchScreen.storyboard in Resources */,
-				F48A2FB92782A5FE0060FEB7 /* PortionsTableViewCell.xib in Resources */,
+				F1A4736B29B98CD300EBB6FD /* Localization.strings in Resources */,
+				F1A4734929B9807700EBB6FD /* PortionsTableViewCell.xib in Resources */,
 				F48A2FB7278279120060FEB7 /* AboutNewTableViewCell.xib in Resources */,
 				F11B160325EC5AFA0001F1C5 /* GoogleService-Info.plist in Resources */,
 				F11B15AA25E4D7830001F1C5 /* IngredientOfRecipeTableViewCell.xib in Resources */,
@@ -862,8 +887,8 @@
 				F11B15AC25E4D7830001F1C5 /* InfoRecipeTableViewCell.xib in Resources */,
 				F4CE112D27A2677B0041B840 /* EmailTableViewCell.xib in Resources */,
 				F11B15B125E4D7830001F1C5 /* NewIngredientTableViewCell.xib in Resources */,
-				F11B15B725E4D7830001F1C5 /* AddCustomPurchaseTableViewCell.xib in Resources */,
-				F11B15AF25E4D7830001F1C5 /* CookTimeTableViewCell.xib in Resources */,
+				F1A4735029B9809A00EBB6FD /* AddCustomPurchaseTableViewCell.xib in Resources */,
+				F1A4732D29B97FD600EBB6FD /* CookTimeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,6 +1005,7 @@
 				F48A2F9F2771840C0060FEB7 /* RecipeModel.swift in Sources */,
 				F11B152B25E4D6080001F1C5 /* CookTimeTableViewCell.swift in Sources */,
 				F11B153C25E4D6080001F1C5 /* LoginViewController.swift in Sources */,
+				F12F220329BB7C580054A480 /* LocalizationDefaultValues.swift in Sources */,
 				F456D44127A245430001C8BD /* EmailTableViewCell.swift in Sources */,
 				F11B150F25E4D6080001F1C5 /* Cells.swift in Sources */,
 				F11B151F25E4D6080001F1C5 /* Recipe.swift in Sources */,
@@ -1059,21 +1085,114 @@
 /* Begin PBXTargetDependency section */
 		F1409C5125E4CC7800846534 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1409C3525E4CC7700846534 /* foodmonster */;
+			target = F1409C3525E4CC7700846534 /* Cooker */;
 			targetProxy = F1409C5025E4CC7800846534 /* PBXContainerItemProxy */;
 		};
 		F1409C5C25E4CC7800846534 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1409C3525E4CC7700846534 /* foodmonster */;
+			target = F1409C3525E4CC7700846534 /* Cooker */;
 			targetProxy = F1409C5B25E4CC7800846534 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F1A4732929B97BE200EBB6FD /* NameTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4732829B97BE200EBB6FD /* Base */,
+				F1A4732B29B97BF100EBB6FD /* en */,
+				F1A4732C29B97C9400EBB6FD /* ru */,
+			);
+			name = NameTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F1A4732F29B97FD600EBB6FD /* CookTimeTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4732E29B97FD600EBB6FD /* Base */,
+				F1A4733129B97FDD00EBB6FD /* en */,
+				F1A4733329B97FE200EBB6FD /* ru */,
+			);
+			name = CookTimeTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F1A4733629B9801800EBB6FD /* AddItemTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4733529B9801800EBB6FD /* Base */,
+				F1A4733829B9801D00EBB6FD /* en */,
+				F1A4733A29B9801F00EBB6FD /* ru */,
+			);
+			name = AddItemTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F1A4733D29B9804000EBB6FD /* RecipeCategoryTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4733C29B9804000EBB6FD /* Base */,
+				F1A4733F29B9804400EBB6FD /* en */,
+				F1A4734129B9804700EBB6FD /* ru */,
+			);
+			name = RecipeCategoryTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F1A4734429B9805F00EBB6FD /* RecipeNameTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4734329B9805F00EBB6FD /* Base */,
+				F1A4734629B9806200EBB6FD /* en */,
+				F1A4734829B9806400EBB6FD /* ru */,
+			);
+			name = RecipeNameTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F1A4734B29B9807700EBB6FD /* PortionsTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4734A29B9807700EBB6FD /* Base */,
+				F1A4734D29B9807B00EBB6FD /* en */,
+				F1A4734F29B9807D00EBB6FD /* ru */,
+			);
+			name = PortionsTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F1A4735229B9809A00EBB6FD /* AddCustomPurchaseTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4735129B9809A00EBB6FD /* Base */,
+				F1A4735429B9809D00EBB6FD /* en */,
+				F1A4735629B9809F00EBB6FD /* ru */,
+			);
+			name = AddCustomPurchaseTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F1A4735929B9811800EBB6FD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4735829B9811800EBB6FD /* Base */,
+				F1A4737029BA5DDF00EBB6FD /* en */,
+				F1A4737229BA5DF500EBB6FD /* ru */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F1A4736D29B98CD300EBB6FD /* Localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A4736C29B98CD300EBB6FD /* en */,
+				F1A4736E29B98CD800EBB6FD /* ru */,
+			);
+			name = Localization.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F1409C6125E4CC7800846534 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1135,6 +1254,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1332,7 +1452,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1409C6325E4CC7800846534 /* Build configuration list for PBXNativeTarget "foodmonster" */ = {
+		F1409C6325E4CC7800846534 /* Build configuration list for PBXNativeTarget "Cooker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1409C6425E4CC7800846534 /* Debug */,

@@ -23,7 +23,6 @@ class NameTimeViewController: UIViewController, UITextFieldDelegate {
         }
         view.clipsToBounds = true
         view.layer.cornerRadius = 10
-        navBar.topItem?.title = modType
         nameTimeTextField.becomeFirstResponder()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         setViewContent()
@@ -42,8 +41,13 @@ class NameTimeViewController: UIViewController, UITextFieldDelegate {
     
     func setViewContent() {
         if modType == "Cook time" {
+            let cookTime = Bundle.main.localizedString(forKey: "cookTime", value: LocalizationDefaultValues.COOK_TIME.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+            navBar.topItem?.title = cookTime
             nameTimeTextField.keyboardType = .numberPad
             nameTimeTextField.textAlignment = .center
+        } else {
+            let recipeName = Bundle.main.localizedString(forKey: "recipeName", value: LocalizationDefaultValues.RECIPE_NAME.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+            navBar.topItem?.title = recipeName
         }
     }
 

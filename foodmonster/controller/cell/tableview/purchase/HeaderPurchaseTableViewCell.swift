@@ -18,7 +18,7 @@ class HeaderPurchaseTableViewCell: UITableViewCell {
             guard let viewModel = viewModel else { return }
             let portions = String(describing: viewModel.purchase.serve)
             recipeNameLabel.text = viewModel.purchase.recipeName
-            serveLabel.text = "\(portions) portions"
+            serveLabel.text = "\(portions) \(Bundle.main.localizedString(forKey: "portions", value: LocalizationDefaultValues.PORTIONS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue))"
         }
     }
 

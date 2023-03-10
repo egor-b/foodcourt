@@ -22,5 +22,5 @@ enum MainMenu: String, CaseIterable {
     case side = "Side"
     case soup = "Soup"
     case sous = "Sauce"
-    case vegan = "Vegeterian"
+    case vegan = "Vegetarian"
 }

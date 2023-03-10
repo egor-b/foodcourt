@@ -13,15 +13,7 @@ class SaveRecipeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let locale = NSLocale.current.languageCode
-        if let locale = locale {
-            if locale == "ru" {
-                saveRecipeLable.text = "Сохранить рецепт"
-            } else {
-                saveRecipeLable.text = "Save recipe"
-            }
-        }
-        // Initialization code
+        saveRecipeLable.text = Bundle.main.localizedString(forKey: "saveRecipe", value: LocalizationDefaultValues.SAVE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

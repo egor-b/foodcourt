@@ -1,0 +1,225 @@
+
+/* Class = "UILabel"; text = "Registration"; ObjectID = "0R1-Pn-qpA"; */
+"0R1-Pn-qpA.text" = "Регистрация";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0hv-aM-akR"; */
+"0hv-aM-akR.text" = "Label";
+
+/* Class = "UILabel"; text = "Desert"; ObjectID = "1Mo-4S-HsS"; */
+"1Mo-4S-HsS.text" = "Desert";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "3bt-1k-XpO"; */
+"3bt-1k-XpO.normalTitle" = "Подтвердить";
+
+/* Class = "UITextField"; placeholder = "Units"; ObjectID = "3pU-4o-sk5"; */
+"3pU-4o-sk5.placeholder" = "Еденицы";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "4iX-zc-Q2S"; */
+"4iX-zc-Q2S.normalTitle" = "Регистрация";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4sx-7M-hNf"; */
+"4sx-7M-hNf.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "4zv-4l-6UZ"; */
+"4zv-4l-6UZ.title" = "Сохранить";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "6dA-5g-lMd"; */
+"6dA-5g-lMd.placeholder" = "Имя";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "6vA-Im-WfP"; */
+"6vA-Im-WfP.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "9Q3-Ff-ebX"; */
+"9Q3-Ff-ebX.normalTitle" = "Подтвердить";
+
+/* Class = "UILabel"; text = "Repeat password"; ObjectID = "A3M-qm-qKP"; */
+"A3M-qm-qKP.text" = "Повторить пароль";
+
+/* Class = "UINavigationItem"; title = "Purchase"; ObjectID = "AJx-gE-nzX"; */
+"AJx-gE-nzX.title" = "Покупка";
+
+/* Class = "UILabel"; text = "Terms and Conditions"; ObjectID = "BfV-3D-uOT"; */
+"BfV-3D-uOT.text" = "Условия Использования";
+
+/* Class = "UIButton"; configuration.title = "Terms and Conditions"; ObjectID = "DK5-qw-GwM"; */
+"DK5-qw-GwM.configuration.title" = "Условия Использования";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DK5-qw-GwM"; */
+"DK5-qw-GwM.normalTitle" = "Условия Использования";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "DvH-i4-5RW"; */
+"DvH-i4-5RW.placeholder" = "Пароль";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "ElE-O5-GyC"; */
+"ElE-O5-GyC.title" = "Отмена";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "Ezv-U2-tOC"; */
+"Ezv-U2-tOC.normalTitle" = "Войти";
+
+/* Class = "UILabel"; text = "Confirm your email and we'll send the instructions."; ObjectID = "FwH-Bk-yi7"; */
+"FwH-Bk-yi7.text" = "Подтвердите ваш email и вам будет направлено письмо с инструкциями.";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "HNE-Fq-Q5U"; */
+"HNE-Fq-Q5U.title" = "Профиль";
+
+/* Class = "UILabel"; text = "123 min"; ObjectID = "Heg-MO-Rac"; */
+"Heg-MO-Rac.text" = "123 min";
+
+/* Class = "UINavigationItem"; title = "Step"; ObjectID = "Isv-df-a2E"; */
+"Isv-df-a2E.title" = "Этап";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "LCO-DG-0JN"; */
+"LCO-DG-0JN.placeholder" = "Количество";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Mgg-oD-Kge"; */
+"Mgg-oD-Kge.title" = "Отмена";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "Nkf-sT-xYU"; */
+"Nkf-sT-xYU.title" = "О Рецепте";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "OKc-Za-19s"; */
+"OKc-Za-19s.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "New ingredient"; ObjectID = "S0M-pu-MP3"; */
+"S0M-pu-MP3.title" = "Новый Игредиент";
+
+/* Class = "UILabel"; text = "Log in by:"; ObjectID = "S8E-lC-U49"; */
+"S8E-lC-U49.text" = "Войти с помощью:";
+
+/* Class = "UINavigationItem"; title = "Shopping List"; ObjectID = "SHP-QV-wiL"; */
+"SHP-QV-wiL.title" = "Список Покупок";
+
+/* Class = "UINavigationItem"; title = "New Email"; ObjectID = "SMo-vm-aPS"; */
+"SMo-vm-aPS.title" = "Новый Email";
+
+/* Class = "UILabel"; text = "Contact us"; ObjectID = "SRJ-DF-z5R"; */
+"SRJ-DF-z5R.text" = "Связаться с нами";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Sj7-Xw-VRb"; */
+"Sj7-Xw-VRb.placeholder" = "Пароль";
+
+/* Class = "UITabBarItem"; title = "Shopping List"; ObjectID = "Sw2-Nf-WiE"; */
+"Sw2-Nf-WiE.title" = "Покупки";
+
+/* Class = "UILabel"; text = "Delete account"; ObjectID = "T9v-Bq-pTj"; */
+"T9v-Bq-pTj.text" = "Удалить Аккаунт";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "UBG-2A-tyb"; */
+"UBG-2A-tyb.normalTitle" = "Сбросить";
+
+/* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "UXH-7t-ABm"; */
+"UXH-7t-ABm.normalTitle" = "Принять";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "dZD-YF-Ab4"; */
+"dZD-YF-Ab4.normalTitle" = "Отмена";
+
+/* Class = "UINavigationItem"; title = "Terms and Conditions"; ObjectID = "WER-m4-sdo"; */
+"WER-m4-sdo.title" = "Условия Использования";
+
+/* Class = "UILabel"; text = "Rate App"; ObjectID = "WsG-b4-7sO"; */
+"WsG-b4-7sO.text" = "Оценить Приложение";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "XMJ-uW-vfD"; */
+"XMJ-uW-vfD.title" = "Профиль";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "YI0-8W-2N1"; */
+"YI0-8W-2N1.text" = "Имя";
+
+/* Class = "UITabBarItem"; title = "My Recipes"; ObjectID = "YX0-2R-vql"; */
+"YX0-2R-vql.title" = "Мои Рецепты";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "ZDk-dj-bik"; */
+"ZDk-dj-bik.title" = "Сохранить";
+
+/* Class = "UINavigationItem"; title = "Ingredient"; ObjectID = "bdu-gD-n9E"; */
+"bdu-gD-n9E.title" = "Ингредиент";
+
+/* Class = "UIButton"; normalTitle = "Enter with no login"; ObjectID = "cE2-kl-hUM"; */
+"cE2-kl-hUM.normalTitle" = "Войти без регистрации";
+
+/* Class = "UITabBarItem"; title = "Menu"; ObjectID = "e7Q-zG-rH8"; */
+"e7Q-zG-rH8.title" = "Меню";
+
+/* Class = "UINavigationItem"; title = "Change Name"; ObjectID = "eNJ-XE-i1V"; */
+"eNJ-XE-i1V.title" = "Обновить Имя";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "h5q-eJ-lOV"; */
+"h5q-eJ-lOV.placeholder" = "E-mail";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "hUb-Q1-Poc"; */
+"hUb-Q1-Poc.normalTitle" = "Отмена";
+
+/* Class = "UILabel"; text = "123 min"; ObjectID = "i1m-sC-0vF"; */
+"i1m-sC-0vF.text" = "123 min";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "isc-CL-YSw"; */
+"isc-CL-YSw.text" = "Пароль";
+
+/* Class = "UILabel"; text = "Last name"; ObjectID = "jv3-8q-hJS"; */
+"jv3-8q-hJS.text" = "Фамилия";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "kee-vN-Hv8"; */
+"kee-vN-Hv8.normalTitle" = "Регистрация";
+
+/* Class = "UINavigationItem"; title = "My Recipes"; ObjectID = "kiX-u0-MZw"; */
+"kiX-u0-MZw.title" = "Мои Рецепты";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "l2J-Yj-y8E"; */
+"l2J-Yj-y8E.normalTitle" = "Отмена";
+
+/* Class = "UILabel"; text = "E-Mail"; ObjectID = "mLl-dT-KUM"; */
+"mLl-dT-KUM.text" = "E-Mail";
+
+/* Class = "UINavigationItem"; title = "Home Meals"; ObjectID = "nTh-Vi-LRe"; */
+"nTh-Vi-LRe.title" = "Меню";
+
+/* Class = "UIButton"; normalTitle = "Reset Password"; ObjectID = "ohN-Ry-h0U"; */
+"ohN-Ry-h0U.normalTitle" = "Сбросить Пароль";
+
+/* Class = "UINavigationItem"; title = "New Password"; ObjectID = "r07-Eh-wbv"; */
+"r07-Eh-wbv.title" = "Новый Пароль";
+
+/* Class = "UILabel"; text = "Repeat E-Mail"; ObjectID = "r6T-GA-ze6"; */
+"r6T-GA-ze6.text" = "Повторить E-Mail";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "rMx-Zj-jlT"; */
+"rMx-Zj-jlT.placeholder" = "E-mail";
+
+/* Class = "UILabel"; text = "Reset password"; ObjectID = "rfw-c3-uUq"; */
+"rfw-c3-uUq.text" = "Сбросить пароль";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "sgE-Ci-L6F"; */
+"sgE-Ci-L6F.placeholder" = "E-mail";
+
+/* Class = "UILabel"; text = "Share App"; ObjectID = "tvA-jy-H6m"; */
+"tvA-jy-H6m.text" = "Поделиться Приложением";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "u1l-6a-dkt"; */
+"u1l-6a-dkt.normalTitle" = "Подтвердить";
+
+/* Class = "UITextField"; placeholder = "Ingredient"; ObjectID = "v4T-sH-dry"; */
+"v4T-sH-dry.placeholder" = "Ингредиент";
+
+/* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "vKJ-cW-7Xq"; */
+"vKJ-cW-7Xq.title" = "Выйти";
+
+/* Class = "UILabel"; text = "Terms and Conditions"; ObjectID = "w1w-7a-hHh"; */
+"w1w-7a-hHh.text" = "Условия Использования";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "wXq-LI-psJ"; */
+"wXq-LI-psJ.title" = "Отмена";
+
+/* Class = "UILabel"; text = "Forgot Your Password?"; ObjectID = "wa5-sC-Sd2"; */
+"wa5-sC-Sd2.text" = "Забыли свой пароль?";
+
+/* Class = "UITextField"; placeholder = "Last name"; ObjectID = "xar-t6-uvH"; */
+"xar-t6-uvH.placeholder" = "Фамилия";
+
+/* Class = "UITextField"; placeholder = "Repeat password"; ObjectID = "yhB-OE-rlQ"; */
+"yhB-OE-rlQ.placeholder" = "Повтроить пароль";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "zIM-9H-A9C"; */
+"zIM-9H-A9C.title" = "Сохранить";
+
+/* Class = "UITextField"; placeholder = "Nickname"; ObjectID = "zIY-rd-Hxz"; */
+"zIY-rd-Hxz.placeholder" = "Nickname";

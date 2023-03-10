@@ -26,7 +26,7 @@ class MyRecipesTableViewCell: UITableViewCell {
             firebaseStorage = FirebaseStorageServiceManager()
             recipeNameLabel.text = viewModel.recipe.name
             typeLabel.text = viewModel.recipe.type
-            cookingTimeLabel.text = String(describing: viewModel.recipe.time) + " min"
+            cookingTimeLabel.text = String(describing: viewModel.recipe.time) + " \(Bundle.main.localizedString(forKey: "min", value: LocalizationDefaultValues.MIN.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue))"
             if !viewModel.recipe.image.isEmpty {
                 let ref = viewModel.recipe.image[0].pic
                 self.firebaseStorage?.retreiveImage(ref, completion: { imageDate in

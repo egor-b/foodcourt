@@ -25,7 +25,7 @@ class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
     
     private var recipe: Recipe?
     private var networkManger: DataNetworkManagerProtocol?
-    
+     
     init(recipe: Recipe) {
         self.recipe = recipe
         networkManger = DataNetworkManager()
@@ -85,7 +85,9 @@ class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
     
     func calcNewingredientWeight(portions: Int, tableView: UITableView) {
         guard var recipe = recipe else { return }
-        
+        let ingredients = Bundle.main.localizedString(forKey: "ingredients", value: LocalizationDefaultValues.INGREDIENT.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let serves = Bundle.main.localizedString(forKey: "serves", value: LocalizationDefaultValues.SERVES.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+       
         for (i,f) in recipe.food.enumerated() {
             var newWeight = Double()
             let portionWeight = f.amount / Double(recipe.serve)
@@ -103,11 +105,11 @@ class RecipeDetailsTableViewViewModel: RecipeDetailsTableViewViewModelProtocol {
             }
         }
         if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? ServeTableViewCell {
-            cell.serveLabel.text = "Ingredients / \(portions) serves"
+            cell.serveLabel.text = "\(ingredients) / \(portions) \(serves)"
         }
         recipe.serve = portions
         self.recipe = recipe
-        
+            
     }
     
 }

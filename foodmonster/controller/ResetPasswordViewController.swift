@@ -14,6 +14,11 @@ class ResetPasswordViewController: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
     
     private var authManager: AuthanticateManagerProtocol?
+    private let alertTitle = Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let passResetted = Bundle.main.localizedString(forKey: "passResetted", value: LocalizationDefaultValues.PASS_RESSETED.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let instructionSent1 = Bundle.main.localizedString(forKey: "instructionSent1", value: LocalizationDefaultValues.INSTRUCTION_SENT_1.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let instructionSent2 = Bundle.main.localizedString(forKey: "instructionSent1", value: LocalizationDefaultValues.INSTRUCTION_SENT_2.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +35,9 @@ class ResetPasswordViewController: UIViewController {
         guard let authManager = authManager, let email = emailTextField.text else { return }
         authManager.resetUserPasswordByEmail(email: email) { error in
             if let error = error {
-                self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                self.showAlert(title: self.alertTitle, message: error.localizedDescription)
             } else {
-                self.customAlertHandlerOkButton(title: "Password is resetted", message: "Instructions was sent to \(email). Please follow to instruction to create new password.", submitTitle: "Ok") {
+                self.customAlertHandlerOkButton(title: self.passResetted, message: "\(self.instructionSent1) \(email). \(self.instructionSent2)", submitTitle: "Ok") {
                     self.dismiss(animated: true)
                 }
             }

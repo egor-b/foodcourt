@@ -13,11 +13,12 @@ class PurchaseTableViewController: UITableViewController {
     private var purchaseViewModel: PurchaseTableViewViewModelProtocol?
     
     private let activityView = UIActivityIndicatorView(style: .large)
+    private let alertTitle =  Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         purchaseViewModel = PurchaseTableViewViewModel()
-        configureNavigationBar(title: "Shopping List")
+        configureNavigationBar()
         tableView.register(UINib(nibName: "PurchaseTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.PURCHASE_CELL.rawValue)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Cells.CUSTOM_PURCHASE_CELL.rawValue)
         tableView.register(UINib(nibName: "HeaderPurchaseTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.HEADER_DISH_PURCHASE_CELL.rawValue)
@@ -32,7 +33,8 @@ class PurchaseTableViewController: UITableViewController {
             purchaseViewModel.getPurchaseList() { error in
                 if let error = error {
                     self.stopActivityIndicatory(activityView: self.activityView)
-                    self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                    
+                    self.showAlert(title: self.alertTitle, message: error.localizedDescription)
                 } else {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -118,7 +120,7 @@ class PurchaseTableViewController: UITableViewController {
                 let viewModel = purchaseViewModel.cellPurchaseViewModel(forIndexPath: indexPath)
                 cell.addedToCart(model: viewModel) { error in
                     if let error = error {
-                        self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                        self.showAlert(title: self.alertTitle, message: error.localizedDescription)
                     }
                     purchaseViewModel.updateCartPurchase(forIndexPath: indexPath)
                     DispatchQueue.main.async {
@@ -137,7 +139,7 @@ class PurchaseTableViewController: UITableViewController {
                     guard let purchaseViewModel = purchaseViewModel else { return }
                     purchaseViewModel.delteRecipePurchase(forSection: indexPath.section) { error in
                         if let error = error {
-                            self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                            self.showAlert(title: self.alertTitle, message: error.localizedDescription)
                         } else {
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
@@ -174,7 +176,7 @@ class PurchaseTableViewController: UITableViewController {
 }
 
 extension PurchaseTableViewController {
-    func configureNavigationBar(title: String) {
+    func configureNavigationBar() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: constant.darkTitleColor]
@@ -188,7 +190,6 @@ extension PurchaseTableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = constant.darkTitleColor
-        navigationItem.title = title
         tableView.tableFooterView = UIView()
     }
     

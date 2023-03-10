@@ -31,9 +31,9 @@
                         <constraint firstAttribute="width" constant="9" id="Xxg-l4-mnC"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-75-2De">
-                    <rect key="frame" x="74" y="25" width="321" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@mail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-75-2De">
+                    <rect key="frame" x="74" y="16" width="316" height="18"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <color key="textColor" name="lightTextColorSet"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -45,7 +45,7 @@
                 <constraint firstItem="6zc-hp-kBy" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5mp-Yv-jH0"/>
                 <constraint firstItem="lBf-75-2De" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6LZ-20-jrm"/>
                 <constraint firstItem="bRp-8W-BhQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="7Kz-PS-u7l"/>
-                <constraint firstItem="6zc-hp-kBy" firstAttribute="leading" secondItem="lBf-75-2De" secondAttribute="trailing" constant="5" id="GZj-a7-7a7"/>
+                <constraint firstItem="6zc-hp-kBy" firstAttribute="leading" secondItem="lBf-75-2De" secondAttribute="trailing" constant="10" id="GZj-a7-7a7"/>
                 <constraint firstItem="lBf-75-2De" firstAttribute="leading" secondItem="bRp-8W-BhQ" secondAttribute="trailing" constant="10" id="JmU-L3-IIY"/>
                 <constraint firstItem="bRp-8W-BhQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZoW-iL-TEr"/>
             </constraints>

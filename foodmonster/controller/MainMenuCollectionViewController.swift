@@ -13,7 +13,7 @@ class MainMenuCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar(title: "Home Meals")
+        configureNavigationBar()
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -32,8 +32,9 @@ class MainMenuCollectionViewController: UICollectionViewController {
     
         guard let collectionCell = cell else { return UICollectionViewCell() }
         let label = MainMenu.allCases[indexPath.row].rawValue
+        let localizedLabel = Bundle.main.localizedString(forKey: label, value: label, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
         collectionCell.layer.cornerRadius = 5
-        collectionCell.cathegoryMenuLabel.text = label
+        collectionCell.cathegoryMenuLabel.text = localizedLabel
         collectionCell.cathegoryImageView.image = UIImage(named: label)
     
         return collectionCell
@@ -89,7 +90,7 @@ extension MainMenuCollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension MainMenuCollectionViewController {
-    func configureNavigationBar(title: String) {
+    func configureNavigationBar() {
         
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
@@ -104,6 +105,5 @@ extension MainMenuCollectionViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = constant.darkTitleColor
-        navigationItem.title = title
     }
 }

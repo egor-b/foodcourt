@@ -11,16 +11,18 @@ class ChangePasswordViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak var confirmButton: UIButton!
     
     private var authManager: AuthanticateManagerProtocol?
-    
+    private let alertTitle =  Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         authManager = AuthanticateManager()
         passwordTextField.delegate = self
         repeatPasswordTextField.delegate = self
         passwordTextField.becomeFirstResponder()
-        
+        confirmButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     
@@ -36,16 +38,18 @@ class ChangePasswordViewController: UIViewController {
             if passwordTextField.text  == repeatPasswordTextField.text {
                 authManager.changeUserPassword(password: passwordTextField.text!) { [weak self] error in
                     if let error = error {
-                        self?.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                        self?.showAlert(title: self!.alertTitle, message: error.localizedDescription)
                     } else {
                         self?.navigationController?.popToRootViewController(animated: true)
                     }
                 }
             } else {
-                self.showAlert(title: "Oooops ... ", message: "Password mismatch.")
+                let message = Bundle.main.localizedString(forKey: "passwordMismatch", value: LocalizationDefaultValues.PASSWORD_MISMATCH.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+                self.showAlert(title: self.alertTitle, message: message)
             }
         } else {
-            self.showAlert(title: "Oooops ... ", message: "Looks like you didn't set new password.")
+            let message = Bundle.main.localizedString(forKey: "noNewPassword", value: LocalizationDefaultValues.NO_NEW_PASSWORD.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+            self.showAlert(title: self.alertTitle, message: message)
         }
     }
     /*

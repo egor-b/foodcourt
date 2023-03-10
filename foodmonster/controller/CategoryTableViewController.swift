@@ -12,6 +12,8 @@ class CategoryTableViewController: UITableViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private var categoryTableViewViewModel: CategoryTableViewViewModelProtocol?
     
+    private let alertTitle =  Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+
     let activityView = UIActivityIndicatorView(style: .large)
     
     var filterCriteria = FilterCriteria()
@@ -44,7 +46,7 @@ class CategoryTableViewController: UITableViewController {
         tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] (error) in
             if let error = error {
                 self?.stopActivityIndicatory(activityView: self!.activityView)
-                self?.showAlert(title: "Oooops ... ", message: error.details)
+                self?.showAlert(title: self!.alertTitle, message: error.details)
             }
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -78,7 +80,7 @@ class CategoryTableViewController: UITableViewController {
         if categoryTableViewViewModel.listOfResipes.totalPages >= currentPage && categoryTableViewViewModel.getRecipeList().count - 1 == indexPath.row {
             categoryTableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] err in
                 if let err = err {
-                    self?.showAlert(title: "Oooops ... ", message: err.localizedDescription)
+                    self?.showAlert(title: self!.alertTitle, message: err.localizedDescription)
                 }
                 DispatchQueue.main.async {
                     self?.currentPage += 1
@@ -106,17 +108,20 @@ class CategoryTableViewController: UITableViewController {
 extension CategoryTableViewController {
     
     func buildInterface() {
-        navigationItem.title = filterCriteria.type
+        let navTitle = Bundle.main.localizedString(forKey: filterCriteria.type, value: filterCriteria.type, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        navigationItem.title = navTitle
         navigationItem.searchController = searchController
         createSearchBar()
     }
     
     func createSearchBar() {
+        let placeholder =  Bundle.main.localizedString(forKey: "categorySearchPlaceholder", value: LocalizationDefaultValues.CATEGORY_SEARCH_PLACEHOLDER.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.searchBarStyle = .minimal
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Type name and search recipe"
+        searchController.searchBar.placeholder = placeholder
         definesPresentationContext = true
     }
     
