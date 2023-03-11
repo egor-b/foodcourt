@@ -71,7 +71,7 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     
     func viewForHeader(inSection section: Int, width: CGFloat, height: CGFloat) -> UIView {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        let label = UILabel(frame: CGRect(x: 15, y: 5, width: headerView.frame.width - 50, height: headerView.frame.height/2))
+        let label = UILabel(frame: CGRect(x: 15, y: 5, width: headerView.frame.width - 50, height: headerView.frame.height * 0.8))
         if section == 1 {
             label.text = ingrSectionHeader
         }
