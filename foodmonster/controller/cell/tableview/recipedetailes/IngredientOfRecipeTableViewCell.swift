@@ -82,9 +82,7 @@ class IngredientOfRecipeTableViewCell: UITableViewCell {
                 }
                 
             }
-        } else {
-            print("dfiregor")
-        }
+        } 
     }
     
 }

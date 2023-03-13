@@ -24,6 +24,24 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var updateAvatarImageView: UIImageView!
     
     private var isReload = false
+    private let alertTitle = Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let account = Bundle.main.localizedString(forKey: "account", value: LocalizationDefaultValues.ACCOUNT.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let extras = Bundle.main.localizedString(forKey: "extras", value: LocalizationDefaultValues.EXTRAS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    
+    private let accDeletionTitle = Bundle.main.localizedString(forKey: "accDeletionTitle", value: LocalizationDefaultValues.ACC_DELETION_TITLE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let accDeletionMessage = Bundle.main.localizedString(forKey: "accDeletionMessage", value: LocalizationDefaultValues.ACC_DELETION_MESSAGE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let delete = Bundle.main.localizedString(forKey: "delete", value: LocalizationDefaultValues.DELETE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let cancelTitle = Bundle.main.localizedString(forKey: "cancel", value: LocalizationDefaultValues.CANCEL.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    
+    let camTtitle = Bundle.main.localizedString(forKey: "takePhoto", value: LocalizationDefaultValues.TAKE_PHOTO.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    let missCamTitle = Bundle.main.localizedString(forKey: "missCamera", value: LocalizationDefaultValues.MISS_CAMERA.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    let missCamMessage = Bundle.main.localizedString(forKey: "cameraPhoto", value: LocalizationDefaultValues.CAMERA_PHOTO.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    let photoLibTitle = Bundle.main.localizedString(forKey: "chooseFromLib", value: LocalizationDefaultValues.CHOOSE_FROM_LIB.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    let removePhotoTitle = Bundle.main.localizedString(forKey: "removePhoto", value: LocalizationDefaultValues.REMOVE_PHOTO.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    
+    let noPermission = Bundle.main.localizedString(forKey: "noPermission", value: LocalizationDefaultValues.NO_PERMISSION.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    let moveToSettings = Bundle.main.localizedString(forKey: "moveToSettings", value: LocalizationDefaultValues.MOVE_TO_SETTINGS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    let go = Bundle.main.localizedString(forKey: "go", value: LocalizationDefaultValues.GO.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +50,7 @@ class ProfileTableViewController: UITableViewController {
         firebase = FirebaseStorageServiceManager()
         registerCells()
         profileTableViewModel = ProfileTableViewViewModel()
-        configureNavigationBar(title: "Profile")
+        configureNavigationBar()
         userImageStyle()
         setTapGuestureRecognize()
         fillOutController()
@@ -57,7 +75,8 @@ class ProfileTableViewController: UITableViewController {
             showActivityIndicatory(activityView: activityView)
             profileTableViewModel.retriveUserData(uid: globalUserId) { [weak self] error in
                 if let error = error {
-                    self?.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                    
+                    self?.showAlert(title: self!.alertTitle, message: error.localizedDescription)
                 }
                 self?.loadUserImage()
             }
@@ -72,7 +91,7 @@ class ProfileTableViewController: UITableViewController {
         guard let profileTableViewModel = profileTableViewModel else { return }
         profileTableViewModel.loadUserPic { img, error in
             if let error = error {
-                self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                self.showAlert(title: self.alertTitle, message: error.localizedDescription)
             } else {
                 self.updateAvatarImageView.image = UIImage(data: img ?? Data())
                 DispatchQueue.main.async {
@@ -112,9 +131,9 @@ class ProfileTableViewController: UITableViewController {
         guard let profileTableViewModel = profileTableViewModel else { return UIView() }
         switch section {
         case 0:
-            return profileTableViewModel.viewForHeader(width: tableView.bounds.size.width, height: 40, title: "Account")
+            return profileTableViewModel.viewForHeader(width: tableView.bounds.size.width, height: 40, title: account)
         case 1:
-            return profileTableViewModel.viewForHeader(width: tableView.bounds.size.width, height: 40, title: "Extras")
+            return profileTableViewModel.viewForHeader(width: tableView.bounds.size.width, height: 40, title: extras)
         default:
             return UIView()
         }
@@ -177,11 +196,11 @@ class ProfileTableViewController: UITableViewController {
             }
             if indexPath.section == 2 {
                 if indexPath.row == 0 {
-                    customAlertWithHandler(title: "Account deletion", message: "Are you sure you want to delete your account? By deleting your account, you will permanently lose access to your recipes.", submitTitle: "Delete", declineTitle: "Cancel") {
+                    customAlertWithHandler(title: accDeletionTitle, message: accDeletionMessage, submitTitle: delete, declineTitle: cancelTitle) {
                         self.showActivityIndicatory(activityView: self.activityView)
                         self.profileTableViewModel?.deleteUser(completion: { error in
                             if let error = error {
-                                self.showAlert(title: "Oooops ...", message: error.localizedDescription)
+                                self.showAlert(title: self.alertTitle, message: error.localizedDescription)
                             } else {
                                 self.dismiss(animated: true) { [self] in
                                     self.stopActivityIndicatory(activityView: activityView)
@@ -238,7 +257,7 @@ class ProfileTableViewController: UITableViewController {
 
 extension ProfileTableViewController {
     
-    func configureNavigationBar(title: String) {
+    func configureNavigationBar() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: constant.darkTitleColor]
@@ -252,7 +271,6 @@ extension ProfileTableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = constant.darkTitleColor
-        navigationItem.title = title
         tableView.tableFooterView = UIView()
     }
     
@@ -262,15 +280,15 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
     
     @objc func presentAlertController(tapGestureRecognizer: UITapGestureRecognizer) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [self] (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: camTtitle, style: .default, handler: { [self] (action:UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 self.pickerController.sourceType = .camera
                 self.present(pickerController, animated: true, completion: nil)
             } else {
-                self.showAlert(title: "Missing camera", message: "You can't take photo, there is no camera.")
+                self.showAlert(title: missCamTitle, message: missCamMessage)
             }
         }))
-        actionSheet.addAction(UIAlertAction(title: "Choose From Library", style: .default, handler: { [self] (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: photoLibTitle, style: .default, handler: { [self] (action:UIAlertAction) in
             let status = PHPhotoLibrary.authorizationStatus()
             switch status {
             case .notDetermined:
@@ -286,29 +304,29 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
                 self.pickerController.sourceType = .photoLibrary
                 self.present(self.pickerController, animated: true, completion: nil)
             default:
-                let alertController = UIAlertController (title: "No Permission", message: "Would you like to go settings and chenge permissions?", preferredStyle: .alert)
-                   let settingsAction = UIAlertAction(title: "Let's go!", style: .default) { (_) -> Void in
-                       guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                           return
-                       }
-                       if UIApplication.shared.canOpenURL(settingsUrl) {
-                           UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                               print("Settings opened: \(success)")
-                           })
-                       }
-                   }
-                   alertController.addAction(settingsAction)
-                   let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-                   alertController.addAction(cancelAction)
-                   present(alertController, animated: true, completion: nil)
+                let alertController = UIAlertController (title: noPermission, message: moveToSettings, preferredStyle: .alert)
+                let settingsAction = UIAlertAction(title: go, style: .default) { (_) -> Void in
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                        return
+                    }
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                            print("Settings opened: \(success)")
+                        })
+                    }
+                }
+                alertController.addAction(settingsAction)
+                let cancelAction = UIAlertAction(title: camTtitle, style: .default, handler: nil)
+                alertController.addAction(cancelAction)
+                present(alertController, animated: true, completion: nil)
             }
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: nil))
         if updateAvatarImageView.image != nil {
-            actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
+            actionSheet.addAction(UIAlertAction(title: removePhotoTitle, style: .destructive, handler: { [self](_ action: UIAlertAction) -> Void in
                 profileTableViewModel?.updateUserPic(img: nil, completion: { error in
                     if let error = error {
-                        self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                        self.showAlert(title: self.alertTitle, message: error.localizedDescription)
                     } else {
                         self.updateAvatarImageView.image = nil
                     }
@@ -322,9 +340,9 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             updateAvatarImageView.image = image
             guard let data = image.jpegData(compressionQuality: 0.1) else { return }
-            profileTableViewModel?.updateUserPic(img: data, completion: { error in
+            profileTableViewModel?.updateUserPic(img: data, completion: { [self] error in
                 if let error = error {
-                    self.showAlert(title: "Oooops .. ", message: error.localizedDescription)
+                    self.showAlert(title: alertTitle, message: error.localizedDescription)
                     self.updateAvatarImageView.image = nil
                 }
             })

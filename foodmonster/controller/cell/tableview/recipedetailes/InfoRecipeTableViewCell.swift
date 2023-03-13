@@ -15,7 +15,7 @@ class InfoRecipeTableViewCell: UITableViewCell {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
             let time = String(describing: viewModel.recipe.time)
-            cookTimeLabel?.text = "\(time) min"
+            cookTimeLabel?.text = "\(time) \(Bundle.main.localizedString(forKey: "min", value: LocalizationDefaultValues.MIN.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue))"
         }
     }
     

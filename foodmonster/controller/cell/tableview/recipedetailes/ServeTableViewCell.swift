@@ -13,6 +13,8 @@ class ServeTableViewCell: UITableViewCell {
     @IBOutlet weak var changeServeStepper: UIStepper!
     
     private var stepperValue: Int = 0
+    private let ingredients = Bundle.main.localizedString(forKey: "ingredients", value: LocalizationDefaultValues.INGREDIENT.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let serves = Bundle.main.localizedString(forKey: "serves", value: LocalizationDefaultValues.SERVES.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
     
     weak var viewModel: RecipeTableViewCellViewModelProtocol? {
         willSet(viewModel) {
@@ -22,13 +24,13 @@ class ServeTableViewCell: UITableViewCell {
             changeServeStepper.minimumValue = 1
             changeServeStepper.maximumValue = 20
             changeServeStepper.addTarget(self, action: #selector(changePortionAmount), for: .valueChanged)
-            serveLabel?.text = "Ingredients / \(stepperValue) serves"
+            serveLabel?.text = "\(ingredients) / \(stepperValue) \(serves)"
         }
     }
 
     @objc func changePortionAmount() {
         stepperValue = Int(changeServeStepper.value)
-        serveLabel?.text = "Ingredients / \(stepperValue) serves"
+        serveLabel?.text = "\(ingredients) / \(stepperValue) \(serves)"
     }
     
     func disableStepper(isEnable: Bool) {

@@ -14,7 +14,8 @@ class RecipeDetailTableViewController: UITableViewController {
     
     var recipeIndex: Int?
     var recipesTableViewViewModel: CategoryTableViewViewModelProtocol?
-    
+    private let alertTitle =  Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+
     private var recipeDetailsTableViewModel: RecipeDetailsTableViewViewModelProtocol?
     private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
     
@@ -25,7 +26,7 @@ class RecipeDetailTableViewController: UITableViewController {
     var recipeId = Int64()
     private var isPresent: Bool = false
     private var offset: CGFloat = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibsCells()
@@ -49,7 +50,7 @@ class RecipeDetailTableViewController: UITableViewController {
             guard let recipeDetailsTableViewModel = recipeDetailsTableViewModel else { return }
             recipeDetailsTableViewModel.getRecipe(recipeId) { error in
                 if let error = error {
-                    self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                    self.showAlert(title: self.alertTitle, message: error.localizedDescription)
                 }
                 self.loadMainImage()
                 if recipeDetailsTableViewModel.getRecipeValue()?.userId == globalUserId {

@@ -50,12 +50,18 @@ extension UIViewController {
     }
     
     func showUnknownUserAlert() {
-        let dialogMessage = UIAlertController(title: "Ooops ... ", message: "Please, log in or create new acccount for start building you cook book.", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Log In", style: .default, handler: { _ in
+        
+        let title = Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let message = Bundle.main.localizedString(forKey: "anonymousMessage", value: LocalizationDefaultValues.ANONYMOUS_MESSAGE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let logIn = Bundle.main.localizedString(forKey: "logIn", value: LocalizationDefaultValues.LOG_IN.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let cancelLocal = Bundle.main.localizedString(forKey: "cancel", value: LocalizationDefaultValues.CANCEL.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: logIn, style: .default, handler: { _ in
             UserDefaults.standard.removeObject(forKey: Anon.ANON.rawValue)
             self.dismiss(animated: true)
         })
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        let cancel = UIAlertAction(title: cancelLocal, style: .cancel) { _ in
             self.tabBarController?.selectedIndex = 0
         }
         dialogMessage.addAction(ok)
@@ -64,8 +70,14 @@ extension UIViewController {
     }
     
     func showNewRecipeUnknownUserAlert() {
-        let dialogMessage = UIAlertController(title: "Ooops ... ", message: "Please, log in or create new acccount for start building you cook book.", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Log In", style: .default, handler: { _ in
+        
+        let title = Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let message = Bundle.main.localizedString(forKey: "anonymousMessage", value: LocalizationDefaultValues.ANONYMOUS_MESSAGE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let logIn = Bundle.main.localizedString(forKey: "logIn", value: LocalizationDefaultValues.LOG_IN.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        let cancelLocal = Bundle.main.localizedString(forKey: "cancel", value: LocalizationDefaultValues.CANCEL.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: logIn, style: .default, handler: { _ in
             UserDefaults.standard.removeObject(forKey: Anon.ANON.rawValue)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let newRecipeController = storyboard.instantiateViewController(withIdentifier: "loginStoryboard") as! LoginViewController
@@ -73,7 +85,7 @@ extension UIViewController {
             newRecipeController.modalPresentationStyle = .fullScreen
             self.present(newRecipeController, animated: true, completion: nil)
         })
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        let cancel = UIAlertAction(title: cancelLocal, style: .cancel) { _ in
             self.dismiss(animated: true)
         }
         dialogMessage.addAction(ok)

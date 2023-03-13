@@ -15,7 +15,9 @@ class NameLastNameViewController: UIViewController {
     @IBOutlet weak var updateButton: UIButton!
     
     private var authManager: AuthanticateManagerProtocol?
-    
+    private let alertTitle = Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let emptyField = Bundle.main.localizedString(forKey: "emptyField", value: LocalizationDefaultValues.EMPTY_FIELD.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+
     var user: User?
     
     override func viewDidLoad() {
@@ -24,6 +26,7 @@ class NameLastNameViewController: UIViewController {
         nameTextField.delegate = self
         lastNameTextField.delegate = self
         authManager = AuthanticateManager()
+        updateButton.layer.cornerRadius = 5
         updateButton.addTarget(self, action: #selector(sundUpdateInformation), for: .touchUpInside)
         // Do any additional setup after loading the view.
         guard let user = user else { return }
@@ -44,7 +47,7 @@ class NameLastNameViewController: UIViewController {
                 user.lastName = lastNameTextField.text ?? ""
                 authManager.updateUserInfo(user: user, trigger: "update") { [weak self] error in
                     if let error = error {
-                        self?.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                        self?.showAlert(title: self!.alertTitle, message: error.localizedDescription)
                     }
                     self?.navigationController?.popToRootViewController(animated: true)
                 }
@@ -52,7 +55,7 @@ class NameLastNameViewController: UIViewController {
                 navigationController?.popToRootViewController(animated: true)
             }
         } else {
-            showAlert(title: "Oooops ... ", message: "One of the fields empty")
+            showAlert(title: alertTitle, message: emptyField)
         }
     }
     /*

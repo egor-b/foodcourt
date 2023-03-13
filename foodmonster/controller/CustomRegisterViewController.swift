@@ -21,6 +21,13 @@ class CustomRegisterViewController: UIViewController {
     private let activityView = UIActivityIndicatorView(style: .large)
     private var auth: AuthanticateManagerProtocol?
         
+    private let alertTitle =  Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let cancelTitle = Bundle.main.localizedString(forKey: "cancel", value: LocalizationDefaultValues.CANCEL.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let termsTitle = Bundle.main.localizedString(forKey: "terms", value: LocalizationDefaultValues.TERMS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let termsMessage = Bundle.main.localizedString(forKey: "termsWarn", value: LocalizationDefaultValues.TERMS_WARN.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let checkPass =  Bundle.main.localizedString(forKey: "checkPass", value: LocalizationDefaultValues.CHECK_PASS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let checkEmail = Bundle.main.localizedString(forKey: "checkEmail", value: LocalizationDefaultValues.CHECK_EMAIL.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         auth = AuthanticateManager()
@@ -44,24 +51,18 @@ class CustomRegisterViewController: UIViewController {
         return User(email: emailTextField.text!, nickname: nicknameTextField.text!, name: nameTextField.text!, lastName: lastnameTextField.text!, accountType: AccountType.EMAIL.rawValue)
     }
     
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-    
     func signUpButtonPressed() {
         guard let auth = auth else { return }
         let user = fillOutUserModel()
-        if isValidEmail(emailTextField.text!) {
+        if auth.isValidEmail(emailTextField.text!) {
             if passwoedTextField.text == repeatPasswordTextField.text {
                 
-                self.customAlertWithHandler(title: "Terms and Conditions", message: "By continuing to register, you accept the terms and conditions.", submitTitle: "Ok", declineTitle: "Cancel") {
+                self.customAlertWithHandler(title: termsTitle, message: termsMessage, submitTitle: "Ok", declineTitle: cancelTitle) {
                     self.showActivityIndicatory(activityView: self.activityView)
-                    auth.registerByEmail(user: user, pass: self.passwoedTextField.text!, completion: { error in
+                    auth.registerByEmail(user: user, pass: self.passwoedTextField.text!, completion: { [self] error in
                         if let error = error {
                             self.stopActivityIndicatory(activityView: self.activityView)
-                            self.showAlert(title: "Oooops ... ", message: error.localizedDescription)
+                            self.showAlert(title: alertTitle, message: error.localizedDescription)
                         }
                         self.stopActivityIndicatory(activityView: self.activityView)
                         self.performSegue(withIdentifier: Segue.SIGNUP_SEGUE.rawValue, sender: nil)
@@ -71,10 +72,10 @@ class CustomRegisterViewController: UIViewController {
                 }
                 
             } else {
-                showAlert(title: "Oooops ... ", message: "Check your password")
+                showAlert(title: alertTitle, message: checkPass)
             }
         } else {
-            showAlert(title: "Oooops ... ", message: "Check email address")
+            showAlert(title: alertTitle, message: checkEmail)
         }
     }
 

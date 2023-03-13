@@ -41,7 +41,9 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     private var dataNetworkManager: DataNetworkManagerProtocol?
     private var auth: AuthanticateManagerProtocol?
     private var firebaseStorage: FirebaseStorageServiceManagerProtocol?
-    
+    private let ingrSectionHeader = Bundle.main.localizedString(forKey: "ingrSectionHeader", value: LocalizationDefaultValues.INGR_SECTION_HEADER.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+    private let directionSectionHeader = Bundle.main.localizedString(forKey: "directionSectionHeader", value: LocalizationDefaultValues.DIRECTION_SECTION_HEADER.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+
     var recipe = RecipeModel()
     var deleteImage = [String]()
     
@@ -69,12 +71,12 @@ class NewRecipeTableViewViewModel: NewRecipeTableViewViewModelProtocol {
     
     func viewForHeader(inSection section: Int, width: CGFloat, height: CGFloat) -> UIView {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        let label = UILabel(frame: CGRect(x: 15, y: 5, width: headerView.frame.width - 50, height: headerView.frame.height/2))
+        let label = UILabel(frame: CGRect(x: 15, y: 5, width: headerView.frame.width - 50, height: headerView.frame.height * 0.8))
         if section == 1 {
-            label.text = "Ingredients (at least 1)"
+            label.text = ingrSectionHeader
         }
         if section == 2 {
-            label.text = "Directions (at least 2)"
+            label.text = directionSectionHeader
         }
         label.textColor = UIColor(named: "lightTextColorSet")
         headerView.addSubview(label)

@@ -32,6 +32,7 @@ class PurchaseTableViewViewModel: PurchaseTableViewViewModelProtocol {
     
     private var dataNetworkManager: DataNetworkManagerProtocol?
     private let userDefaults = UserDefaults.standard
+    private let extraItems = Bundle.main.localizedString(forKey: "extraItems", value: LocalizationDefaultValues.EXTRA_ITEM.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
 
     private let constant = Constant()
     private var customPurchase: [String] = []
@@ -70,7 +71,7 @@ class PurchaseTableViewViewModel: PurchaseTableViewViewModelProtocol {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         if section == 0 {
             let label = UILabel(frame: CGRect(x: 15, y: 0, width: headerView.frame.width - 50, height: headerView.frame.height))
-            label.text = "Extra items"
+            label.text = extraItems
             label.textColor = UIColor(named: "lightTextColorSet")
             headerView.addSubview(label)
         }

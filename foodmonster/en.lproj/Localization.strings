@@ -1,0 +1,138 @@
+/* 
+  Localization.strings
+  foodmonster
+
+  Created by Egor Bryzgalov on 3/8/23.
+  
+*/
+
+"saveRecipe" = "Save recipe";
+
+"ops" = "Ooops ... ";
+
+"anonymousMessage" = "Please, log in or create new acccount for start building you cook book";
+
+"cancel" = "Cancel";
+
+"logIn" = "Login";
+
+"min" = "min.";
+
+"portions" = "portions";
+
+"step" = "STEP";
+
+"ingredients" = "Ingredients";
+
+"serves" = "serves";
+
+"noNewPassword" = "Looks like you didn't set new password.";
+
+"passwordMismatch" = "Password mismatch";
+
+"takePhoto" = "Take Photo";
+
+"missCamera" = "Missing camera";
+
+"cameraPhoto" = "You can't take photo, there is no camera";
+
+"chooseFromLib" = "Choose From Library";
+
+"removePhoto" = "Remove Photo";
+
+"searchRecipe" = "Search my recipes";
+
+"terms" = "Terms and Conditions";
+
+"termsWarn" = "By continuing to register, you accept the terms and conditions";
+
+"show" = "Show";
+
+"somethingWasWrong" = "Something was wrong. We work on it. Please try again little later";
+
+"newRecipe" = "New Recipe";
+
+"editRecipe" = "Edit Recipe";
+
+"verificationError" = "Verification Error";
+
+"verificationMessageError" = "Your email was not verified. Please check you email and complete registration";
+
+"reSend" = "Send Again";
+
+"toManyRequests" = "Too many requests";
+
+"success" = "Success";
+
+"recipeUpdate" = "Recipe is updated";
+
+"sweet" = "Sweet";
+
+"alertNewRecipeMessage" = "Please select a category of dish and/or name your recipe";
+
+"toLowIngrStepsTitle" = "Quite interesting";
+
+"toLowIngrStepsMessage" = "Looks like you do not have name or not enough ingredients or cooking steps for your masterpeace";
+
+"saveAnyway" = "Save Anyway";
+
+"recipeSaved" = "Recipe was saved";
+
+"recipeName" = "Recipe name";
+
+"cookTime" = "Cook Time";
+
+"noPermission" = "No Permission";
+
+"moveToSettings" = "Would you like to go settings and chenge permissions?";
+
+"go" = "Let's go!";
+
+"categorySearchPlaceholder" = "Type name and search recipe";
+
+"checkPass" = "Chxeck your password";
+
+"checkEmail" = "Check email address";
+
+"account" = "Account";
+
+"extras" = "Extras";
+
+"accDeletionTitle" = "Account deletion";
+
+"accDeletionMessage" = "By deleting your account, you will permanently lose access to your recipes. Are you sure you want to delete your account?";
+
+"delete" = "Delete";
+
+"emptyField" = "One of the fields empty";
+
+"emailNotSame" = "Email is not comparable";
+
+"passResetted" = "Password is resetted";
+
+"instructionSent1" = "Instructions was sent to";
+
+"instructionSent2" = "Please follow to instruction to create new password.";
+
+"extraItems" = "Extra items";
+
+"ingrSectionHeader" = "Ingredients (at least 1)";
+
+"directionSectionHeader" = "Directions (at least 2)";
+
+"Appetizer" = "Appetizer";
+"Baking" = "Baking";
+"Bread" = "Bread";
+"Dessert" = "Dessert";
+"Drinks" = "Drinks";
+"Lunch" = "Lunch";
+"Meat" = "Meat";
+"Gluten Free" = "Gluten Free";
+"Pasta" = "Pasta";
+"Salad" = "Salad";
+"Seafood" = "Seafood";
+"Side" = "Side";
+"Soup" = "Soup";
+"Sauce" = "Sauce";
+"Vegetarian" = "Vegetarian";
+"Vegan" = "Vegan";

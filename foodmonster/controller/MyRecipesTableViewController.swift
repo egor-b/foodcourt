@@ -20,10 +20,11 @@ class MyRecipesTableViewController: UITableViewController {
     private var defaultOrder = "DESC"
     
     var filterCriteria = FilterCriteria()
-    
+    private let alertTitle =  Bundle.main.localizedString(forKey: "ops", value: LocalizationDefaultValues.OPS.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar(title: "My Recipes")
+        configureNavigationBar()
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget( self, action: #selector(callPullToRefresh), for: .valueChanged)
         tableViewViewModel = CategoryTableViewViewModel()
@@ -46,9 +47,10 @@ class MyRecipesTableViewController: UITableViewController {
     
     func fillOutController() {
         showActivityIndicatory(activityView: activityView)
+
         tableViewViewModel?.getListByUserId(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] err in
             if let err = err {
-                self?.showAlert(title: "Oooops ... ", message: err.details)
+                self?.showAlert(title: self!.alertTitle, message: err.details)
             }
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -80,7 +82,7 @@ class MyRecipesTableViewController: UITableViewController {
 
             tableViewViewModel.getListByType(page: String(currentPage), size: currentPageSize, sort: defaultSort, order: defaultOrder, filter: filterCriteria) { [weak self] err in
                 if let err = err {
-                    self?.showAlert(title: "Ooops ... ", message: err.localizedDescription)
+                    self?.showAlert(title: self!.alertTitle, message: err.localizedDescription)
                 }
                 DispatchQueue.main.async {
                     self?.currentPage += 1
@@ -112,7 +114,7 @@ class MyRecipesTableViewController: UITableViewController {
 
 extension MyRecipesTableViewController {
     
-    func configureNavigationBar(title: String) {
+    func configureNavigationBar() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: constant.darkTitleColor]
@@ -125,17 +127,19 @@ extension MyRecipesTableViewController {
         
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = constant.darkTitleColor
-        navigationItem.title = title
         navigationItem.searchController = searchController
         createSearchBar()
     }
     
     func createSearchBar() {
+        
+        let placeholder = Bundle.main.localizedString(forKey: "searchRecipe", value: LocalizationDefaultValues.SEARCH_RECIPE.rawValue, table: LocalizationDefaultValues.LOCALIZATION_FILE.rawValue)
+        
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.searchBarStyle = .minimal
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search my recipes"
+        searchController.searchBar.placeholder = placeholder
         definesPresentationContext = true
     }
     
@@ -152,7 +156,7 @@ extension MyRecipesTableViewController {
             if let err = err {
                 self?.tableView.refreshControl?.endRefreshing()
                 self?.tableView.reloadData()
-                self?.showAlert(title: "Oooops ... ", message: err.details)
+                self?.showAlert(title: self!.alertTitle, message: err.details)
             } else {
                 DispatchQueue.main.async {
                     self?.tableView.refreshControl?.endRefreshing()

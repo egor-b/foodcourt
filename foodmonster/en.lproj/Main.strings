@@ -1,0 +1,225 @@
+
+/* Class = "UILabel"; text = "Registration"; ObjectID = "0R1-Pn-qpA"; */
+"0R1-Pn-qpA.text" = "Registration";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0hv-aM-akR"; */
+"0hv-aM-akR.text" = "Label";
+
+/* Class = "UILabel"; text = "Desert"; ObjectID = "1Mo-4S-HsS"; */
+"1Mo-4S-HsS.text" = "Desert";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "3bt-1k-XpO"; */
+"3bt-1k-XpO.normalTitle" = "Confirm";
+
+/* Class = "UITextField"; placeholder = "Units"; ObjectID = "3pU-4o-sk5"; */
+"3pU-4o-sk5.placeholder" = "Units";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "4iX-zc-Q2S"; */
+"4iX-zc-Q2S.normalTitle" = "Sign up";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4sx-7M-hNf"; */
+"4sx-7M-hNf.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "4zv-4l-6UZ"; */
+"4zv-4l-6UZ.title" = "Save";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "6dA-5g-lMd"; */
+"6dA-5g-lMd.placeholder" = "Name";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "6vA-Im-WfP"; */
+"6vA-Im-WfP.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "9Q3-Ff-ebX"; */
+"9Q3-Ff-ebX.normalTitle" = "Confirm";
+
+/* Class = "UILabel"; text = "Repeat password"; ObjectID = "A3M-qm-qKP"; */
+"A3M-qm-qKP.text" = "Repeat password";
+
+/* Class = "UINavigationItem"; title = "Purchase"; ObjectID = "AJx-gE-nzX"; */
+"AJx-gE-nzX.title" = "Purchase";
+
+/* Class = "UILabel"; text = "Terms and Conditions"; ObjectID = "BfV-3D-uOT"; */
+"BfV-3D-uOT.text" = "Terms and Conditions";
+
+/* Class = "UIButton"; configuration.title = "Terms and Conditions"; ObjectID = "DK5-qw-GwM"; */
+"DK5-qw-GwM.configuration.title" = "Terms and Conditions";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DK5-qw-GwM"; */
+"DK5-qw-GwM.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "DvH-i4-5RW"; */
+"DvH-i4-5RW.placeholder" = "Password";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "ElE-O5-GyC"; */
+"ElE-O5-GyC.title" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "Ezv-U2-tOC"; */
+"Ezv-U2-tOC.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Confirm your email and we'll send the instructions."; ObjectID = "FwH-Bk-yi7"; */
+"FwH-Bk-yi7.text" = "Confirm your email and we'll send the instructions.";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "HNE-Fq-Q5U"; */
+"HNE-Fq-Q5U.title" = "Profile";
+
+/* Class = "UILabel"; text = "123 min"; ObjectID = "Heg-MO-Rac"; */
+"Heg-MO-Rac.text" = "123 min";
+
+/* Class = "UINavigationItem"; title = "Step"; ObjectID = "Isv-df-a2E"; */
+"Isv-df-a2E.title" = "Step";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "LCO-DG-0JN"; */
+"LCO-DG-0JN.placeholder" = "Amount";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Mgg-oD-Kge"; */
+"Mgg-oD-Kge.title" = "Cancel";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "Nkf-sT-xYU"; */
+"Nkf-sT-xYU.title" = "About";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "OKc-Za-19s"; */
+"OKc-Za-19s.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "New ingredient"; ObjectID = "S0M-pu-MP3"; */
+"S0M-pu-MP3.title" = "New ingredient";
+
+/* Class = "UILabel"; text = "Log in by:"; ObjectID = "S8E-lC-U49"; */
+"S8E-lC-U49.text" = "Log in by:";
+
+/* Class = "UINavigationItem"; title = "Shopping List"; ObjectID = "SHP-QV-wiL"; */
+"SHP-QV-wiL.title" = "Shopping List";
+
+/* Class = "UINavigationItem"; title = "New Email"; ObjectID = "SMo-vm-aPS"; */
+"SMo-vm-aPS.title" = "New Email";
+
+/* Class = "UILabel"; text = "Contact us"; ObjectID = "SRJ-DF-z5R"; */
+"SRJ-DF-z5R.text" = "Contact us";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Sj7-Xw-VRb"; */
+"Sj7-Xw-VRb.placeholder" = "Password";
+
+/* Class = "UITabBarItem"; title = "Shopping List"; ObjectID = "Sw2-Nf-WiE"; */
+"Sw2-Nf-WiE.title" = "Shopping List";
+
+/* Class = "UILabel"; text = "Delete account"; ObjectID = "T9v-Bq-pTj"; */
+"T9v-Bq-pTj.text" = "Delete account";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "UBG-2A-tyb"; */
+"UBG-2A-tyb.normalTitle" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "UXH-7t-ABm"; */
+"UXH-7t-ABm.normalTitle" = "Accept";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "dZD-YF-Ab4"; */
+"dZD-YF-Ab4.normalTitle" = "Cancel";
+
+/* Class = "UINavigationItem"; title = "Terms and Conditions"; ObjectID = "WER-m4-sdo"; */
+"WER-m4-sdo.title" = "Terms and Conditions";
+
+/* Class = "UILabel"; text = "Rate App"; ObjectID = "WsG-b4-7sO"; */
+"WsG-b4-7sO.text" = "Rate App";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "XMJ-uW-vfD"; */
+"XMJ-uW-vfD.title" = "Profile";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "YI0-8W-2N1"; */
+"YI0-8W-2N1.text" = "Name";
+
+/* Class = "UITabBarItem"; title = "My Recipes"; ObjectID = "YX0-2R-vql"; */
+"YX0-2R-vql.title" = "My Recipes";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "ZDk-dj-bik"; */
+"ZDk-dj-bik.title" = "Save";
+
+/* Class = "UINavigationItem"; title = "Ingredient"; ObjectID = "bdu-gD-n9E"; */
+"bdu-gD-n9E.title" = "Ingredient";
+
+/* Class = "UIButton"; normalTitle = "Enter with no login"; ObjectID = "cE2-kl-hUM"; */
+"cE2-kl-hUM.normalTitle" = "Enter with no login";
+
+/* Class = "UITabBarItem"; title = "Menu"; ObjectID = "e7Q-zG-rH8"; */
+"e7Q-zG-rH8.title" = "Menu";
+
+/* Class = "UINavigationItem"; title = "Change Name"; ObjectID = "eNJ-XE-i1V"; */
+"eNJ-XE-i1V.title" = "Change Name";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "h5q-eJ-lOV"; */
+"h5q-eJ-lOV.placeholder" = "E-mail";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "hUb-Q1-Poc"; */
+"hUb-Q1-Poc.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "123 min"; ObjectID = "i1m-sC-0vF"; */
+"i1m-sC-0vF.text" = "123 min";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "isc-CL-YSw"; */
+"isc-CL-YSw.text" = "Password";
+
+/* Class = "UILabel"; text = "Last name"; ObjectID = "jv3-8q-hJS"; */
+"jv3-8q-hJS.text" = "Last name";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "kee-vN-Hv8"; */
+"kee-vN-Hv8.normalTitle" = "Sign up";
+
+/* Class = "UINavigationItem"; title = "My Recipes"; ObjectID = "kiX-u0-MZw"; */
+"kiX-u0-MZw.title" = "My Recipes";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "l2J-Yj-y8E"; */
+"l2J-Yj-y8E.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "E-Mail"; ObjectID = "mLl-dT-KUM"; */
+"mLl-dT-KUM.text" = "E-Mail";
+
+/* Class = "UINavigationItem"; title = "Home Meals"; ObjectID = "nTh-Vi-LRe"; */
+"nTh-Vi-LRe.title" = "Home Meals";
+
+/* Class = "UIButton"; normalTitle = "Reset Password"; ObjectID = "ohN-Ry-h0U"; */
+"ohN-Ry-h0U.normalTitle" = "Reset Password";
+
+/* Class = "UINavigationItem"; title = "New Password"; ObjectID = "r07-Eh-wbv"; */
+"r07-Eh-wbv.title" = "New Password";
+
+/* Class = "UILabel"; text = "Repeat E-Mail"; ObjectID = "r6T-GA-ze6"; */
+"r6T-GA-ze6.text" = "Repeat E-Mail";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "rMx-Zj-jlT"; */
+"rMx-Zj-jlT.placeholder" = "E-mail";
+
+/* Class = "UILabel"; text = "Reset password"; ObjectID = "rfw-c3-uUq"; */
+"rfw-c3-uUq.text" = "Reset password";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "sgE-Ci-L6F"; */
+"sgE-Ci-L6F.placeholder" = "E-mail";
+
+/* Class = "UILabel"; text = "Share App"; ObjectID = "tvA-jy-H6m"; */
+"tvA-jy-H6m.text" = "Share App";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "u1l-6a-dkt"; */
+"u1l-6a-dkt.normalTitle" = "Confirm";
+
+/* Class = "UITextField"; placeholder = "Ingredient"; ObjectID = "v4T-sH-dry"; */
+"v4T-sH-dry.placeholder" = "Ingredient";
+
+/* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "vKJ-cW-7Xq"; */
+"vKJ-cW-7Xq.title" = "Logout";
+
+/* Class = "UILabel"; text = "Terms and Conditions"; ObjectID = "w1w-7a-hHh"; */
+"w1w-7a-hHh.text" = "Terms and Conditions";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "wXq-LI-psJ"; */
+"wXq-LI-psJ.title" = "Cancel";
+
+/* Class = "UILabel"; text = "Forgot Your Password?"; ObjectID = "wa5-sC-Sd2"; */
+"wa5-sC-Sd2.text" = "Forgot Your Password?";
+
+/* Class = "UITextField"; placeholder = "Last name"; ObjectID = "xar-t6-uvH"; */
+"xar-t6-uvH.placeholder" = "Last name";
+
+/* Class = "UITextField"; placeholder = "Repeat password"; ObjectID = "yhB-OE-rlQ"; */
+"yhB-OE-rlQ.placeholder" = "Repeat password";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "zIM-9H-A9C"; */
+"zIM-9H-A9C.title" = "Save";
+
+/* Class = "UITextField"; placeholder = "Nickname"; ObjectID = "zIY-rd-Hxz"; */
+"zIY-rd-Hxz.placeholder" = "Nickname";

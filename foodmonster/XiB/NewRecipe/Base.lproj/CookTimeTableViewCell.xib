@@ -55,7 +55,7 @@
             <connections>
                 <outlet property="cookTimeLabel" destination="jgH-LP-fLJ" id="y9l-YD-78U"/>
             </connections>
-            <point key="canvasLocation" x="-301" y="53"/>
+            <point key="canvasLocation" x="-301.44927536231887" y="52.901785714285715"/>
         </view>
     </objects>
     <resources>
